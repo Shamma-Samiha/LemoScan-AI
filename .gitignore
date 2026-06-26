@@ -1,0 +1,70 @@
+﻿# Python environments
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+
+# Local environment and secrets
+.env
+.env.local
+.env.development
+.env.production
+
+# Python cache and test artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Dataset - do not push large/private image data
+dataset/
+
+# Uploaded/generated images
+static/uploads/
+static/results/
+
+# Large trained models and checkpoints
+model/*.keras
+model/*.h5
+model/*.hdf5
+model/*.ckpt
+model/*.weights.h5
+model/checkpoints/
+*.keras
+*.h5
+*.hdf5
+*.ckpt
+
+# Training/runtime outputs
+logs/
+runs/
+outputs/
+tensorboard/
+*.log
+
+# Build/package artifacts
+build/
+dist/
+site/
+
+# Editor and local tool state
+.vscode/
+.idea/
+.agents/
+.codex/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

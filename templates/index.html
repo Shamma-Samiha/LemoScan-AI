@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LemoScan AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="page-container">
+        <div class="hero-card">
+            <h1>LemoScan AI</h1>
+            <p class="subtitle">An Explainable AI System for Lemon Leaf Disease Detection</p>
+
+            <div class="info-box">
+                Upload a lemon leaf image and let the AI detect possible disease conditions using a trained ResNet model.
+            </div>
+
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+
+            <form action="/predict" method="POST" enctype="multipart/form-data" class="upload-form">
+                <label for="image" class="upload-box">
+                    <span>Click to upload lemon leaf image</span>
+                    <small>PNG, JPG, or JPEG</small>
+                </label>
+
+                <input type="file" name="image" id="image" accept="image/*" required hidden>
+
+                <img id="preview-image" class="preview-image" src="#" alt="Image Preview">
+
+                <button type="submit">Detect Disease</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
