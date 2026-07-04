@@ -199,3 +199,62 @@ button:hover,
         grid-template-columns: 1fr;
     }
 }
+.warning-box {
+    margin-bottom: 22px;
+    padding: 14px 16px;
+    background: #fff8df;
+    border: 1px solid #e6c866;
+    border-left: 5px solid #c49316;
+    border-radius: 8px;
+    color: #674f12;
+}
+
+.warning-box strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.warning-box p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+.gradcam-section {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.8fr) minmax(280px, 1.2fr);
+    gap: 28px;
+    align-items: center;
+    margin-top: 35px;
+    padding: 25px;
+    background: #f7f3df;
+    border: 1px solid #dce5bd;
+    border-radius: 22px;
+}
+
+.gradcam-text h2 {
+    margin-bottom: 10px;
+    color: #315c2d;
+}
+
+.gradcam-text p {
+    color: #5d7055;
+    line-height: 1.6;
+}
+
+.gradcam-image {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    background: #ffffff;
+    border: 1px solid #d7e4cb;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(50, 90, 40, 0.1);
+}
+
+@media (max-width: 768px) {
+    .gradcam-section {
+        grid-template-columns: 1fr;
+    }
+}

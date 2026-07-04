@@ -1,0 +1,8 @@
+{
+    "Algal leaf spot": 0,
+    "Black spot": 1,
+    "Citrus canker": 2,
+    "Citrus pest": 3,
+    "Greening": 4,
+    "Healthy leaf": 5
+}
