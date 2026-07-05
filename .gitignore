@@ -19,7 +19,7 @@ static/results/
 .ipynb_checkpoints/
 
 # Large model files
-model/*.keras
+#model/*.keras
 model/*.h5
 
 # OS files
