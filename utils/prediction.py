@@ -5,30 +5,15 @@ import numpy as np
 from PIL import Image
 from tensorflow.keras.applications.resnet50 import preprocess_input
 
+from utils.model_loader import get_model
+
 
 # Build paths relative to the project root so prediction works from any folder.
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-MODEL_PATH = PROJECT_ROOT / "model" / "resnet_best_model.keras"
 CLASS_INDICES_PATH = PROJECT_ROOT / "training" / "class_indices.json"
 IMAGE_SIZE = (224, 224)
 
-_model = None
 _index_to_class = None
-
-
-def get_model():
-    """Load the trained model once, when the first prediction is requested."""
-    global _model
-
-    if _model is None:
-        from tensorflow.keras.models import load_model
-
-        if not MODEL_PATH.exists():
-            raise FileNotFoundError(f"Model file not found: {MODEL_PATH}")
-
-        _model = load_model(MODEL_PATH)
-
-    return _model
 
 
 def get_index_to_class():
@@ -90,4 +75,3 @@ def predict_disease(image_path):
     )
 
     return predicted_class, confidence, top_predictions, warning
-

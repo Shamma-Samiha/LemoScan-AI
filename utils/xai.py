@@ -7,7 +7,7 @@ from PIL import Image, ImageFilter
 import tensorflow as tf
 from tensorflow.keras.applications.resnet50 import preprocess_input
 
-from utils.prediction import get_model
+from utils.model_loader import get_model
 
 
 IMAGE_SIZE = (224, 224)
