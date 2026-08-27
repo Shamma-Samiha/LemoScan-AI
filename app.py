@@ -11,6 +11,7 @@ RESULT_FOLDER = os.path.join("static", "results")
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["RESULT_FOLDER"] = RESULT_FOLDER
+app.config["MAX_CONTENT_LENGTH"] = 8 * 1024 * 1024
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULT_FOLDER, exist_ok=True)
@@ -47,27 +48,39 @@ def predict():
         return render_template("index.html", error="Please upload a lemon leaf image.")
 
     if file and allowed_file(file.filename):
-        from utils.prediction import predict_disease
+        from utils.prediction import INVALID_IMAGE_CLASS, predict_disease
         from utils.xai import generate_gradcam
 
-        filename = secure_filename(file.filename)
+        original_filename = secure_filename(file.filename)
+        extension = os.path.splitext(original_filename)[1].lower() or ".jpg"
+        image_name = os.path.splitext(original_filename)[0] or "uploaded_leaf"
+        filename = f"{image_name}_{uuid.uuid4().hex[:8]}{extension}"
         image_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
         file.save(image_path)
 
-        # The prediction helper returns the best result, alternatives, and warning.
-        predicted_class, confidence, top_predictions, warning = predict_disease(
-            image_path
-        )
-        image_url = url_for("static", filename=f"uploads/{filename}")
+        try:
+            predicted_class, confidence, top_predictions, warning = predict_disease(
+                image_path
+            )
+        except (OSError, ValueError, RuntimeError):
+            return render_template(
+                "index.html",
+                error="Analysis failed. Please upload a clear lemon leaf image.",
+            )
 
-        # Use a unique name so repeated uploads do not show an old cached result.
-        image_name = os.path.splitext(filename)[0]
-        gradcam_filename = f"{image_name}_gradcam_{uuid.uuid4().hex[:8]}.jpg"
-        gradcam_output_path = os.path.join(
-            app.config["RESULT_FOLDER"], gradcam_filename
-        )
-        generate_gradcam(image_path, gradcam_output_path)
-        gradcam_url = url_for("static", filename=f"results/{gradcam_filename}")
+        image_url = url_for("static", filename=f"uploads/{filename}")
+        gradcam_url = None
+
+        if predicted_class != INVALID_IMAGE_CLASS and top_predictions:
+            gradcam_filename = f"{image_name}_gradcam_{uuid.uuid4().hex[:8]}.jpg"
+            gradcam_output_path = os.path.join(
+                app.config["RESULT_FOLDER"], gradcam_filename
+            )
+            try:
+                generate_gradcam(image_path, gradcam_output_path)
+                gradcam_url = url_for("static", filename=f"results/{gradcam_filename}")
+            except (OSError, ValueError, RuntimeError):
+                warning = "Prediction completed, but Grad-CAM could not be generated."
 
         return render_template(
             "result.html",

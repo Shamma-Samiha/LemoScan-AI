@@ -11,7 +11,7 @@ from PIL import Image
 import streamlit as st
 
 from utils.model_loader import get_model
-from utils.prediction import predict_disease
+from utils.prediction import INVALID_IMAGE_CLASS, predict_disease
 from utils.xai import generate_gradcam
 
 
@@ -572,14 +572,17 @@ else:
                     image_path.write_bytes(uploaded_bytes)
 
                     with st.spinner("Analyzing leaf image..."):
-                        load_model_once()
-                        predicted_class, confidence, _, warning = predict_disease(
+                        predicted_class, confidence, top_predictions, warning = predict_disease(
                             str(image_path)
                         )
-                        generate_gradcam(str(image_path), str(gradcam_path))
+                        gradcam_preview = None
 
-                        with Image.open(gradcam_path) as image:
-                            gradcam_preview = image.convert("RGB").copy()
+                        if predicted_class != INVALID_IMAGE_CLASS and top_predictions:
+                            load_model_once()
+                            generate_gradcam(str(image_path), str(gradcam_path))
+
+                            with Image.open(gradcam_path) as image:
+                                gradcam_preview = image.convert("RGB").copy()
 
                 # Save result images in memory so UI toggles do not rerun the model.
                 st.session_state.analysis_result = {
@@ -587,6 +590,7 @@ else:
                     "gradcam_image": gradcam_preview,
                     "predicted_class": predicted_class,
                     "confidence": confidence,
+                    "top_predictions": top_predictions,
                     "warning": warning,
                 }
                 st.session_state.analysis_file_id = current_file_id
@@ -635,49 +639,59 @@ else:
             if result["warning"]:
                 st.warning(result["warning"])
 
-        st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
-        st.subheader("Grad-CAM Explanation")
-        st.markdown(
-            '<p class="section-support">Highlighted regions show the areas that '
-            'influenced the model prediction.</p>',
-            unsafe_allow_html=True,
-        )
-
-        show_gradcam = st.toggle(
-            "Show Grad-CAM comparison",
-            value=True,
-            key=f"show_gradcam_{current_file_id}",
-        )
-
-        if show_gradcam:
-            original_column, gradcam_column = st.columns(2, gap="medium")
-            with original_column:
-                st.markdown(
-                    '<p class="comparison-title">Original Image</p>',
-                    unsafe_allow_html=True,
-                )
-                show_fitted_image(
-                    result["uploaded_image"],
-                    "Original lemon leaf",
-                    "comparison-frame",
+        if result["top_predictions"]:
+            st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+            st.subheader("Top Matches")
+            for prediction in result["top_predictions"]:
+                st.progress(
+                    min(float(prediction["confidence"]) / 100.0, 1.0),
+                    text=f"{prediction['class']} - {prediction['confidence']:.2f}%",
                 )
 
-            with gradcam_column:
-                st.markdown(
-                    '<p class="comparison-title">Model Attention</p>',
-                    unsafe_allow_html=True,
-                )
-                show_fitted_image(
-                    result["gradcam_image"],
-                    "Grad-CAM model attention",
-                    "comparison-frame",
-                )
-
+        if result["gradcam_image"] is not None:
+            st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+            st.subheader("Grad-CAM Explanation")
             st.markdown(
-                '<p class="attention-note">Red/yellow regions indicate stronger '
-                'model attention.</p>',
+                '<p class="section-support">Highlighted regions show the areas that '
+                'influenced the model prediction.</p>',
                 unsafe_allow_html=True,
             )
+
+            show_gradcam = st.toggle(
+                "Show Grad-CAM comparison",
+                value=True,
+                key=f"show_gradcam_{current_file_id}",
+            )
+
+            if show_gradcam:
+                original_column, gradcam_column = st.columns(2, gap="medium")
+                with original_column:
+                    st.markdown(
+                        '<p class="comparison-title">Original Image</p>',
+                        unsafe_allow_html=True,
+                    )
+                    show_fitted_image(
+                        result["uploaded_image"],
+                        "Original lemon leaf",
+                        "comparison-frame",
+                    )
+
+                with gradcam_column:
+                    st.markdown(
+                        '<p class="comparison-title">Model Attention</p>',
+                        unsafe_allow_html=True,
+                    )
+                    show_fitted_image(
+                        result["gradcam_image"],
+                        "Grad-CAM model attention",
+                        "comparison-frame",
+                    )
+
+                st.markdown(
+                    '<p class="attention-note">Red/yellow regions indicate stronger '
+                    'model attention.</p>',
+                    unsafe_allow_html=True,
+                )
 
         st.markdown(
             '<div class="disclaimer"><strong>Important:</strong> This result is '
