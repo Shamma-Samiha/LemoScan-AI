@@ -1,0 +1,7 @@
+sha256,split,class,filename,filepath,group_size,within_split_duplicate,cross_split_duplicate,cross_class_match,copies_in_this_split
+22ffa7cc48bd89d39161f5dff67f7e1770f1bb11f059b7f0c7902a52c316c32f,val,Healthy leaf,2025_11_21_IMG (74).JPG,dataset/val/Healthy leaf/2025_11_21_IMG (74).JPG,2,True,False,False,2
+22ffa7cc48bd89d39161f5dff67f7e1770f1bb11f059b7f0c7902a52c316c32f,val,Healthy leaf,2025_11_21_IMG (75).JPG,dataset/val/Healthy leaf/2025_11_21_IMG (75).JPG,2,True,False,False,2
+e00491d4fb1666b6645d7c4dc6579a105422593d0d2e4a900976303255a7409d,train,Healthy leaf,2025_11_21_IMG (281).JPG,dataset/train/Healthy leaf/2025_11_21_IMG (281).JPG,2,True,False,False,2
+e00491d4fb1666b6645d7c4dc6579a105422593d0d2e4a900976303255a7409d,train,Healthy leaf,2025_11_21_IMG (282).JPG,dataset/train/Healthy leaf/2025_11_21_IMG (282).JPG,2,True,False,False,2
+f20573097807823fa7d8ca6d06cb70cc716858f4b9dd5fb37850f3161d0c1910,val,Healthy leaf,2025_11_21_IMG (136).JPG,dataset/val/Healthy leaf/2025_11_21_IMG (136).JPG,2,False,True,False,1
+f20573097807823fa7d8ca6d06cb70cc716858f4b9dd5fb37850f3161d0c1910,test,Healthy leaf,2025_11_21_IMG (135).JPG,dataset/test/Healthy leaf/2025_11_21_IMG (135).JPG,2,False,True,False,1

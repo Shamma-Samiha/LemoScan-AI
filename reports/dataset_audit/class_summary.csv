@@ -1,0 +1,8 @@
+class,train,val,test,total,percentage
+Algal leaf spot,217,46,47,310,15.12
+Black spot,230,49,51,330,16.1
+Citrus canker,259,55,56,370,18.05
+Citrus pest,273,58,59,390,19.02
+Greening,244,52,54,350,17.07
+Healthy leaf,210,45,45,300,14.63
+Not lemon leaf,0,0,0,0,0.0
