@@ -1,0 +1,7 @@
+true_class,Algal leaf spot,Black spot,Citrus canker,Citrus pest,Greening,Healthy leaf
+Algal leaf spot,47,0,0,0,0,0
+Black spot,0,48,1,0,0,0
+Citrus canker,0,1,50,4,1,0
+Citrus pest,0,0,0,58,0,0
+Greening,3,1,1,0,46,1
+Healthy leaf,0,0,0,1,0,44

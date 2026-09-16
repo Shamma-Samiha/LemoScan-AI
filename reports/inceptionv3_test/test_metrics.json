@@ -1,0 +1,9 @@
+{
+  "loss": 0.13618903530682724,
+  "accuracy": 0.9543973941368078,
+  "macro_precision": 0.9564457607010799,
+  "macro_recall": 0.9558070236641666,
+  "macro_f1": 0.9550739089320782,
+  "weighted_f1": 0.9538760039997947,
+  "cross_entropy_without_regularization": 0.130355566740036
+}

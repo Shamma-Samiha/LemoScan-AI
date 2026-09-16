@@ -1,0 +1,160 @@
+{
+  "model_path": "model\\inceptionv3_best_model.keras",
+  "architecture": "InceptionV3",
+  "test_images": 307,
+  "test_accuracy": 0.9543973941368078,
+  "test_loss": 0.13618903530682724,
+  "macro_precision": 0.9564457607010799,
+  "macro_recall": 0.9558070236641666,
+  "macro_f1": 0.9550739089320782,
+  "weighted_f1": 0.9538760039997947,
+  "per_class_metrics": [
+    {
+      "class": "Algal leaf spot",
+      "support": 47,
+      "precision": 0.94,
+      "recall": 1.0,
+      "F1": 0.9690721649484536
+    },
+    {
+      "class": "Black spot",
+      "support": 49,
+      "precision": 0.96,
+      "recall": 0.9795918367346939,
+      "F1": 0.9696969696969697
+    },
+    {
+      "class": "Citrus canker",
+      "support": 56,
+      "precision": 0.9615384615384616,
+      "recall": 0.8928571428571429,
+      "F1": 0.9259259259259259
+    },
+    {
+      "class": "Citrus pest",
+      "support": 58,
+      "precision": 0.9206349206349206,
+      "recall": 1.0,
+      "F1": 0.9586776859504132
+    },
+    {
+      "class": "Greening",
+      "support": 52,
+      "precision": 0.9787234042553191,
+      "recall": 0.8846153846153846,
+      "F1": 0.9292929292929293
+    },
+    {
+      "class": "Healthy leaf",
+      "support": 45,
+      "precision": 0.9777777777777777,
+      "recall": 0.9777777777777777,
+      "F1": 0.9777777777777777
+    }
+  ],
+  "validation_metrics": {
+    "loss": 0.13667435944080353,
+    "accuracy": 0.9577922077922078,
+    "macro_precision": 0.9589882226565529,
+    "macro_recall": 0.9594217518969677,
+    "macro_f1": 0.9586287744667961,
+    "weighted_precision": 0.9587486488858994,
+    "weighted_recall": 0.9577922077922078,
+    "weighted_f1": 0.9576856868743894
+  },
+  "validation_minus_test_accuracy": 0.003394813655399953,
+  "validation_minus_test_accuracy_percentage_points": 0.3394813655399953,
+  "selected_epoch_augmented_training_accuracy": 0.9721254110336304,
+  "training_minus_validation_accuracy": 0.01433320324142262,
+  "training_minus_test_accuracy": 0.017728016896822574,
+  "correct_predictions": 293,
+  "misclassifications": 14,
+  "strongest_classes_by_f1": [
+    "Healthy leaf"
+  ],
+  "most_errors_by_true_class": [
+    "Citrus canker",
+    "Greening"
+  ],
+  "confusions": [
+    {
+      "true_class": "Citrus canker",
+      "predicted_class": "Citrus pest",
+      "count": 4
+    },
+    {
+      "true_class": "Greening",
+      "predicted_class": "Algal leaf spot",
+      "count": 3
+    },
+    {
+      "true_class": "Black spot",
+      "predicted_class": "Citrus canker",
+      "count": 1
+    },
+    {
+      "true_class": "Citrus canker",
+      "predicted_class": "Black spot",
+      "count": 1
+    },
+    {
+      "true_class": "Citrus canker",
+      "predicted_class": "Greening",
+      "count": 1
+    },
+    {
+      "true_class": "Greening",
+      "predicted_class": "Black spot",
+      "count": 1
+    },
+    {
+      "true_class": "Greening",
+      "predicted_class": "Citrus canker",
+      "count": 1
+    },
+    {
+      "true_class": "Greening",
+      "predicted_class": "Healthy leaf",
+      "count": 1
+    },
+    {
+      "true_class": "Healthy leaf",
+      "predicted_class": "Citrus pest",
+      "count": 1
+    }
+  ],
+  "random_seed": 42,
+  "preprocessing": {
+    "decode": "tf.io.decode_image, channels=3, expand_animations=False",
+    "image_size": [
+      299,
+      299
+    ],
+    "resize": "float32 bilinear, default antialias=False",
+    "normalization": "tf.keras.applications.inception_v3.preprocess_input",
+    "augmentation": false,
+    "shuffle": false,
+    "batch_size": 16,
+    "order": "manifest test row order"
+  },
+  "class_mapping": {
+    "Algal leaf spot": 0,
+    "Black spot": 1,
+    "Citrus canker": 2,
+    "Citrus pest": 3,
+    "Greening": 4,
+    "Healthy leaf": 5
+  },
+  "timestamp_utc": "2026-09-16T19:27:19.862883+00:00",
+  "inference_seconds": 24.65442709999843,
+  "model_sha256": "c9e07156c3be748d93378e687ecbd847123c30ca7ed3664b8f2303e14499e817",
+  "manifest_sha256": "4e3dcd248ba68ec061bd0e586fc83224b5a3e4aacedacbed0763bf43c93ab694",
+  "inference_passes": 1,
+  "loss_definition": "Sample-weighted sparse categorical cross-entropy plus model regularization, matching validation",
+  "tensorflow_version": "2.21.0",
+  "protected_artifacts_unchanged": true,
+  "dataset_file_stats_unchanged": true,
+  "known_unresolved_CD_cross_split_pairs": 410,
+  "limitation": "410 unresolved Category C/D similarity candidate pairs cross the new split. They were not treated as proven same-source relationships. The split passes all enforced leakage checks, but complete biological-source independence is not proven.",
+  "test_set_integrity_statement": "The frozen model was evaluated once on the untouched test split. Test results were not used for model selection, hyperparameter tuning, augmentation decisions, early stopping, or checkpoint selection."
+}
