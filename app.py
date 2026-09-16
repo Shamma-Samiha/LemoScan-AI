@@ -48,8 +48,7 @@ def predict():
         return render_template("index.html", error="Please upload a lemon leaf image.")
 
     if file and allowed_file(file.filename):
-        from utils.prediction import INVALID_IMAGE_CLASS, predict_disease
-        from utils.xai import generate_gradcam
+        from utils.prediction import analyze_image, legacy_display_values
 
         original_filename = secure_filename(file.filename)
         extension = os.path.splitext(original_filename)[1].lower() or ".jpg"
@@ -58,10 +57,11 @@ def predict():
         image_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
         file.save(image_path)
 
+        gradcam_filename = f"{image_name}_gradcam_{uuid.uuid4().hex[:8]}.jpg"
+        gradcam_output_path = os.path.join(app.config["RESULT_FOLDER"], gradcam_filename)
         try:
-            predicted_class, confidence, top_predictions, warning = predict_disease(
-                image_path
-            )
+            analysis = analyze_image(image_path, gradcam_output_path)
+            predicted_class, confidence, top_predictions, warning = legacy_display_values(analysis)
         except (OSError, ValueError, RuntimeError):
             return render_template(
                 "index.html",
@@ -71,16 +71,8 @@ def predict():
         image_url = url_for("static", filename=f"uploads/{filename}")
         gradcam_url = None
 
-        if predicted_class != INVALID_IMAGE_CLASS and top_predictions:
-            gradcam_filename = f"{image_name}_gradcam_{uuid.uuid4().hex[:8]}.jpg"
-            gradcam_output_path = os.path.join(
-                app.config["RESULT_FOLDER"], gradcam_filename
-            )
-            try:
-                generate_gradcam(image_path, gradcam_output_path)
-                gradcam_url = url_for("static", filename=f"results/{gradcam_filename}")
-            except (OSError, ValueError, RuntimeError):
-                warning = "Prediction completed, but Grad-CAM could not be generated."
+        if analysis["gradcam"]["status"] == "available":
+            gradcam_url = url_for("static", filename=f"results/{gradcam_filename}")
 
         return render_template(
             "result.html",

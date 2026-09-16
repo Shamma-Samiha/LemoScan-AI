@@ -11,8 +11,7 @@ from PIL import Image
 import streamlit as st
 
 from utils.model_loader import get_model
-from utils.prediction import INVALID_IMAGE_CLASS, predict_disease
-from utils.xai import generate_gradcam
+from utils.prediction import analyze_image, legacy_display_values
 
 
 st.set_page_config(page_title="LemoScan AI", layout="wide")
@@ -572,15 +571,11 @@ else:
                     image_path.write_bytes(uploaded_bytes)
 
                     with st.spinner("Analyzing leaf image..."):
-                        predicted_class, confidence, top_predictions, warning = predict_disease(
-                            str(image_path)
-                        )
+                        analysis = analyze_image(str(image_path), str(gradcam_path))
+                        predicted_class, confidence, top_predictions, warning = legacy_display_values(analysis)
                         gradcam_preview = None
 
-                        if predicted_class != INVALID_IMAGE_CLASS and top_predictions:
-                            load_model_once()
-                            generate_gradcam(str(image_path), str(gradcam_path))
-
+                        if analysis["gradcam"]["status"] == "available":
                             with Image.open(gradcam_path) as image:
                                 gradcam_preview = image.convert("RGB").copy()
 

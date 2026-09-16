@@ -1,0 +1,148 @@
+{
+  "active_model": "model/inceptionv3_best_model.keras",
+  "model_sha256": "c9e07156c3be748d93378e687ecbd847123c30ca7ed3664b8f2303e14499e817",
+  "architecture": "InceptionV3",
+  "input_size": [
+    299,
+    299
+  ],
+  "channels": 3,
+  "preprocessing": "Pillow RGB decode; TensorFlow float32 bilinear resize (antialias=False); inception_v3.preprocess_input",
+  "decoder_note": "Pillow JPEG decoding can differ slightly from the TensorFlow decoder used for training; prediction and Grad-CAM reuse exactly the same decoded image and tensor.",
+  "class_mapping": {
+    "Algal leaf spot": 0,
+    "Black spot": 1,
+    "Citrus canker": 2,
+    "Citrus pest": 3,
+    "Greening": 4,
+    "Healthy leaf": 5
+  },
+  "gradcam_layer": "inception_v3/mixed10",
+  "gradcam_shape": [
+    8,
+    8
+  ],
+  "gradcam_target": "Explicit predicted_class_index; no independent argmax",
+  "smoke_test_results": [
+    {
+      "source_class": "Algal leaf spot",
+      "filepath": "dataset/test/Algal leaf spot/2025_12_21_IMG (101).JPG",
+      "split": "train",
+      "passed": true,
+      "predicted_class": "Algal leaf spot",
+      "predicted_class_index": 0,
+      "gradcam_target_class_index": 0,
+      "heatmap_shape": [
+        8,
+        8
+      ],
+      "all_zero_heatmap": false,
+      "shared_prepared_object": true
+    },
+    {
+      "source_class": "Black spot",
+      "filepath": "dataset/test/Black spot/2025_12_20_IMG (101).JPG",
+      "split": "train",
+      "passed": true,
+      "predicted_class": "Black spot",
+      "predicted_class_index": 1,
+      "gradcam_target_class_index": 1,
+      "heatmap_shape": [
+        8,
+        8
+      ],
+      "all_zero_heatmap": false,
+      "shared_prepared_object": true
+    },
+    {
+      "source_class": "Citrus canker",
+      "filepath": "dataset/test/Citrus canker/2025_12_21_IMG (205).JPG",
+      "split": "train",
+      "passed": true,
+      "predicted_class": "Citrus canker",
+      "predicted_class_index": 2,
+      "gradcam_target_class_index": 2,
+      "heatmap_shape": [
+        8,
+        8
+      ],
+      "all_zero_heatmap": false,
+      "shared_prepared_object": true
+    },
+    {
+      "source_class": "Citrus pest",
+      "filepath": "dataset/test/Citrus pest/2025_12_20_IMG (103).JPG",
+      "split": "train",
+      "passed": true,
+      "predicted_class": "Citrus pest",
+      "predicted_class_index": 3,
+      "gradcam_target_class_index": 3,
+      "heatmap_shape": [
+        8,
+        8
+      ],
+      "all_zero_heatmap": false,
+      "shared_prepared_object": true
+    },
+    {
+      "source_class": "Greening",
+      "filepath": "dataset/test/Greening/2025_12_21_IMG (101).JPG",
+      "split": "train",
+      "passed": true,
+      "predicted_class": "Greening",
+      "predicted_class_index": 4,
+      "gradcam_target_class_index": 4,
+      "heatmap_shape": [
+        8,
+        8
+      ],
+      "all_zero_heatmap": false,
+      "shared_prepared_object": true
+    },
+    {
+      "source_class": "Healthy leaf",
+      "filepath": "dataset/test/Healthy leaf/2025_11_21_IMG (101).JPG",
+      "split": "train",
+      "passed": true,
+      "predicted_class": "Healthy leaf",
+      "predicted_class_index": 5,
+      "gradcam_target_class_index": 5,
+      "heatmap_shape": [
+        8,
+        8
+      ],
+      "all_zero_heatmap": false,
+      "shared_prepared_object": true
+    }
+  ],
+  "all_smoke_tests_passed": true,
+  "corrupt_image_rejected": true,
+  "unsupported_format_rejected": true,
+  "grayscale_converted_to_rgb": true,
+  "gradcam_failure_preserves_prediction_and_warnings": true,
+  "missing_metadata_and_mapping_rejected": true,
+  "mismatched_mapping_rejected": true,
+  "protected_artifacts_unchanged": true,
+  "dataset_stats_unchanged": true,
+  "technical_validation_behavior": "Decode JPEG/PNG, force full pixel load, positive dimensions and <=40 million pixels; no semantic leaf rejection.",
+  "legacy_uncertainty_status": "Original 70% confidence / 15 percentage-point margin isolated as provisional, uncalibrated flag; actual class and probabilities preserved.",
+  "audit_findings": [
+    "ResNet50/224 fallback removed; metadata now mandatory.",
+    "Prediction used Pillow default resize while XAI used Lanczos; replaced by a single shared path.",
+    "Blocking HSV/color/edge heuristic removed.",
+    "Old uncertainty replaced class label; now a separate flag.",
+    "Grad-CAM independently chose argmax; now explicit prediction target.",
+    "Flask replaced warnings on XAI error; Streamlit lost prediction. Shared analysis now preserves both."
+  ],
+  "application_changes": "Inference call-site adapters only; no frontend layout or design changes.",
+  "remaining_limitations": [
+    "No semantic lemon-leaf validator yet.",
+    "Softmax probabilities and legacy uncertainty are not calibrated.",
+    "Grad-CAM is an attribution visualization, not proof of biological diagnosis.",
+    "410 unresolved C/D pairs cross dataset splits; complete biological-source independence remains unproven.",
+    "Model metadata test_evaluated=false is historical training provenance; final test reports remain authoritative and unchanged."
+  ],
+  "test_split_evaluated": false,
+  "accuracy_computed": false,
+  "timestamp_utc": "2026-09-16T19:45:24.598480+00:00"
+}

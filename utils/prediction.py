@@ -1,186 +1,57 @@
-import json
-
+"""Structured inference with isolated, uncalibrated legacy uncertainty."""
 import numpy as np
-from PIL import Image
+from utils.model_loader import get_class_mapping, get_model
+from utils.preprocessing import prepare_image
 
-from utils.model_loader import (
-    get_class_indices_path,
-    get_image_size,
-    get_model,
-    get_preprocess_function,
-)
-
-
-INVALID_IMAGE_CLASS = "Invalid image / Not a lemon leaf"
-MIN_LEAF_LIKE_RATIO = 0.12
-MIN_GREEN_RATIO = 0.06
-MAX_LEAF_EDGE_DENSITY = 0.14
+INVALID_IMAGE_CLASS = "Invalid image / Not a lemon leaf"  # Legacy import only; never a model class.
 MIN_CONFIDENCE = 70.0
 MIN_CONFIDENCE_MARGIN = 15.0
-
-_index_to_class = None
-_index_source = None
-
+SEMANTIC_WARNING = "Lemon-leaf identity is not verified; this six-class model cannot reject non-leaf images."
 
 def get_index_to_class():
-    """Load and reverse the active class-to-index mapping."""
-    global _index_to_class, _index_source
+    return {index: name for name, index in get_class_mapping().items()}
 
-    class_indices_path = get_class_indices_path()
-    if _index_to_class is None or _index_source != class_indices_path:
-        if not class_indices_path.exists():
-            raise FileNotFoundError(
-                f"Class index file not found: {class_indices_path}"
-            )
+def preprocess_image(source):
+    """Compatibility entry point using the sole preprocessing implementation."""
+    return prepare_image(source).tensor
 
-        with class_indices_path.open("r", encoding="utf-8") as file:
-            class_indices = json.load(file)
+def legacy_uncertainty(probabilities):
+    """Original 70% / 15 percentage-point rule; provisional, not calibrated."""
+    ordered = np.sort(probabilities)[::-1]
+    return bool(100 * ordered[0] < MIN_CONFIDENCE or 100 * (ordered[0] - ordered[1]) < MIN_CONFIDENCE_MARGIN)
 
-        _index_to_class = {
-            int(index): class_name for class_name, index in class_indices.items()
-        }
-        _index_source = class_indices_path
+def predict_prepared(prepared):
+    probabilities = np.asarray(get_model()(prepared.tensor, training=False))[0]
+    mapping = get_index_to_class()
+    if probabilities.shape != (6,) or not np.isfinite(probabilities).all() or np.any(probabilities < 0) or np.any(probabilities > 1) or not np.isclose(probabilities.sum(), 1, atol=1e-5):
+        raise ValueError("Model returned an invalid six-class probability vector.")
+    indices = np.argsort(-probabilities, kind="stable")[:3]
+    top3 = [{"class": mapping[int(i)], "class_index": int(i), "probability": float(probabilities[i])} for i in indices]
+    uncertain = legacy_uncertainty(probabilities)
+    warnings = [SEMANTIC_WARNING]
+    if uncertain:
+        warnings.append("Legacy/provisional uncertainty rule triggered (70% confidence / 15-point margin); not statistically calibrated.")
+    return {"predicted_class": top3[0]["class"], "predicted_class_index": top3[0]["class_index"],
+            "confidence": top3[0]["probability"], "top_3": top3, "probabilities": probabilities.tolist(),
+            "legacy_uncertain": uncertain, "warnings": warnings}
 
-    return _index_to_class
+def predict_disease(source):
+    """One classification call; confidence and probabilities are on the 0?1 scale."""
+    return predict_prepared(prepare_image(source))
 
+def analyze_image(source, gradcam_output_path=None):
+    """Decode once, classify, explain that exact input and supplied class index."""
+    prepared = prepare_image(source)
+    result = predict_prepared(prepared)
+    try:
+        from utils.xai import generate_gradcam
+        result["gradcam"] = generate_gradcam(prepared, result["predicted_class_index"], gradcam_output_path)
+    except Exception as exc:
+        result["gradcam"] = {"status": "unavailable", "error": f"{type(exc).__name__}: {exc}"}
+        result["warnings"].append("Prediction completed, but explanation generation failed.")
+    return result
 
-def preprocess_image(image_path):
-    """Resize an image and apply preprocessing for the active model."""
-    with Image.open(image_path) as image:
-        image = image.convert("RGB").resize(get_image_size())
-        image_array = np.asarray(image, dtype=np.float32)
-
-    image_array = np.expand_dims(image_array, axis=0)
-    return get_preprocess_function()(image_array)
-
-
-def _rgb_to_hue_saturation_value(image_array):
-    """Return HSV components for an RGB image array in the 0-255 range."""
-    rgb = image_array / 255.0
-    red = rgb[..., 0]
-    green = rgb[..., 1]
-    blue = rgb[..., 2]
-
-    max_channel = np.max(rgb, axis=-1)
-    min_channel = np.min(rgb, axis=-1)
-    chroma = max_channel - min_channel
-
-    hue = np.zeros_like(max_channel)
-    non_gray = chroma > 1e-6
-
-    red_is_max = (max_channel == red) & non_gray
-    green_is_max = (max_channel == green) & non_gray
-    blue_is_max = (max_channel == blue) & non_gray
-
-    hue[red_is_max] = ((green[red_is_max] - blue[red_is_max]) / chroma[red_is_max]) % 6
-    hue[green_is_max] = ((blue[green_is_max] - red[green_is_max]) / chroma[green_is_max]) + 2
-    hue[blue_is_max] = ((red[blue_is_max] - green[blue_is_max]) / chroma[blue_is_max]) + 4
-    hue *= 60.0
-
-    saturation = np.zeros_like(max_channel)
-    saturation[max_channel > 0] = chroma[max_channel > 0] / max_channel[max_channel > 0]
-
-    return hue, saturation, max_channel
-
-
-def _mask_edge_density(mask):
-    """Measure how fragmented the green leaf-like mask is."""
-    if not np.any(mask):
-        return 1.0
-
-    padded = np.pad(mask, 1, constant_values=False)
-    eroded = (
-        padded[1:-1, 1:-1]
-        & padded[:-2, 1:-1]
-        & padded[2:, 1:-1]
-        & padded[1:-1, :-2]
-        & padded[1:-1, 2:]
-    )
-    boundary = mask & ~eroded
-    return float(boundary.sum() / mask.sum())
-
-
-def assess_leaf_likeness(image_path):
-    """Estimate whether an image is close enough to a lemon leaf for classification."""
-    with Image.open(image_path) as image:
-        image = image.convert("RGB")
-        if min(image.size) < 80:
-            return False, "The image is too small for reliable leaf analysis."
-
-        image.thumbnail((256, 256))
-        image_array = np.asarray(image, dtype=np.float32)
-
-    hue, saturation, value = _rgb_to_hue_saturation_value(image_array)
-
-    green_pixels = (
-        (hue >= 55)
-        & (hue <= 170)
-        & (saturation >= 0.18)
-        & (value >= 0.15)
-    )
-    yellow_green_pixels = (
-        (hue >= 35)
-        & (hue < 55)
-        & (saturation >= 0.22)
-        & (value >= 0.18)
-    )
-    leaf_like_pixels = green_pixels | yellow_green_pixels
-
-    green_ratio = float(np.mean(green_pixels))
-    leaf_like_ratio = float(np.mean(leaf_like_pixels))
-    edge_density = _mask_edge_density(leaf_like_pixels)
-
-    if leaf_like_ratio < MIN_LEAF_LIKE_RATIO or green_ratio < MIN_GREEN_RATIO:
-        return (
-            False,
-            "This image does not look like a lemon leaf. Please upload a clear lemon leaf photo.",
-        )
-
-    if edge_density > MAX_LEAF_EDGE_DENSITY:
-        return (
-            False,
-            "This leaf shape looks too divided or fern-like for lemon leaf analysis. "
-            "Please upload one clear lemon leaf.",
-        )
-
-    return True, None
-
-
-def predict_disease(image_path):
-    """Return the predicted class, confidence, top three results, and warning."""
-    is_leaf_like, validation_warning = assess_leaf_likeness(image_path)
-    if not is_leaf_like:
-        return INVALID_IMAGE_CLASS, 0.0, [], validation_warning
-
-    processed_image = preprocess_image(image_path)
-    probabilities = get_model().predict(processed_image, verbose=0)[0]
-    index_to_class = get_index_to_class()
-
-    if len(probabilities) != len(index_to_class):
-        raise ValueError(
-            "The number of model outputs does not match the active class-index file."
-        )
-
-    top_indices = np.argsort(probabilities)[::-1][:3]
-    top_predictions = [
-        {
-            "class": index_to_class[int(index)],
-            "confidence": round(float(probabilities[index]) * 100, 2),
-        }
-        for index in top_indices
-    ]
-
-    predicted_class = top_predictions[0]["class"]
-    confidence = top_predictions[0]["confidence"]
-    margin = confidence - top_predictions[1]["confidence"]
-
-    if confidence < MIN_CONFIDENCE or margin < MIN_CONFIDENCE_MARGIN:
-        return (
-            "Uncertain lemon leaf condition",
-            confidence,
-            top_predictions,
-            "The model is not confident enough to make a reliable disease call. "
-            "Please upload a clearer lemon leaf image or consult an expert.",
-        )
-
-    return predicted_class, confidence, top_predictions, None
+def legacy_display_values(result):
+    """Adapt probability units for existing UI fields without changing labels."""
+    top = [{"class": item["class"], "confidence": item["probability"] * 100} for item in result["top_3"]]
+    return result["predicted_class"], result["confidence"] * 100, top, " ".join(result["warnings"]) or None
