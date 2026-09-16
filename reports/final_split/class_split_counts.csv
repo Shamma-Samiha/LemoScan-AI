@@ -1,0 +1,7 @@
+class,train,val,test
+Algal leaf spot,217,46,47
+Black spot,231,50,49
+Citrus canker,259,55,56
+Citrus pest,273,59,58
+Greening,245,53,52
+Healthy leaf,210,45,45
