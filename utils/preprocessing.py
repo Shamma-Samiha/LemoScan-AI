@@ -30,7 +30,7 @@ def _decode(image):
     image.load()
     return image.convert("RGB").copy()
 
-def prepare_image(source):
+def decode_rgb(source):
     """Accept Pillow image, path or binary file object; technical validation only."""
     try:
         with warnings.catch_warnings():
@@ -42,6 +42,21 @@ def prepare_image(source):
                     rgb = _decode(image)
     except (OSError, UnidentifiedImageError, Image.DecompressionBombError, Image.DecompressionBombWarning) as exc:
         raise ImageValidationError("Image cannot be decoded safely or is corrupted.") from exc
+    return rgb
+
+def prepare_disease_rgb(rgb):
+    """Prepare the disease tensor from the already decoded RGB image."""
     import tensorflow as tf
     array = tf.image.resize(np.asarray(rgb, dtype=np.float32), get_image_size(), method="bilinear", antialias=False)
     return PreparedImage(rgb=rgb, tensor=get_preprocess_function()(array)[None, ...])
+
+def prepare_validator_rgb(rgb, metadata):
+    """Validator expects raw [0,255] float32; rescaling is inside its model."""
+    import tensorflow as tf
+    array = tf.image.resize(np.asarray(rgb,dtype=np.float32),tuple(metadata["input_size"]),
+                            method="bilinear",antialias=False)
+    return PreparedImage(rgb=rgb,tensor=array[None,...])
+
+def prepare_image(source):
+    """Compatibility disease-only preprocessing; applications use analyze_image."""
+    return prepare_disease_rgb(decode_rgb(source))

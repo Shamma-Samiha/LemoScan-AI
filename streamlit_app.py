@@ -572,6 +572,10 @@ else:
 
                     with st.spinner("Analyzing leaf image..."):
                         analysis = analyze_image(str(image_path), str(gradcam_path))
+                        if analysis["status"] != "lemon_leaf_analysis":
+                            st.session_state.analysis_result = None
+                            st.warning(analysis["message"])
+                            st.stop()
                         predicted_class, confidence, top_predictions, warning = legacy_display_values(analysis)
                         gradcam_preview = None
 

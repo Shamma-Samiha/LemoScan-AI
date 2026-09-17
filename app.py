@@ -61,6 +61,8 @@ def predict():
         gradcam_output_path = os.path.join(app.config["RESULT_FOLDER"], gradcam_filename)
         try:
             analysis = analyze_image(image_path, gradcam_output_path)
+            if analysis["status"] != "lemon_leaf_analysis":
+                return render_template("index.html", error=analysis["message"])
             predicted_class, confidence, top_predictions, warning = legacy_display_values(analysis)
         except (OSError, ValueError, RuntimeError):
             return render_template(
