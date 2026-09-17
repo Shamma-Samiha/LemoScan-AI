@@ -1,705 +1,241 @@
-"""Polished Streamlit interface for LemoScan AI."""
-
+"""Streamlit presentation/controller. All model inference stays in shared utils."""
 import base64
+import json
 from hashlib import sha256
 from html import escape
 from io import BytesIO
 from pathlib import Path
 from tempfile import TemporaryDirectory
-
 from PIL import Image
 import streamlit as st
 
-from utils.model_loader import get_model
-from utils.prediction import analyze_image, legacy_display_values
-
-
-st.set_page_config(page_title="LemoScan AI", layout="wide")
-
-
-# Keep the trained model in memory across Streamlit script reruns.
-@st.cache_resource(show_spinner=False)
-def load_model_once():
-    """Return the shared model used by prediction and Grad-CAM."""
-    return get_model()
-
-
-def image_to_data_uri(image):
-    """Convert a PIL image to an embeddable JPEG data URI."""
-    buffer = BytesIO()
-    image.convert("RGB").save(buffer, format="JPEG", quality=92)
-    encoded = base64.b64encode(buffer.getvalue()).decode("ascii")
-    return f"data:image/jpeg;base64,{encoded}"
-
-
-def show_fitted_image(image, alt_text, frame_class):
-    """Display a controlled-size image inside a styled frame."""
-    safe_alt_text = escape(alt_text)
-    image_uri = image_to_data_uri(image)
-    st.markdown(
-        f"""
-        <div class="image-frame {frame_class}">
-            <img src="{image_uri}" alt="{safe_alt_text}">
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-def clear_analysis():
-    """Clear the uploaded file and all saved analysis results."""
-    st.session_state.analysis_result = None
-    st.session_state.analysis_file_id = None
-    st.session_state.uploader_version += 1
-
-
-# Initialize the small pieces of state used by the interactive workflow.
-if "analysis_result" not in st.session_state:
-    st.session_state.analysis_result = None
-if "analysis_file_id" not in st.session_state:
-    st.session_state.analysis_file_id = None
-if "uploader_version" not in st.session_state:
-    st.session_state.uploader_version = 0
-
-
-# Custom CSS creates the green, cream, and white agricultural AI theme.
-st.markdown(
-    """
-    <style>
-        :root {
-            color-scheme: light;
-        }
-
-        #MainMenu,
-        footer,
-        header,
-        [data-testid="stHeader"],
-        [data-testid="stToolbar"],
-        [data-testid="stDecoration"],
-        [data-testid="stStatusWidget"],
-        .stDeployButton {
-            display: none !important;
-        }
-
-        html, body, .stApp,
-        [data-testid="stAppViewContainer"] {
-            color: #18351f;
-            background: #e8efe2;
-        }
-
-        [data-testid="stAppViewContainer"] {
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at 7% 5%, rgba(78, 126, 62, 0.22), transparent 26rem),
-                radial-gradient(circle at 94% 92%, rgba(202, 164, 61, 0.16), transparent 24rem),
-                linear-gradient(145deg, #f1edda 0%, #e1edda 100%);
-        }
-
-        [data-testid="stMainBlockContainer"],
-        .block-container {
-            width: calc(100% - 2rem);
-            max-width: 1050px;
-            margin: 1.35rem auto;
-            padding: 2.1rem 2.6rem 2.4rem;
-            background: rgba(255, 254, 248, 0.98);
-            border: 1px solid rgba(55, 96, 48, 0.16);
-            border-radius: 26px;
-            box-shadow: 0 22px 62px rgba(31, 68, 35, 0.16);
-        }
-
-        p, label, small, span,
-        [data-testid="stMarkdownContainer"] {
-            color: #2f4633;
-        }
-
-        h1, h2, h3,
-        [data-testid="stHeadingWithActionElements"] {
-            color: #1f502b !important;
-        }
-
-        .hero {
-            padding: 0 0.5rem 1.45rem;
-            text-align: center;
-        }
-
-        .hero-kicker {
-            margin: 0 0 0.45rem !important;
-            color: #4e7d42 !important;
-            font-size: 0.76rem;
-            font-weight: 800;
-            letter-spacing: 0.17em;
-            text-transform: uppercase;
-        }
-
-        .hero h1 {
-            margin: 0;
-            color: #184d27 !important;
-            font-size: clamp(2.45rem, 7vw, 3.85rem);
-            font-weight: 850;
-            letter-spacing: -0.045em;
-            line-height: 1;
-        }
-
-        .hero-subtitle {
-            margin: 0.7rem 0 0 !important;
-            color: #315f38 !important;
-            font-size: 1.15rem;
-            font-weight: 650;
-        }
-
-        .hero-description {
-            max-width: 720px;
-            margin: 0.7rem auto 1rem !important;
-            color: #516657 !important;
-            font-size: 0.96rem;
-            line-height: 1.55;
-        }
-
-        .badge-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .feature-badge {
-            padding: 0.34rem 0.72rem;
-            color: #285b31;
-            background: #e8f1df;
-            border: 1px solid #c5dbb7;
-            border-radius: 999px;
-            font-size: 0.76rem;
-            font-weight: 750;
-        }
-
-        .section-heading {
-            margin: 0 0 0.15rem !important;
-            color: #214c29 !important;
-            font-size: 1.2rem;
-            font-weight: 800;
-        }
-
-        .section-support {
-            margin: 0 0 0.8rem !important;
-            color: #627066 !important;
-            font-size: 0.88rem;
-        }
-
-        .upload-panel {
-            padding: 1.15rem 1.25rem 0.7rem;
-            background: #f7f5e9;
-            border: 1px solid #d9e2cf;
-            border-radius: 19px;
-        }
-
-        [data-testid="stFileUploader"] {
-            margin-bottom: 0.2rem;
-        }
-
-        [data-testid="stFileUploader"] > label {
-            display: none;
-        }
-
-        [data-testid="stFileUploaderDropzone"] {
-            min-height: 126px;
-            padding: 1rem !important;
-            background: #f1f5e9 !important;
-            border: 2px dashed #5f9650 !important;
-            border-radius: 15px !important;
-        }
-
-        [data-testid="stFileUploaderDropzone"]:hover {
-            background: #e9f2e1 !important;
-            border-color: #35743b !important;
-        }
-
-        [data-testid="stFileUploaderDropzone"] p,
-        [data-testid="stFileUploaderDropzone"] small,
-        [data-testid="stFileUploaderDropzone"] span {
-            color: #314f35 !important;
-        }
-
-        [data-testid="stFileUploaderDropzone"] svg {
-            color: #34733c !important;
-            fill: #34733c !important;
-        }
-
-        [data-testid="stFileUploaderDropzone"] button {
-            color: #ffffff !important;
-            background: #2f733a !important;
-            border: 1px solid #2f733a !important;
-            font-weight: 750;
-        }
-
-        [data-testid="stFileUploaderDropzone"] button:hover {
-            background: #245d2f !important;
-            border-color: #245d2f !important;
-        }
-
-        .format-note {
-            margin: 0.15rem 0 0.1rem !important;
-            color: #68766a !important;
-            font-size: 0.78rem;
-            text-align: right;
-        }
-
-        .info-box {
-            margin-top: 0.9rem;
-            padding: 0.85rem 1rem;
-            color: #2d5633;
-            background: #e8f2e1;
-            border: 1px solid #c5dcb8;
-            border-left: 5px solid #4e8d45;
-            border-radius: 12px;
-            font-size: 0.9rem;
-        }
-
-        .preview-label {
-            margin: 1rem 0 0.45rem !important;
-            color: #315638 !important;
-            font-size: 0.86rem;
-            font-weight: 750;
-        }
-
-        .image-frame {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            overflow: hidden;
-            background:
-                linear-gradient(45deg, #eff2e9 25%, transparent 25%),
-                linear-gradient(-45deg, #eff2e9 25%, transparent 25%),
-                #f8f9f4;
-            background-size: 18px 18px;
-            border: 1px solid #d6e0d0;
-            border-radius: 17px;
-            box-shadow: 0 9px 25px rgba(34, 73, 39, 0.1);
-        }
-
-        .image-frame img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .preview-frame {
-            max-width: 330px;
-            height: 210px;
-            margin: 0 auto 0.9rem;
-        }
-
-        .result-frame {
-            height: 350px;
-        }
-
-        .comparison-frame {
-            height: 320px;
-        }
-
-        .result-card {
-            padding: 1.05rem 1.2rem;
-            margin-bottom: 0.85rem;
-            background: linear-gradient(135deg, #ffffff, #f1f6ec);
-            border: 1px solid #cfdfc5;
-            border-left: 5px solid #44863f;
-            border-radius: 15px;
-            box-shadow: 0 8px 22px rgba(35, 75, 38, 0.08);
-        }
-
-        .result-label {
-            margin: 0 0 0.28rem !important;
-            color: #607062 !important;
-            font-size: 0.75rem;
-            font-weight: 800;
-            letter-spacing: 0.075em;
-            text-transform: uppercase;
-        }
-
-        .result-value {
-            margin: 0 !important;
-            color: #1e542a !important;
-            font-size: clamp(1.3rem, 4vw, 1.75rem);
-            font-weight: 850;
-        }
-
-        .result-note {
-            padding: 0.85rem 0.95rem;
-            color: #536258;
-            background: #f4f4e8;
-            border-radius: 11px;
-            font-size: 0.84rem;
-            line-height: 1.5;
-        }
-
-        .section-divider {
-            height: 1px;
-            margin: 1.75rem 0 1.4rem;
-            background: linear-gradient(90deg, transparent, #c4d5bc, transparent);
-        }
-
-        .comparison-title {
-            margin: 0.45rem 0 0.45rem !important;
-            color: #355b3a !important;
-            font-size: 0.86rem;
-            font-weight: 800;
-            text-align: center;
-        }
-
-        .attention-note {
-            margin: 0.8rem 0 0 !important;
-            color: #697168 !important;
-            font-size: 0.8rem;
-            text-align: center;
-        }
-
-        .disclaimer {
-            margin-top: 1.25rem;
-            padding: 0.95rem 1.05rem;
-            color: #554819;
-            background: #fbf3d5;
-            border: 1px solid #e5d397;
-            border-left: 5px solid #a98727;
-            border-radius: 12px;
-            line-height: 1.5;
-        }
-
-        .app-footer {
-            margin: 1.4rem 0 -0.7rem !important;
-            color: #738074 !important;
-            font-size: 0.75rem;
-            text-align: center;
-        }
-
-        [data-testid="stAlert"] {
-            border-radius: 12px !important;
-        }
-
-        [data-testid="stAlert"][data-baseweb="notification"],
-        div[data-testid="stAlert"] {
-            background: #fff3c4 !important;
-            border: 1px solid #dfbd46 !important;
-        }
-
-        [data-testid="stAlert"] p {
-            color: #5e4b0e !important;
-        }
-
-        .stButton button {
-            min-height: 2.75rem;
-            border-radius: 11px;
-            font-weight: 750;
-        }
-
-        .stButton button[kind="primary"] {
-            color: #ffffff !important;
-            background: #287038 !important;
-            border-color: #287038 !important;
-            box-shadow: 0 7px 17px rgba(40, 112, 56, 0.2);
-        }
-
-        .stButton button[kind="primary"]:hover {
-            background: #1f5b2e !important;
-            border-color: #1f5b2e !important;
-        }
-
-        .stButton button[kind="secondary"] {
-            color: #315338 !important;
-            background: #f8faf5 !important;
-            border-color: #a9c29f !important;
-        }
-
-        [data-testid="stToggle"] label,
-        [data-testid="stToggle"] span {
-            color: #315338 !important;
-        }
-
-        @media (max-width: 760px) {
-            [data-testid="stMainBlockContainer"],
-            .block-container {
-                width: calc(100% - 0.8rem);
-                margin: 0.4rem auto;
-                padding: 1.35rem 1rem 1.8rem;
-                border-radius: 18px;
-            }
-
-            .hero {
-                padding: 0 0 1.1rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-description {
-                font-size: 0.88rem;
-            }
-
-            .upload-panel {
-                padding: 0.9rem 0.9rem 0.5rem;
-            }
-
-            [data-testid="stFileUploaderDropzone"] {
-                min-height: 112px;
-                padding: 0.75rem !important;
-            }
-
-            .result-frame {
-                height: 300px;
-            }
-
-            .comparison-frame {
-                height: 275px;
-            }
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-
-# Hero content and model feature badges.
-st.markdown(
-    """
-    <section class="hero">
-        <p class="hero-kicker">Explainable plant health screening</p>
-        <h1>LemoScan AI</h1>
-        <p class="hero-subtitle">An Explainable AI System for Lemon Leaf Disease Detection</p>
-        <p class="hero-description">
-            Upload a lemon leaf image to detect possible disease conditions and
-            view AI explanation using Grad-CAM.
-        </p>
-        <div class="badge-row">
-            <span class="feature-badge">ResNet50</span>
-            <span class="feature-badge">Grad-CAM</span>
-            <span class="feature-badge">6 Classes</span>
-            <span class="feature-badge">AI Assisted</span>
-        </div>
-    </section>
-    """,
-    unsafe_allow_html=True,
-)
-
-
-# Upload area. Its key changes when the user clears the current analysis.
-st.markdown(
-    """
-    <div class="upload-panel">
-        <p class="section-heading">Upload a leaf image</p>
-        <p class="section-support">Choose a clear, well-lit photo with the leaf in focus.</p>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
-uploaded_file = st.file_uploader(
-    "Upload a lemon leaf image",
-    type=["png", "jpg", "jpeg"],
-    help="Choose a clear image of one lemon leaf.",
-    key=f"leaf_uploader_{st.session_state.uploader_version}",
-)
-
-st.markdown(
-    '<p class="format-note">Supported formats: PNG, JPG, JPEG</p>',
-    unsafe_allow_html=True,
-)
-
-
-if uploaded_file is None:
-    # Keep the main action visible so the workflow is obvious before upload.
-    analyze_without_upload = st.button(
-        "Analyze Leaf",
-        type="primary",
-        use_container_width=True,
-        help="Upload a leaf image, then select Analyze Leaf.",
-    )
-    if analyze_without_upload:
-        st.warning("Please upload a lemon leaf image before starting analysis.")
-    st.markdown(
-        '<div class="info-box">Upload a lemon leaf image to begin the analysis.</div>',
-        unsafe_allow_html=True,
-    )
-else:
-    uploaded_bytes = uploaded_file.getvalue()
-    current_file_id = sha256(uploaded_bytes).hexdigest()
-
-    # A newly selected file should never display results from the previous image.
-    if st.session_state.analysis_file_id != current_file_id:
-        st.session_state.analysis_result = None
-
-    try:
-        with Image.open(BytesIO(uploaded_bytes)) as image:
-            uploaded_preview = image.convert("RGB").copy()
-    except OSError:
-        uploaded_preview = None
-        st.error("The uploaded file is not a valid image. Please choose another file.")
-
-    current_result = st.session_state.analysis_result
-
-    if uploaded_preview is not None:
-        # Show a compact preview before analysis, not another oversized image.
-        if current_result is None:
-            st.markdown(
-                '<p class="preview-label">Ready to analyze</p>',
-                unsafe_allow_html=True,
-            )
-            show_fitted_image(uploaded_preview, "Uploaded lemon leaf preview", "preview-frame")
-
-        analyze_column, clear_column = st.columns(2, gap="small")
-        with analyze_column:
-            analyze_clicked = st.button(
-                "Analyze Leaf",
-                type="primary",
-                use_container_width=True,
-            )
-        with clear_column:
-            st.button(
-                "Clear / Upload Another Image",
-                use_container_width=True,
-                on_click=clear_analysis,
-            )
-
-        # Prediction runs only after this explicit button click.
-        if analyze_clicked:
+ROOT = Path(__file__).resolve().parent
+CLASSES = ["Algal leaf spot", "Black spot", "Citrus canker", "Citrus pest", "Greening", "Healthy leaf"]
+st.set_page_config(page_title="LemoScan AI | Explainable leaf analysis",page_icon=":material/eco:",layout="wide")
+
+CSS = """
+<style>
+.stApp { background:#f5f7f3; color:#18342b; }
+[data-testid="stSidebar"] { background:#eaf0e8; border-right:1px solid #dce5d9; }
+[data-testid="stSidebar"] h2 { font-size:1.05rem; }
+.block-container { max-width:1180px; padding-top:2.6rem; padding-bottom:2rem; }
+h1,h2,h3 { letter-spacing:-.025em; color:#18342b; }
+h1 { font-size:clamp(2.2rem,5vw,3.8rem)!important; line-height:1.08!important; }
+h2 { font-size:1.6rem!important; }
+.eyebrow { font-size:.72rem; letter-spacing:.16em; font-weight:700; color:#55725e; margin-bottom:.75rem; }
+.hero { border-bottom:1px solid #d5e1d2; padding-bottom:1.4rem; margin-bottom:.5rem; }
+.hero p { color:#52665b; max-width:730px; font-size:1rem; line-height:1.65; }
+.subtitle { font-size:1.28rem!important; color:#315943!important; margin-bottom:.5rem; }
+.chips { display:flex; gap:8px; flex-wrap:wrap; padding-top:8px; }
+.chip { border:1px solid #cfddca; border-radius:100px; padding:5px 12px; font-size:.74rem; background:#edf3e9; color:#31533f; }
+.result-card { padding:1.5rem; border:1px solid #cbdcc7; border-left:5px solid #397444; border-radius:14px; background:#eef5e9; }
+.result-card h2 { margin:0; font-size:clamp(1.6rem,4vw,2.3rem)!important; }
+.result-card .score { font-size:2rem; font-weight:700; margin-top:.6rem; }
+.result-card p { margin:0; color:#46634e; }
+.preview { border-radius:12px; overflow:hidden; border:1px solid #dce5d9; background:#edf1eb; }
+.preview img { width:100%; height:330px; object-fit:contain; display:block; }
+[data-testid="stVerticalBlockBorderWrapper"] { border-radius:14px; }
+[data-testid="stFileUploaderDropzone"] { background:#ffffff; border:1px dashed #9db29c; border-radius:12px; }
+.stButton button { border-radius:9px; min-height:2.8rem; }
+.stButton button[kind="primary"] { background:#245b3c; border-color:#245b3c; color:white; }
+.stButton button[kind="primary"]:hover { background:#1b472e; border-color:#1b472e; color:white; }
+[data-testid="stProgressBar"] > div > div > div > div { background:#4f8057; }
+.sidebar-metric { background:#f5f7f3; border:1px solid #d4dfd0; border-radius:10px; padding:12px 14px; margin-bottom:8px; }
+.sidebar-metric span { display:block; font-size:.8rem; color:#52665b; }
+.sidebar-metric strong { display:block; font-size:1.6rem; line-height:1.3; color:#18342b; white-space:nowrap; }
+.small-note { font-size:.8rem; color:#617368; line-height:1.55; }
+.footer { border-top:1px solid #d5e1d2; padding-top:1.1rem; margin-top:2rem; font-size:.78rem; color:#63736a; }
+@media(max-width:640px) {
+ .block-container { padding:1.3rem 1rem; }
+ .preview img { height:250px; }
+ .result-card { padding:1rem; }
+}
+</style>
+"""
+st.markdown(CSS,unsafe_allow_html=True)
+
+def show_image(image, alt):
+    buffer=BytesIO()
+    thumbnail=image.copy()
+    thumbnail.thumbnail((1200,1200))
+    thumbnail.convert("RGB").save(buffer,format="JPEG",quality=88)
+    encoded=base64.b64encode(buffer.getvalue()).decode("ascii")
+    st.markdown(f'<div class="preview"><img src="data:image/jpeg;base64,{encoded}" alt="{escape(alt)}"></div>',unsafe_allow_html=True)
+
+def clear_upload():
+    for key in ["file_id","analysis","overlay","preview","preview_error"]:
+        st.session_state[key]=None
+    st.session_state.upload_version+=1
+
+def run_analysis(contents):
+    # Import lazily: the landing page does not initialize TensorFlow or models.
+    from utils.prediction import analyze_image
+    with TemporaryDirectory(prefix="lemoscan_ui_") as directory:
+        overlay_path=Path(directory)/"explanation.png"
+        result=analyze_image(BytesIO(contents),overlay_path)
+        overlay=None
+        if result["status"]=="lemon_leaf_analysis" and result["gradcam"]["status"]=="available":
             try:
-                with TemporaryDirectory(prefix="lemoscan_") as temporary_folder:
-                    temporary_folder = Path(temporary_folder)
-                    suffix = Path(uploaded_file.name).suffix.lower() or ".jpg"
-                    image_path = temporary_folder / f"uploaded_leaf{suffix}"
-                    gradcam_path = temporary_folder / "gradcam_result.jpg"
-                    image_path.write_bytes(uploaded_bytes)
+                with Image.open(overlay_path) as image:
+                    overlay=image.convert("RGB").copy()
+                    overlay.thumbnail((1200,1200))
+            except (OSError,ValueError):
+                result["gradcam"]={"status":"unavailable"}
+                result["warnings"].append("Prediction completed, but the visual explanation could not be displayed.")
+        # Keep UI state small; the rendered overlay is all the UI needs.
+        result["gradcam"].pop("heatmap",None)
+        result["gradcam"].pop("output_path",None)
+        return result,overlay
 
-                    with st.spinner("Analyzing leaf image..."):
-                        analysis = analyze_image(str(image_path), str(gradcam_path))
-                        if analysis["status"] != "lemon_leaf_analysis":
-                            st.session_state.analysis_result = None
-                            st.warning(analysis["message"])
-                            st.stop()
-                        predicted_class, confidence, top_predictions, warning = legacy_display_values(analysis)
-                        gradcam_preview = None
+def render_result(result,preview,overlay):
+    status=result["status"]
+    if status=="technical_error":
+        st.error("We couldn't process this image. Please upload a valid JPG or PNG image.")
+    elif status=="not_lemon_leaf":
+        st.warning("Input not recognized as a lemon leaf")
+        st.write("The validator did not recognize this image as a lemon leaf with sufficient confidence. Try another clear lemon-leaf image.")
+        with st.expander("Input recognition details"):
+            st.metric("Lemon-leaf score",f'{result["validator"]["lemon_score"]:.2%}')
+            st.caption("This is the input validator's score, not disease confidence. The validator can be wrong.")
+        return
+    elif status=="analysis_error":
+        stage=(result.get("error") or {}).get("stage")
+        st.error("Input recognition is temporarily unavailable. Please try again later." if stage=="validator"
+                 else "We couldn't complete disease analysis. Please try again later.")
+        if result.get("validator",{} ) and result["validator"]["accepted_as_lemon_leaf"]:
+            st.caption("Input recognition completed; no disease result is available.")
+    elif status=="lemon_leaf_analysis":
+        st.markdown("## Your leaf analysis")
+        if result["legacy_uncertain"]:
+            st.warning("Uncertain result — treat the leading prediction cautiously. The current uncertainty rule is provisional and not calibrated.")
+        left,right=st.columns([1.15,1],gap="large")
+        with left:
+            label="Leading prediction · uncertain" if result["legacy_uncertain"] else "Predicted condition"
+            st.markdown(f'<div class="result-card"><p>{label}</p><h2>{escape(result["predicted_class"])}</h2>'
+                        f'<div class="score">{result["confidence"]:.2%}</div><p>Disease-model confidence</p></div>',unsafe_allow_html=True)
+            st.caption("Model confidence is not a guarantee of correctness.")
+        with right:
+            st.markdown("### Top 3 predictions")
+            for item in result["top_3"]:
+                st.progress(float(item["probability"]),text=f'{item["class"]} · {item["probability"]:.2%}')
+        st.markdown("### Why did the model focus here?")
+        st.caption("Grad-CAM highlights image regions that contributed strongly to the model's prediction. It does not prove where a disease is located.")
+        if result["gradcam"]["status"]=="available" and overlay is not None:
+            if st.toggle("Show visual explanation",value=True,key="show_explanation"):
+                original_col,cam_col=st.columns(2,gap="medium")
+                with original_col:
+                    st.markdown("**Original image**")
+                    if preview is not None: show_image(preview,"Original uploaded image")
+                with cam_col:
+                    st.markdown(f'**Grad-CAM · {result["predicted_class"]}**')
+                    show_image(overlay,"Grad-CAM explanation of the predicted class")
+        else:
+            st.info("Visual explanation unavailable for this analysis.")
+        with st.expander("Analysis notes"):
+            for warning in result.get("warnings",[]): st.write(warning)
+            st.caption("The input validator and disease classifier have separate confidence scores. Neither is a calibrated guarantee.")
+        report={key:value for key,value in result.items() if key!="gradcam"}
+        report["gradcam"]={k:v for k,v in result["gradcam"].items() if k!="error"}
+        st.download_button("Download analysis summary",json.dumps(report,indent=2),file_name="lemoscan_analysis.json",mime="application/json")
+        return
+    else:
+        st.error("Analysis is unavailable. Please try another image.")
+    if result.get("error"):
+        with st.expander("Technical details"):
+            st.text(result["error"].get("detail","No additional details available."))
 
-                        if analysis["gradcam"]["status"] == "available":
-                            with Image.open(gradcam_path) as image:
-                                gradcam_preview = image.convert("RGB").copy()
+def main():
+    for key,value in {"upload_version":0,"file_id":None,"analysis":None,"overlay":None,"preview":None,"preview_error":None}.items():
+        if key not in st.session_state: st.session_state[key]=value
+    with st.sidebar:
+        st.markdown("### LemoScan AI")
+        st.caption("LEAF INTELLIGENCE · EXPLAINED")
+        st.divider()
+        st.markdown("## About LemoScan AI")
+        st.write("A two-stage computer vision workflow for lemon-leaf analysis.")
+        st.markdown("**Recognize** · MobileNetV3Small input validator\n\n**Classify** · InceptionV3 disease classifier\n\n**Explain** · Grad-CAM visual attribution")
+        with st.expander("6 supported conditions",expanded=True):
+            for name in CLASSES: st.write(name)
+        st.divider()
+        st.markdown("## Model performance")
+        st.markdown('<div class="sidebar-metric"><span>Test accuracy</span><strong>95.44%</strong></div>'
+                    '<div class="sidebar-metric"><span>Macro F1</span><strong>95.51%</strong></div>',
+                    unsafe_allow_html=True)
+        st.caption("Disease-model results on the held-out project test set: 307 images.")
+        with st.expander("Methodology & limitations",expanded=False):
+            st.write("The validator was tested on a constructed benchmark; broader real-world generalization remains unverified.")
+            st.write("410 unresolved Category C/D similarity candidate pairs cross dataset splits. Complete biological-source independence is not proven.")
+            st.write("Experimental research project; predictions should not replace expert agricultural diagnosis.")
+        st.caption("Experimental AI · Six conditions · Visual explanations")
+    st.markdown('<div class="hero"><div class="eyebrow">COMPUTER VISION / EXPLAINABLE AI</div>'
+                '<h1>LemoScan AI</h1><p class="subtitle">Explainable AI for Lemon Leaf Disease Detection</p>'
+                '<p>Check whether an image resembles a lemon leaf, explore six possible conditions, and see the regions that informed the model’s prediction.</p>'
+                '<div class="chips"><span class="chip">Input recognition</span><span class="chip">6 leaf conditions</span>'
+                '<span class="chip">Confidence ranking</span><span class="chip">Grad-CAM</span></div></div>',unsafe_allow_html=True)
+    st.write("")
+    upload_col,preview_col=st.columns([1,1.05],gap="large")
+    with upload_col:
+        st.markdown("## Start with a leaf")
+        upload=st.file_uploader("Upload a lemon leaf image",type=["jpg","jpeg","png"],key=f'upload_{st.session_state.upload_version}',
+                               help="JPG, JPEG or PNG. Your image is processed for this session.")
+        contents=None if upload is None else upload.getvalue()
+        file_id=None if contents is None else sha256(contents).hexdigest()
+        if file_id!=st.session_state.file_id:
+            st.session_state.file_id=file_id
+            st.session_state.analysis=None
+            st.session_state.overlay=None
+            st.session_state.preview=None
+            st.session_state.preview_error=None
+            if contents is not None:
+                try:
+                    with Image.open(BytesIO(contents)) as image:
+                        if image.width*image.height>40_000_000:
+                            raise ValueError("Image exceeds the supported size.")
+                        st.session_state.preview=image.convert("RGB").copy()
+                        st.session_state.preview.thumbnail((1200,1200))
+                except Exception:
+                    st.session_state.preview_error="This file could not be previewed. Analyze it to check whether it is a supported image."
+        st.caption("For best results")
+        st.markdown("Use a clear photo with the leaf visible. Avoid excessive blur or extreme darkness; one main leaf usually works best.")
+        action,clear=st.columns([1.5,1])
+        with action:
+            clicked=st.button("Analyze Leaf",type="primary",use_container_width=True,
+                              disabled=contents is None or st.session_state.analysis is not None)
+        with clear:
+            st.button("Clear",on_click=clear_upload,use_container_width=True,disabled=contents is None)
+        if clicked:
+            with st.spinner("Checking the input and analyzing the leaf…"):
+                try:
+                    st.session_state.analysis,st.session_state.overlay=run_analysis(contents)
+                except Exception:
+                    st.session_state.analysis={"status":"analysis_error","validator":None,"message":"Analysis unavailable.",
+                                               "error":{"stage":"application","detail":"The analysis service could not complete this request."}}
+            st.rerun()
+        if st.session_state.analysis is not None:
+            st.caption("Analysis saved for this image. Upload another image or clear to start again.")
+    with preview_col:
+        st.markdown("### Image preview")
+        if st.session_state.preview is not None:
+            show_image(st.session_state.preview,"Uploaded image preview")
+            st.caption("Your uploaded image")
+        elif st.session_state.preview_error:
+            st.warning(st.session_state.preview_error)
+        else:
+            st.markdown('<div class="preview" style="height:330px;display:flex;align-items:center;justify-content:center;text-align:center;">'
+                        '<div><p style="font-size:1.1rem;font-weight:600;">Your next insight starts here.</p>'
+                        '<p class="small-note">Upload a leaf photo to preview it.<br>Analysis runs only when you choose.</p></div></div>',unsafe_allow_html=True)
+    if st.session_state.analysis is not None:
+        st.divider()
+        render_result(st.session_state.analysis,st.session_state.preview,st.session_state.overlay)
+    st.write("")
+    with st.expander("How LemoScan AI works"):
+        st.markdown("1. **Image validation** — check that the file can be processed.\n"
+                    "2. **Lemon-leaf recognition** — the input gate decides whether to continue.\n"
+                    "3. **Disease classification** — rank six supported leaf conditions.\n"
+                    "4. **Confidence ranking** — display the model's unchanged top-three probabilities.\n"
+                    "5. **Grad-CAM explanation** — highlight regions contributing to the predicted class.")
+    st.markdown('<div class="footer">LemoScan AI is an experimental AI project for educational and research purposes. '
+                'Predictions should not replace expert agricultural diagnosis.</div>',unsafe_allow_html=True)
 
-                # Save result images in memory so UI toggles do not rerun the model.
-                st.session_state.analysis_result = {
-                    "uploaded_image": uploaded_preview,
-                    "gradcam_image": gradcam_preview,
-                    "predicted_class": predicted_class,
-                    "confidence": confidence,
-                    "top_predictions": top_predictions,
-                    "warning": warning,
-                }
-                st.session_state.analysis_file_id = current_file_id
-                st.rerun()
-
-            except (OSError, ValueError, RuntimeError):
-                st.session_state.analysis_result = None
-                st.error("Analysis failed. Please try a clear image or upload another file.")
-
-    # Render the saved result without running prediction again.
-    result = st.session_state.analysis_result
-    if result is not None and st.session_state.analysis_file_id == current_file_id:
-        st.success("Analysis completed successfully.")
-
-        st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
-        image_column, result_column = st.columns([1.08, 0.92], gap="large")
-
-        with image_column:
-            st.subheader("Uploaded Leaf Image")
-            show_fitted_image(
-                result["uploaded_image"],
-                "Uploaded lemon leaf",
-                "result-frame",
-            )
-
-        with result_column:
-            st.subheader("Prediction Result")
-            safe_predicted_class = escape(str(result["predicted_class"]))
-            st.markdown(
-                f"""
-                <div class="result-card">
-                    <p class="result-label">Predicted Disease</p>
-                    <p class="result-value">{safe_predicted_class}</p>
-                </div>
-                <div class="result-card">
-                    <p class="result-label">Confidence Score</p>
-                    <p class="result-value">{result["confidence"]:.2f}%</p>
-                </div>
-                <div class="result-note">
-                    The model compares visual leaf patterns learned during training.
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-
-            if result["warning"]:
-                st.warning(result["warning"])
-
-        if result["top_predictions"]:
-            st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
-            st.subheader("Top Matches")
-            for prediction in result["top_predictions"]:
-                st.progress(
-                    min(float(prediction["confidence"]) / 100.0, 1.0),
-                    text=f"{prediction['class']} - {prediction['confidence']:.2f}%",
-                )
-
-        if result["gradcam_image"] is not None:
-            st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
-            st.subheader("Grad-CAM Explanation")
-            st.markdown(
-                '<p class="section-support">Highlighted regions show the areas that '
-                'influenced the model prediction.</p>',
-                unsafe_allow_html=True,
-            )
-
-            show_gradcam = st.toggle(
-                "Show Grad-CAM comparison",
-                value=True,
-                key=f"show_gradcam_{current_file_id}",
-            )
-
-            if show_gradcam:
-                original_column, gradcam_column = st.columns(2, gap="medium")
-                with original_column:
-                    st.markdown(
-                        '<p class="comparison-title">Original Image</p>',
-                        unsafe_allow_html=True,
-                    )
-                    show_fitted_image(
-                        result["uploaded_image"],
-                        "Original lemon leaf",
-                        "comparison-frame",
-                    )
-
-                with gradcam_column:
-                    st.markdown(
-                        '<p class="comparison-title">Model Attention</p>',
-                        unsafe_allow_html=True,
-                    )
-                    show_fitted_image(
-                        result["gradcam_image"],
-                        "Grad-CAM model attention",
-                        "comparison-frame",
-                    )
-
-                st.markdown(
-                    '<p class="attention-note">Red/yellow regions indicate stronger '
-                    'model attention.</p>',
-                    unsafe_allow_html=True,
-                )
-
-        st.markdown(
-            '<div class="disclaimer"><strong>Important:</strong> This result is '
-            'AI-assisted and should not replace expert agricultural advice.</div>',
-            unsafe_allow_html=True,
-        )
-
-
-st.markdown(
-    '<p class="app-footer">LemoScan AI &middot; Explainable lemon leaf screening</p>',
-    unsafe_allow_html=True,
-)
+if __name__=="__main__":
+    main()
