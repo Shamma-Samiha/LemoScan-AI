@@ -1,0 +1,239 @@
+{
+  "validator_path": "model/lemon_leaf_validator.keras",
+  "validator_architecture": "MobileNetV3Small",
+  "validator_input_size": [
+    224,
+    224
+  ],
+  "validator_threshold": 0.397647500038147,
+  "validator_preprocessing": "RGB float32 bilinear resize to 224x224; input range [0,255]; internal MobileNetV3 Rescaling to [-1,1]; no external preprocess_input",
+  "disease_model_path": "model/inceptionv3_best_model.keras",
+  "disease_architecture": "InceptionV3",
+  "disease_input_size": [
+    299,
+    299
+  ],
+  "gradcam_layer": "inception_v3/mixed10",
+  "smoke_test_results": [
+    {
+      "case": "solid_green",
+      "passed": true,
+      "status": "not_lemon_leaf",
+      "validator": {
+        "lemon_score": 0.07330690324306488,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": false,
+        "validator_label": "NOT_LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 0,
+      "gradcam_calls": 0
+    },
+    {
+      "case": "beans_1",
+      "passed": true,
+      "status": "not_lemon_leaf",
+      "validator": {
+        "lemon_score": 0.0003162044158671051,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": false,
+        "validator_label": "NOT_LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 0,
+      "gradcam_calls": 0
+    },
+    {
+      "case": "beans_2",
+      "passed": true,
+      "status": "not_lemon_leaf",
+      "validator": {
+        "lemon_score": 0.0003985429066233337,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": false,
+        "validator_label": "NOT_LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 0,
+      "gradcam_calls": 0
+    },
+    {
+      "case": "beans_3",
+      "passed": true,
+      "status": "not_lemon_leaf",
+      "validator": {
+        "lemon_score": 5.772190343122929e-05,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": false,
+        "validator_label": "NOT_LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 0,
+      "gradcam_calls": 0
+    },
+    {
+      "case": "caltech101_1",
+      "passed": true,
+      "status": "not_lemon_leaf",
+      "validator": {
+        "lemon_score": 5.007404070056509e-06,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": false,
+        "validator_label": "NOT_LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 0,
+      "gradcam_calls": 0
+    },
+    {
+      "case": "caltech101_2",
+      "passed": true,
+      "status": "not_lemon_leaf",
+      "validator": {
+        "lemon_score": 0.0001339721493422985,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": false,
+        "validator_label": "NOT_LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 0,
+      "gradcam_calls": 0
+    },
+    {
+      "case": "caltech101_3",
+      "passed": true,
+      "status": "not_lemon_leaf",
+      "validator": {
+        "lemon_score": 0.00019082754442933947,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": false,
+        "validator_label": "NOT_LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 0,
+      "gradcam_calls": 0
+    },
+    {
+      "case": "Algal leaf spot",
+      "passed": true,
+      "status": "lemon_leaf_analysis",
+      "validator": {
+        "lemon_score": 0.9823124408721924,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": true,
+        "validator_label": "LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 1,
+      "gradcam_calls": 1,
+      "decode_calls": 1,
+      "predicted_class": "Algal leaf spot",
+      "gradcam_target_class_index": 0
+    },
+    {
+      "case": "Black spot",
+      "passed": true,
+      "status": "lemon_leaf_analysis",
+      "validator": {
+        "lemon_score": 0.9997877478599548,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": true,
+        "validator_label": "LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 1,
+      "gradcam_calls": 1,
+      "decode_calls": 1,
+      "predicted_class": "Black spot",
+      "gradcam_target_class_index": 1
+    },
+    {
+      "case": "Citrus canker",
+      "passed": true,
+      "status": "lemon_leaf_analysis",
+      "validator": {
+        "lemon_score": 0.9991686940193176,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": true,
+        "validator_label": "LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 1,
+      "gradcam_calls": 1,
+      "decode_calls": 1,
+      "predicted_class": "Citrus canker",
+      "gradcam_target_class_index": 2
+    },
+    {
+      "case": "Citrus pest",
+      "passed": true,
+      "status": "lemon_leaf_analysis",
+      "validator": {
+        "lemon_score": 0.9869101047515869,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": true,
+        "validator_label": "LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 1,
+      "gradcam_calls": 1,
+      "decode_calls": 1,
+      "predicted_class": "Citrus pest",
+      "gradcam_target_class_index": 3
+    },
+    {
+      "case": "Greening",
+      "passed": true,
+      "status": "lemon_leaf_analysis",
+      "validator": {
+        "lemon_score": 0.998811662197113,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": true,
+        "validator_label": "LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 1,
+      "gradcam_calls": 1,
+      "decode_calls": 1,
+      "predicted_class": "Greening",
+      "gradcam_target_class_index": 4
+    },
+    {
+      "case": "Healthy leaf",
+      "passed": true,
+      "status": "lemon_leaf_analysis",
+      "validator": {
+        "lemon_score": 0.9969157576560974,
+        "acceptance_threshold": 0.397647500038147,
+        "accepted_as_lemon_leaf": true,
+        "validator_label": "LEMON_LEAF",
+        "validator_model_name": "MobileNetV3Small"
+      },
+      "disease_calls": 1,
+      "gradcam_calls": 1,
+      "decode_calls": 1,
+      "predicted_class": "Healthy leaf",
+      "gradcam_target_class_index": 5
+    }
+  ],
+  "all_tests_passed": true,
+  "corrupt_image_status": "technical_error",
+  "threshold_boundary_and_non_0_5_behavior_passed": true,
+  "rejection_behavior": "No disease preparation, disease inference, model loading, or Grad-CAM; no disease label returned.",
+  "failure_handling_behavior": {
+    "validator": "analysis_error; fail closed",
+    "disease": "analysis_error; validator preserved",
+    "gradcam": "lemon_leaf_analysis; prediction and previous warnings preserved"
+  },
+  "single_rgb_decode_verified": true,
+  "flask_status_handling_passed": true,
+  "protected_models_metadata_metrics_and_splits_unchanged": true,
+  "original_dataset_stats_unchanged": true,
+  "smoke_samples": "training manifest assignments only; no test evaluation or accuracy measurement",
+  "limitations": [
+    "Validator benchmark does not establish broad real-world plant-species generalization.",
+    "Pillow versus training TensorFlow JPEG decoder can introduce small pixel differences.",
+    "Existing uncalibrated disease uncertainty and 410 unresolved cross-split similarity pairs remain."
+  ],
+  "timestamp_utc": "2026-09-17T06:30:43.488883+00:00"
+}

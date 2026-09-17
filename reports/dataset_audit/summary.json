@@ -1,0 +1,78 @@
+{
+  "audit_schema_version": 1,
+  "dataset_root": "dataset",
+  "inventory_fingerprint_sha256": "20991c9394102c8baa3e4ff1d7350c9286ea0eee60bfba4c9ef368d12215244e",
+  "total_images": 2050,
+  "valid_images": 2050,
+  "corrupt_images": 0,
+  "images_with_review_flags": 0,
+  "images_per_split": {
+    "train": 1433,
+    "val": 305,
+    "test": 312
+  },
+  "images_per_class": {
+    "Algal leaf spot": 310,
+    "Black spot": 330,
+    "Citrus canker": 370,
+    "Citrus pest": 390,
+    "Greening": 350,
+    "Healthy leaf": 300,
+    "Not lemon leaf": 0
+  },
+  "exact_duplicate_groups_total": 3,
+  "exact_within_split_duplicate_groups": 2,
+  "exact_cross_split_duplicate_groups": 1,
+  "exact_cross_class_duplicate_groups": 0,
+  "near_duplicate_candidates": 476,
+  "perceptual_hash_failures": 0,
+  "empty_classes": [
+    "Not lemon leaf"
+  ],
+  "empty_class_folders": [
+    {
+      "split": "train",
+      "class": "Not lemon leaf"
+    },
+    {
+      "split": "val",
+      "class": "Not lemon leaf"
+    },
+    {
+      "split": "test",
+      "class": "Not lemon leaf"
+    }
+  ],
+  "missing_class_folders": [],
+  "suspicious_capture_pattern_groups": 6,
+  "filename_pattern_matched_images": 2050,
+  "non_image_or_unassigned_files": 3,
+  "parameters": {
+    "seed": 42,
+    "dhash_size": 8,
+    "near_distance_max": 6,
+    "min_dimension": 80,
+    "max_dimension": 6000,
+    "max_aspect_ratio": 3.0,
+    "capture_number_gap": 1,
+    "supported_extensions": [
+      ".bmp",
+      ".gif",
+      ".jpeg",
+      ".jpg",
+      ".png",
+      ".tif",
+      ".tiff",
+      ".webp"
+    ]
+  },
+  "environment": {
+    "python": "3.13.2",
+    "numpy": "2.3.4",
+    "pandas": "2.3.3",
+    "Pillow": "11.3.0",
+    "matplotlib": "3.10.7",
+    "ipython": "9.6.0"
+  },
+  "interpretation": "Exact SHA-256 matches identify byte-identical files. Near-duplicate and capture-group candidates require human verification; neither proves leakage. No dataset corrections were performed."
+}

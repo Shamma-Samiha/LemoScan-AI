@@ -1,0 +1,166 @@
+{
+  "SAME_SOURCE_decisions_enforced": 10,
+  "actual_counts": {
+    "test": 307,
+    "train": 1435,
+    "val": 308
+  },
+  "actual_ratios": {
+    "test": 0.1497560975609756,
+    "train": 0.7,
+    "val": 0.15024390243902438
+  },
+  "all_mandatory_leakage_assertions_passed": true,
+  "autofilled_SAME_SOURCE_decisions_enforced": 4,
+  "capture_policy": "Refined sequence membership alone does not merge images; only qualifying A/B or strict edges are annotated.",
+  "class_counts": {
+    "Algal leaf spot": {
+      "test": 47,
+      "train": 217,
+      "val": 46
+    },
+    "Black spot": {
+      "test": 49,
+      "train": 231,
+      "val": 50
+    },
+    "Citrus canker": {
+      "test": 56,
+      "train": 259,
+      "val": 55
+    },
+    "Citrus pest": {
+      "test": 58,
+      "train": 273,
+      "val": 59
+    },
+    "Greening": {
+      "test": 52,
+      "train": 245,
+      "val": 53
+    },
+    "Healthy leaf": {
+      "test": 45,
+      "train": 210,
+      "val": 45
+    }
+  },
+  "class_percentages": {
+    "Algal leaf spot": {
+      "test": 15.161290322580644,
+      "train": 70.0,
+      "val": 14.838709677419354
+    },
+    "Black spot": {
+      "test": 14.84848484848485,
+      "train": 70.0,
+      "val": 15.151515151515152
+    },
+    "Citrus canker": {
+      "test": 15.135135135135137,
+      "train": 70.0,
+      "val": 14.864864864864865
+    },
+    "Citrus pest": {
+      "test": 14.871794871794872,
+      "train": 70.0,
+      "val": 15.128205128205128
+    },
+    "Greening": {
+      "test": 14.857142857142858,
+      "train": 70.0,
+      "val": 15.142857142857144
+    },
+    "Healthy leaf": {
+      "test": 15.0,
+      "train": 70.0,
+      "val": 15.0
+    }
+  },
+  "dataset_unchanged": true,
+  "enforced_grouping_edges": 24,
+  "environment": {
+    "matplotlib": "3.10.7",
+    "numpy": "2.3.4",
+    "pandas": "2.3.3"
+  },
+  "excluded_classes": [
+    "Not lemon leaf"
+  ],
+  "existing_evidence_and_decisions_unchanged": true,
+  "group_reason_edge_counts": {
+    "AB_pair_evidence": 18,
+    "autofilled_SAME_SOURCE": 4,
+    "exact_sha256": 3,
+    "existing_AB_cluster": 16,
+    "existing_AB_manifest": 16,
+    "human_SAME_SOURCE": 6,
+    "refined_capture_strong_link": 8,
+    "strict_multimetric": 4
+  },
+  "input_report_sha256": {
+    "duplicate_clusters.csv": "a1dfa0657939cb334833265012bf39abb49d09842b2b680073907de1ab917c0c",
+    "grouping_manifest.csv": "a1e65d8a15e631591e3ded0f1c91b09b9236c51fdb9d4f03dcd8c8f0774a3e37",
+    "image_inventory.csv": "c50fac167b7a228ff25c7fa3891f282af958dd2438f8cd55add9b6b519b6df18",
+    "manual_review_decisions.csv": "f728fc7b11d29bc569ff52e46bfcfaf33427a92876e1155072cc967f84df3c9d",
+    "refined_capture_sequence_review.csv": "0d7152ba6422d9f9fc1737e427afd7da0615798d788fb5b797cd5d93ff1fdaf0",
+    "similarity_review.csv": "402e60f9db08ab38bef20f84919b9545e5e824a96e17b7091e4d38764cb501a5"
+  },
+  "interpretation": "Leakage checks certify enforced exact, A/B, SAME_SOURCE, and strict relationships only. Unreviewed C/D or unknown shared specimens may remain. No image operations, training, or application changes were performed.",
+  "largest_group_size": 4,
+  "leakage_verification": {
+    "AB_pair_edges_crossing_splits": 0,
+    "SAME_SOURCE_edges_crossing_splits": 0,
+    "all_enforced_edges_crossing_splits": 0,
+    "exact_sha256_groups_crossing_splits": 0,
+    "existing_AB_clusters_crossing_splits": 0,
+    "existing_visual_groups_crossing_splits": 0,
+    "source_groups_crossing_splits": 0,
+    "strict_multimetric_edges_crossing_splits": 0
+  },
+  "manifest_sha256": "4e3dcd248ba68ec061bd0e586fc83224b5a3e4aacedacbed0763bf43c93ab694",
+  "non_singleton_source_groups": 20,
+  "refined_capture_sequences_loaded": 140,
+  "reproducibility": {
+    "assignment_input_columns": [
+      "class",
+      "group_size",
+      "source_group_id"
+    ],
+    "input_row_order_invariant": true,
+    "original_split_features_rejected": true,
+    "seeded_replay_identical": true
+  },
+  "schema_version": 1,
+  "seed": 42,
+  "source_group_counts_by_split": {
+    "test": 303,
+    "train": 1419,
+    "val": 306
+  },
+  "strict_multimetric_additional_conditions": "Same class, cross-split evidence, matching valid filename date, number gap <=1; all metrics required.",
+  "strict_multimetric_thresholds": {
+    "color_min": 0.98,
+    "dhash_max": 2,
+    "mae_max": 0.015,
+    "number_gap_max": 1,
+    "phash_max": 2
+  },
+  "target_integer_counts": {
+    "test": 307,
+    "train": 1435,
+    "val": 308
+  },
+  "target_ratios": {
+    "test": 0.15,
+    "train": 0.7,
+    "val": 0.15
+  },
+  "total_images": 2050,
+  "total_source_groups": 2028,
+  "unresolved_CD_pairs_by_category": {
+    "C": 225,
+    "D": 185
+  },
+  "unresolved_CD_pairs_crossing_new_split": 410
+}

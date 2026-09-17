@@ -1,0 +1,308 @@
+filepath,filename,true_class,predicted_class,confidence,correct,top_1_class,top_1_probability,top_2_class,top_2_probability,top_3_class,top_3_probability
+dataset/test/Algal leaf spot/2025_12_21_IMG (135).JPG,2025_12_21_IMG (135).JPG,Algal leaf spot,Algal leaf spot,0.99996996,True,Algal leaf spot,0.99996996,Greening,2.749183e-05,Citrus canker,2.452609e-06
+dataset/test/Algal leaf spot/2025_12_21_IMG (211).JPG,2025_12_21_IMG (211).JPG,Algal leaf spot,Algal leaf spot,0.9994061,True,Algal leaf spot,0.9994061,Greening,0.0005311904,Citrus canker,5.9694845e-05
+dataset/test/Algal leaf spot/2025_12_21_IMG (254).JPG,2025_12_21_IMG (254).JPG,Algal leaf spot,Algal leaf spot,0.8415101,True,Algal leaf spot,0.8415101,Black spot,0.09533301,Citrus canker,0.06218021
+dataset/test/Algal leaf spot/2025_12_21_IMG (266).JPG,2025_12_21_IMG (266).JPG,Algal leaf spot,Algal leaf spot,0.99999535,True,Algal leaf spot,0.99999535,Greening,4.5455886e-06,Black spot,7.185875e-08
+dataset/test/Algal leaf spot/2025_12_21_IMG (292).JPG,2025_12_21_IMG (292).JPG,Algal leaf spot,Algal leaf spot,0.9999033,True,Algal leaf spot,0.9999033,Greening,8.397023e-05,Citrus canker,6.4074866e-06
+dataset/test/Black spot/2025_12_20_IMG (113).JPG,2025_12_20_IMG (113).JPG,Black spot,Black spot,0.9922854,True,Black spot,0.9922854,Citrus canker,0.0071813934,Citrus pest,0.0002844302
+dataset/test/Black spot/2025_12_20_IMG (227).JPG,2025_12_20_IMG (227).JPG,Black spot,Black spot,0.9998504,True,Black spot,0.9998504,Citrus canker,0.0001349626,Greening,1.401985e-05
+dataset/test/Black spot/2025_12_20_IMG (254).JPG,2025_12_20_IMG (254).JPG,Black spot,Black spot,0.9878758,True,Black spot,0.9878758,Citrus canker,0.008717025,Greening,0.0030676392
+dataset/test/Black spot/2025_12_20_IMG (266).JPG,2025_12_20_IMG (266).JPG,Black spot,Black spot,0.9997991,True,Black spot,0.9997991,Algal leaf spot,0.000164872,Greening,1.8869445e-05
+dataset/test/Black spot/2025_12_20_IMG (86).JPG,2025_12_20_IMG (86).JPG,Black spot,Black spot,0.7009882,True,Black spot,0.7009882,Greening,0.2886939,Citrus canker,0.010041929
+dataset/test/Black spot/2025_12_20_IMG (89).JPG,2025_12_20_IMG (89).JPG,Black spot,Black spot,0.9868623,True,Black spot,0.9868623,Citrus canker,0.00944541,Greening,0.003686534
+dataset/test/Black spot/2025_12_20_IMG (9).JPG,2025_12_20_IMG (9).JPG,Black spot,Black spot,0.9928819,True,Black spot,0.9928819,Citrus canker,0.006240684,Greening,0.0008259032
+dataset/test/Citrus canker/2025_12_21_IMG (321).JPG,2025_12_21_IMG (321).JPG,Citrus canker,Citrus canker,0.64881045,True,Citrus canker,0.64881045,Black spot,0.3510954,Citrus pest,7.784477e-05
+dataset/test/Citrus canker/2025_12_21_IMG (344).JPG,2025_12_21_IMG (344).JPG,Citrus canker,Citrus canker,0.999723,True,Citrus canker,0.999723,Algal leaf spot,0.00026627717,Black spot,8.225036e-06
+dataset/test/Citrus canker/2025_12_21_IMG (387).JPG,2025_12_21_IMG (387).JPG,Citrus canker,Citrus canker,0.9999447,True,Citrus canker,0.9999447,Black spot,4.3758064e-05,Algal leaf spot,1.0156794e-05
+dataset/test/Citrus canker/2025_12_21_IMG (489).JPG,2025_12_21_IMG (489).JPG,Citrus canker,Citrus canker,0.99466634,True,Citrus canker,0.99466634,Greening,0.0031275945,Citrus pest,0.0017782943
+dataset/test/Citrus canker/2025_12_21_IMG (529).JPG,2025_12_21_IMG (529).JPG,Citrus canker,Citrus canker,0.85873544,True,Citrus canker,0.85873544,Black spot,0.11777435,Citrus pest,0.022336693
+dataset/test/Citrus canker/2025_12_21_IMG (559).JPG,2025_12_21_IMG (559).JPG,Citrus canker,Citrus canker,0.99640936,True,Citrus canker,0.99640936,Black spot,0.0033554987,Greening,0.0001642084
+dataset/test/Citrus pest/2025_12_20_IMG (140).JPG,2025_12_20_IMG (140).JPG,Citrus pest,Citrus pest,0.9992899,True,Citrus pest,0.9992899,Citrus canker,0.0004961464,Greening,0.00011137596
+dataset/test/Citrus pest/2025_12_20_IMG (149).JPG,2025_12_20_IMG (149).JPG,Citrus pest,Citrus pest,0.99131703,True,Citrus pest,0.99131703,Citrus canker,0.0046083992,Greening,0.003950402
+dataset/test/Citrus pest/2025_12_20_IMG (180).JPG,2025_12_20_IMG (180).JPG,Citrus pest,Citrus pest,0.94709563,True,Citrus pest,0.94709563,Greening,0.026605176,Healthy leaf,0.0229212
+dataset/test/Citrus pest/2025_12_20_IMG (273).JPG,2025_12_20_IMG (273).JPG,Citrus pest,Citrus pest,0.99999964,True,Citrus pest,0.99999964,Citrus canker,3.6055883e-07,Black spot,8.366119e-09
+dataset/test/Citrus pest/2025_12_20_IMG (315).JPG,2025_12_20_IMG (315).JPG,Citrus pest,Citrus pest,0.97794,True,Citrus pest,0.97794,Citrus canker,0.01138296,Healthy leaf,0.010222578
+dataset/test/Citrus pest/2025_12_20_IMG (387).JPG,2025_12_20_IMG (387).JPG,Citrus pest,Citrus pest,0.9999994,True,Citrus pest,0.9999994,Citrus canker,5.9700443e-07,Greening,2.5209216e-08
+dataset/test/Citrus pest/2025_12_20_IMG (56).JPG,2025_12_20_IMG (56).JPG,Citrus pest,Citrus pest,0.999859,True,Citrus pest,0.999859,Black spot,8.429563e-05,Citrus canker,3.4213957e-05
+dataset/test/Citrus pest/2025_12_20_IMG (85).JPG,2025_12_20_IMG (85).JPG,Citrus pest,Citrus pest,0.9999417,True,Citrus pest,0.9999417,Citrus canker,5.031437e-05,Healthy leaf,5.795605e-06
+dataset/test/Greening/2025_12_21_IMG (156).JPG,2025_12_21_IMG (156).JPG,Greening,Greening,0.9895265,True,Greening,0.9895265,Citrus canker,0.009257212,Black spot,0.0010286046
+dataset/test/Greening/2025_12_21_IMG (310).JPG,2025_12_21_IMG (310).JPG,Greening,Healthy leaf,0.68732136,False,Healthy leaf,0.68732136,Greening,0.25978714,Citrus canker,0.034093052
+dataset/test/Greening/2025_12_21_IMG (346).JPG,2025_12_21_IMG (346).JPG,Greening,Black spot,0.5668818,False,Black spot,0.5668818,Greening,0.27409273,Citrus canker,0.15201452
+dataset/test/Greening/2025_12_21_IMG (56).JPG,2025_12_21_IMG (56).JPG,Greening,Greening,0.99698645,True,Greening,0.99698645,Algal leaf spot,0.0017724107,Black spot,0.00083930726
+dataset/test/Healthy leaf/2025_11_21_IMG (110).JPG,2025_11_21_IMG (110).JPG,Healthy leaf,Healthy leaf,0.99678206,True,Healthy leaf,0.99678206,Greening,0.0021863738,Black spot,0.0007714712
+dataset/test/Healthy leaf/2025_11_21_IMG (143).JPG,2025_11_21_IMG (143).JPG,Healthy leaf,Healthy leaf,0.9967751,True,Healthy leaf,0.9967751,Greening,0.0026910605,Citrus pest,0.0004842666
+dataset/test/Healthy leaf/2025_11_21_IMG (225).JPG,2025_11_21_IMG (225).JPG,Healthy leaf,Healthy leaf,0.988485,True,Healthy leaf,0.988485,Greening,0.011314122,Citrus pest,0.00012329564
+dataset/test/Healthy leaf/2025_11_21_IMG (294).JPG,2025_11_21_IMG (294).JPG,Healthy leaf,Healthy leaf,0.9959053,True,Healthy leaf,0.9959053,Greening,0.0038710143,Citrus pest,0.00012322652
+dataset/test/Healthy leaf/2025_11_21_IMG (79).JPG,2025_11_21_IMG (79).JPG,Healthy leaf,Healthy leaf,0.9999503,True,Healthy leaf,0.9999503,Citrus pest,3.7332105e-05,Greening,6.5266963e-06
+dataset/test/Healthy leaf/2025_11_21_IMG (92).JPG,2025_11_21_IMG (92).JPG,Healthy leaf,Healthy leaf,0.9999429,True,Healthy leaf,0.9999429,Greening,4.653285e-05,Citrus pest,1.0273169e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (104).JPG,2025_12_21_IMG (104).JPG,Algal leaf spot,Algal leaf spot,0.99924254,True,Algal leaf spot,0.99924254,Citrus pest,0.00033085904,Citrus canker,0.00019358206
+dataset/train/Algal leaf spot/2025_12_21_IMG (105).JPG,2025_12_21_IMG (105).JPG,Algal leaf spot,Algal leaf spot,0.99873465,True,Algal leaf spot,0.99873465,Black spot,0.0005398423,Citrus pest,0.00033199714
+dataset/train/Algal leaf spot/2025_12_21_IMG (106).JPG,2025_12_21_IMG (106).JPG,Algal leaf spot,Algal leaf spot,0.9999021,True,Algal leaf spot,0.9999021,Citrus canker,3.7609927e-05,Black spot,2.827258e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (123).JPG,2025_12_21_IMG (123).JPG,Algal leaf spot,Algal leaf spot,0.9497013,True,Algal leaf spot,0.9497013,Black spot,0.047678065,Greening,0.0018870861
+dataset/train/Algal leaf spot/2025_12_21_IMG (166).JPG,2025_12_21_IMG (166).JPG,Algal leaf spot,Algal leaf spot,0.9996195,True,Algal leaf spot,0.9996195,Black spot,0.00023936189,Greening,7.105513e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (168).JPG,2025_12_21_IMG (168).JPG,Algal leaf spot,Algal leaf spot,0.99219805,True,Algal leaf spot,0.99219805,Greening,0.007433552,Black spot,0.00030903972
+dataset/train/Algal leaf spot/2025_12_21_IMG (179).JPG,2025_12_21_IMG (179).JPG,Algal leaf spot,Algal leaf spot,0.95589453,True,Algal leaf spot,0.95589453,Citrus canker,0.016970744,Black spot,0.014426571
+dataset/train/Algal leaf spot/2025_12_21_IMG (210).JPG,2025_12_21_IMG (210).JPG,Algal leaf spot,Algal leaf spot,0.98129785,True,Algal leaf spot,0.98129785,Citrus canker,0.010805461,Greening,0.007733277
+dataset/train/Algal leaf spot/2025_12_21_IMG (22).JPG,2025_12_21_IMG (22).JPG,Algal leaf spot,Algal leaf spot,0.9993218,True,Algal leaf spot,0.9993218,Black spot,0.00050094293,Greening,0.00016107385
+dataset/train/Algal leaf spot/2025_12_21_IMG (224).JPG,2025_12_21_IMG (224).JPG,Algal leaf spot,Algal leaf spot,0.99997663,True,Algal leaf spot,0.99997663,Citrus canker,1.853965e-05,Greening,3.91597e-06
+dataset/train/Algal leaf spot/2025_12_21_IMG (226).JPG,2025_12_21_IMG (226).JPG,Algal leaf spot,Algal leaf spot,0.99933076,True,Algal leaf spot,0.99933076,Citrus canker,0.00053528586,Greening,0.0001143242
+dataset/train/Algal leaf spot/2025_12_21_IMG (231).JPG,2025_12_21_IMG (231).JPG,Algal leaf spot,Algal leaf spot,0.9995409,True,Algal leaf spot,0.9995409,Greening,0.0002738098,Black spot,0.00016570244
+dataset/train/Algal leaf spot/2025_12_21_IMG (242).JPG,2025_12_21_IMG (242).JPG,Algal leaf spot,Algal leaf spot,0.96312493,True,Algal leaf spot,0.96312493,Greening,0.019058902,Citrus canker,0.008791231
+dataset/train/Algal leaf spot/2025_12_21_IMG (250).JPG,2025_12_21_IMG (250).JPG,Algal leaf spot,Algal leaf spot,0.98964477,True,Algal leaf spot,0.98964477,Black spot,0.009179881,Citrus canker,0.0011563268
+dataset/train/Algal leaf spot/2025_12_21_IMG (251).JPG,2025_12_21_IMG (251).JPG,Algal leaf spot,Algal leaf spot,0.9998312,True,Algal leaf spot,0.9998312,Citrus canker,0.00012019183,Black spot,3.6328533e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (285).JPG,2025_12_21_IMG (285).JPG,Algal leaf spot,Algal leaf spot,0.99992394,True,Algal leaf spot,0.99992394,Citrus pest,2.924528e-05,Greening,1.9262947e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (290).JPG,2025_12_21_IMG (290).JPG,Algal leaf spot,Algal leaf spot,0.99979466,True,Algal leaf spot,0.99979466,Greening,0.00020132214,Citrus pest,3.2937148e-06
+dataset/train/Algal leaf spot/2025_12_21_IMG (295).JPG,2025_12_21_IMG (295).JPG,Algal leaf spot,Algal leaf spot,0.99685967,True,Algal leaf spot,0.99685967,Citrus canker,0.0012343788,Citrus pest,0.0010105141
+dataset/train/Algal leaf spot/2025_12_21_IMG (36).JPG,2025_12_21_IMG (36).JPG,Algal leaf spot,Algal leaf spot,0.9952685,True,Algal leaf spot,0.9952685,Black spot,0.004630187,Citrus canker,8.8132016e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (40).JPG,2025_12_21_IMG (40).JPG,Algal leaf spot,Algal leaf spot,0.9998659,True,Algal leaf spot,0.9998659,Black spot,0.00012340739,Greening,8.479258e-06
+dataset/train/Algal leaf spot/2025_12_21_IMG (46).JPG,2025_12_21_IMG (46).JPG,Algal leaf spot,Algal leaf spot,0.9982157,True,Algal leaf spot,0.9982157,Black spot,0.0011927887,Citrus canker,0.00034131613
+dataset/train/Algal leaf spot/2025_12_21_IMG (49).JPG,2025_12_21_IMG (49).JPG,Algal leaf spot,Algal leaf spot,0.9998697,True,Algal leaf spot,0.9998697,Greening,0.00012306737,Citrus canker,6.7856195e-06
+dataset/train/Algal leaf spot/2025_12_21_IMG (55).JPG,2025_12_21_IMG (55).JPG,Algal leaf spot,Algal leaf spot,0.9991918,True,Algal leaf spot,0.9991918,Greening,0.0006583456,Citrus canker,9.418388e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (63).JPG,2025_12_21_IMG (63).JPG,Algal leaf spot,Algal leaf spot,0.9988538,True,Algal leaf spot,0.9988538,Black spot,0.0011240555,Citrus canker,2.0075204e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (66).JPG,2025_12_21_IMG (66).JPG,Algal leaf spot,Algal leaf spot,0.99811894,True,Algal leaf spot,0.99811894,Black spot,0.0017770218,Citrus canker,9.578953e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (70).JPG,2025_12_21_IMG (70).JPG,Algal leaf spot,Algal leaf spot,0.90327495,True,Algal leaf spot,0.90327495,Black spot,0.095181525,Greening,0.0014294187
+dataset/train/Algal leaf spot/2025_12_21_IMG (75).JPG,2025_12_21_IMG (75).JPG,Algal leaf spot,Algal leaf spot,0.9999392,True,Algal leaf spot,0.9999392,Greening,5.0280476e-05,Citrus canker,6.0522457e-06
+dataset/train/Algal leaf spot/2025_12_21_IMG (77).JPG,2025_12_21_IMG (77).JPG,Algal leaf spot,Algal leaf spot,0.99988794,True,Algal leaf spot,0.99988794,Black spot,5.7149617e-05,Greening,5.224401e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (8).JPG,2025_12_21_IMG (8).JPG,Algal leaf spot,Algal leaf spot,0.9999651,True,Algal leaf spot,0.9999651,Black spot,2.6609016e-05,Greening,8.265382e-06
+dataset/train/Algal leaf spot/2025_12_21_IMG (82).JPG,2025_12_21_IMG (82).JPG,Algal leaf spot,Algal leaf spot,0.99979407,True,Algal leaf spot,0.99979407,Black spot,0.00012133962,Citrus canker,7.771789e-05
+dataset/train/Algal leaf spot/2025_12_21_IMG (96).JPG,2025_12_21_IMG (96).JPG,Algal leaf spot,Algal leaf spot,0.9776244,True,Algal leaf spot,0.9776244,Black spot,0.021496795,Citrus canker,0.0006831524
+dataset/train/Black spot/2025_12_20_IMG (1).JPG,2025_12_20_IMG (1).JPG,Black spot,Black spot,0.9983095,True,Black spot,0.9983095,Citrus canker,0.00092232425,Greening,0.0007405393
+dataset/train/Black spot/2025_12_20_IMG (105).JPG,2025_12_20_IMG (105).JPG,Black spot,Black spot,0.9988042,True,Black spot,0.9988042,Greening,0.0005960112,Citrus canker,0.00034645625
+dataset/train/Black spot/2025_12_20_IMG (118).JPG,2025_12_20_IMG (118).JPG,Black spot,Black spot,0.5560868,True,Black spot,0.5560868,Citrus canker,0.43050817,Citrus pest,0.00973937
+dataset/train/Black spot/2025_12_20_IMG (121).JPG,2025_12_20_IMG (121).JPG,Black spot,Black spot,0.996781,True,Black spot,0.996781,Citrus canker,0.0018553406,Algal leaf spot,0.0013008568
+dataset/train/Black spot/2025_12_20_IMG (13).JPG,2025_12_20_IMG (13).JPG,Black spot,Black spot,0.99666613,True,Black spot,0.99666613,Citrus canker,0.0032693665,Greening,6.375323e-05
+dataset/train/Black spot/2025_12_20_IMG (140).JPG,2025_12_20_IMG (140).JPG,Black spot,Black spot,0.9952893,True,Black spot,0.9952893,Citrus canker,0.004646707,Greening,4.1588984e-05
+dataset/train/Black spot/2025_12_20_IMG (154).JPG,2025_12_20_IMG (154).JPG,Black spot,Black spot,0.9581955,True,Black spot,0.9581955,Greening,0.040582363,Citrus canker,0.0009027354
+dataset/train/Black spot/2025_12_20_IMG (155).JPG,2025_12_20_IMG (155).JPG,Black spot,Black spot,0.98367,True,Black spot,0.98367,Greening,0.014627455,Algal leaf spot,0.0014262452
+dataset/train/Black spot/2025_12_20_IMG (173).JPG,2025_12_20_IMG (173).JPG,Black spot,Black spot,0.99301964,True,Black spot,0.99301964,Citrus canker,0.0039382796,Greening,0.0026985104
+dataset/train/Black spot/2025_12_20_IMG (175).JPG,2025_12_20_IMG (175).JPG,Black spot,Black spot,0.9700772,True,Black spot,0.9700772,Greening,0.02872238,Citrus canker,0.0008370191
+dataset/train/Black spot/2025_12_20_IMG (177).JPG,2025_12_20_IMG (177).JPG,Black spot,Black spot,0.98825186,True,Black spot,0.98825186,Greening,0.010483052,Citrus canker,0.0009592556
+dataset/train/Black spot/2025_12_20_IMG (179).JPG,2025_12_20_IMG (179).JPG,Black spot,Black spot,0.98800266,True,Black spot,0.98800266,Citrus canker,0.011737203,Greening,0.00020499688
+dataset/train/Black spot/2025_12_20_IMG (18).JPG,2025_12_20_IMG (18).JPG,Black spot,Black spot,0.99812335,True,Black spot,0.99812335,Greening,0.0018386445,Citrus canker,3.7056052e-05
+dataset/train/Black spot/2025_12_20_IMG (189).JPG,2025_12_20_IMG (189).JPG,Black spot,Black spot,0.9907206,True,Black spot,0.9907206,Greening,0.0047375625,Citrus canker,0.0038771469
+dataset/train/Black spot/2025_12_20_IMG (204).JPG,2025_12_20_IMG (204).JPG,Black spot,Black spot,0.99042445,True,Black spot,0.99042445,Citrus canker,0.00867297,Greening,0.0009020858
+dataset/train/Black spot/2025_12_20_IMG (212).JPG,2025_12_20_IMG (212).JPG,Black spot,Black spot,0.9916156,True,Black spot,0.9916156,Citrus canker,0.008296066,Greening,5.3152165e-05
+dataset/train/Black spot/2025_12_20_IMG (219).JPG,2025_12_20_IMG (219).JPG,Black spot,Black spot,0.9497405,True,Black spot,0.9497405,Citrus canker,0.032370012,Algal leaf spot,0.008517876
+dataset/train/Black spot/2025_12_20_IMG (230).JPG,2025_12_20_IMG (230).JPG,Black spot,Black spot,0.9965527,True,Black spot,0.9965527,Greening,0.0033240158,Citrus canker,0.00010838272
+dataset/train/Black spot/2025_12_20_IMG (239).JPG,2025_12_20_IMG (239).JPG,Black spot,Black spot,0.99698263,True,Black spot,0.99698263,Citrus canker,0.0030052525,Greening,1.1800969e-05
+dataset/train/Black spot/2025_12_20_IMG (24).JPG,2025_12_20_IMG (24).JPG,Black spot,Black spot,0.9820049,True,Black spot,0.9820049,Citrus canker,0.016557707,Greening,0.0014183286
+dataset/train/Black spot/2025_12_20_IMG (248).JPG,2025_12_20_IMG (248).JPG,Black spot,Black spot,0.92343986,True,Black spot,0.92343986,Greening,0.07395214,Citrus canker,0.002490436
+dataset/train/Black spot/2025_12_20_IMG (271).JPG,2025_12_20_IMG (271).JPG,Black spot,Black spot,0.52117574,True,Black spot,0.52117574,Healthy leaf,0.38767797,Citrus pest,0.06618516
+dataset/train/Black spot/2025_12_20_IMG (290).JPG,2025_12_20_IMG (290).JPG,Black spot,Black spot,0.99998844,True,Black spot,0.99998844,Greening,8.894228e-06,Citrus canker,2.0997074e-06
+dataset/train/Black spot/2025_12_20_IMG (304).JPG,2025_12_20_IMG (304).JPG,Black spot,Black spot,0.99835134,True,Black spot,0.99835134,Greening,0.0012327534,Algal leaf spot,0.00039958276
+dataset/train/Black spot/2025_12_20_IMG (31).JPG,2025_12_20_IMG (31).JPG,Black spot,Black spot,0.99898905,True,Black spot,0.99898905,Greening,0.0009793342,Citrus canker,1.778715e-05
+dataset/train/Black spot/2025_12_20_IMG (315).JPG,2025_12_20_IMG (315).JPG,Black spot,Black spot,0.9949934,True,Black spot,0.9949934,Algal leaf spot,0.0035497546,Greening,0.0013815418
+dataset/train/Black spot/2025_12_20_IMG (39).JPG,2025_12_20_IMG (39).JPG,Black spot,Black spot,0.9997991,True,Black spot,0.9997991,Greening,0.0001956052,Algal leaf spot,3.1596558e-06
+dataset/train/Black spot/2025_12_20_IMG (4).JPG,2025_12_20_IMG (4).JPG,Black spot,Black spot,0.99204624,True,Black spot,0.99204624,Citrus canker,0.007937209,Greening,1.5625177e-05
+dataset/train/Black spot/2025_12_20_IMG (52).JPG,2025_12_20_IMG (52).JPG,Black spot,Black spot,0.96419317,True,Black spot,0.96419317,Greening,0.029768996,Algal leaf spot,0.0042503662
+dataset/train/Black spot/2025_12_20_IMG (56).JPG,2025_12_20_IMG (56).JPG,Black spot,Citrus canker,0.48330417,False,Citrus canker,0.48330417,Black spot,0.43611774,Greening,0.065452255
+dataset/train/Black spot/2025_12_20_IMG (57).JPG,2025_12_20_IMG (57).JPG,Black spot,Black spot,0.61150485,True,Black spot,0.61150485,Citrus canker,0.3123161,Greening,0.067036584
+dataset/train/Black spot/2025_12_20_IMG (59).JPG,2025_12_20_IMG (59).JPG,Black spot,Black spot,0.9483142,True,Black spot,0.9483142,Citrus canker,0.031463113,Algal leaf spot,0.011935413
+dataset/train/Black spot/2025_12_20_IMG (6).JPG,2025_12_20_IMG (6).JPG,Black spot,Black spot,0.99736744,True,Black spot,0.99736744,Citrus canker,0.0017810466,Greening,0.00084785273
+dataset/train/Citrus canker/2025_12_21_IMG (208).JPG,2025_12_21_IMG (208).JPG,Citrus canker,Black spot,0.97660404,False,Black spot,0.97660404,Algal leaf spot,0.016129911,Greening,0.006628944
+dataset/train/Citrus canker/2025_12_21_IMG (211).JPG,2025_12_21_IMG (211).JPG,Citrus canker,Citrus canker,0.9959474,True,Citrus canker,0.9959474,Citrus pest,0.0033679241,Algal leaf spot,0.0006433255
+dataset/train/Citrus canker/2025_12_21_IMG (227).JPG,2025_12_21_IMG (227).JPG,Citrus canker,Citrus pest,0.6778813,False,Citrus pest,0.6778813,Citrus canker,0.32080016,Algal leaf spot,0.0005804862
+dataset/train/Citrus canker/2025_12_21_IMG (228).JPG,2025_12_21_IMG (228).JPG,Citrus canker,Citrus pest,0.91188055,False,Citrus pest,0.91188055,Citrus canker,0.087835185,Black spot,0.0002263664
+dataset/train/Citrus canker/2025_12_21_IMG (243).JPG,2025_12_21_IMG (243).JPG,Citrus canker,Citrus canker,0.9619473,True,Citrus canker,0.9619473,Citrus pest,0.017926568,Greening,0.015370744
+dataset/train/Citrus canker/2025_12_21_IMG (245).JPG,2025_12_21_IMG (245).JPG,Citrus canker,Citrus canker,0.55358607,True,Citrus canker,0.55358607,Citrus pest,0.41886085,Greening,0.025414338
+dataset/train/Citrus canker/2025_12_21_IMG (270).JPG,2025_12_21_IMG (270).JPG,Citrus canker,Citrus canker,0.98875904,True,Citrus canker,0.98875904,Black spot,0.0052940263,Greening,0.0047809677
+dataset/train/Citrus canker/2025_12_21_IMG (294).JPG,2025_12_21_IMG (294).JPG,Citrus canker,Citrus canker,0.9918251,True,Citrus canker,0.9918251,Black spot,0.007247332,Greening,0.00091520284
+dataset/train/Citrus canker/2025_12_21_IMG (301).JPG,2025_12_21_IMG (301).JPG,Citrus canker,Citrus canker,0.81859607,True,Citrus canker,0.81859607,Black spot,0.17634042,Greening,0.0043352717
+dataset/train/Citrus canker/2025_12_21_IMG (308).JPG,2025_12_21_IMG (308).JPG,Citrus canker,Citrus canker,0.98080677,True,Citrus canker,0.98080677,Black spot,0.014570698,Greening,0.0042750677
+dataset/train/Citrus canker/2025_12_21_IMG (311).JPG,2025_12_21_IMG (311).JPG,Citrus canker,Citrus canker,0.9935782,True,Citrus canker,0.9935782,Greening,0.0058372477,Black spot,0.00053372455
+dataset/train/Citrus canker/2025_12_21_IMG (317).JPG,2025_12_21_IMG (317).JPG,Citrus canker,Citrus canker,0.9181478,True,Citrus canker,0.9181478,Black spot,0.07875101,Greening,0.0030198311
+dataset/train/Citrus canker/2025_12_21_IMG (320).JPG,2025_12_21_IMG (320).JPG,Citrus canker,Citrus canker,0.99573934,True,Citrus canker,0.99573934,Black spot,0.0042289607,Citrus pest,1.6943319e-05
+dataset/train/Citrus canker/2025_12_21_IMG (331).JPG,2025_12_21_IMG (331).JPG,Citrus canker,Citrus canker,0.88717633,True,Citrus canker,0.88717633,Black spot,0.10440012,Greening,0.008397037
+dataset/train/Citrus canker/2025_12_21_IMG (346).JPG,2025_12_21_IMG (346).JPG,Citrus canker,Citrus canker,0.99948114,True,Citrus canker,0.99948114,Black spot,0.00042121738,Greening,8.3799525e-05
+dataset/train/Citrus canker/2025_12_21_IMG (382).JPG,2025_12_21_IMG (382).JPG,Citrus canker,Citrus canker,0.9995585,True,Citrus canker,0.9995585,Black spot,0.0004407849,Citrus pest,6.585146e-07
+dataset/train/Citrus canker/2025_12_21_IMG (393).JPG,2025_12_21_IMG (393).JPG,Citrus canker,Citrus canker,0.9451661,True,Citrus canker,0.9451661,Black spot,0.02839631,Greening,0.022549374
+dataset/train/Citrus canker/2025_12_21_IMG (403).JPG,2025_12_21_IMG (403).JPG,Citrus canker,Citrus canker,0.9910001,True,Citrus canker,0.9910001,Black spot,0.008489509,Algal leaf spot,0.00022507363
+dataset/train/Citrus canker/2025_12_21_IMG (408).JPG,2025_12_21_IMG (408).JPG,Citrus canker,Citrus canker,0.9733825,True,Citrus canker,0.9733825,Greening,0.015573013,Citrus pest,0.0056985067
+dataset/train/Citrus canker/2025_12_21_IMG (415).JPG,2025_12_21_IMG (415).JPG,Citrus canker,Citrus canker,0.9249832,True,Citrus canker,0.9249832,Black spot,0.07481929,Citrus pest,0.00013495168
+dataset/train/Citrus canker/2025_12_21_IMG (422).JPG,2025_12_21_IMG (422).JPG,Citrus canker,Citrus canker,0.97795016,True,Citrus canker,0.97795016,Black spot,0.014199545,Citrus pest,0.0034313581
+dataset/train/Citrus canker/2025_12_21_IMG (440).JPG,2025_12_21_IMG (440).JPG,Citrus canker,Citrus canker,0.99563086,True,Citrus canker,0.99563086,Greening,0.002658739,Black spot,0.0011146505
+dataset/train/Citrus canker/2025_12_21_IMG (441).JPG,2025_12_21_IMG (441).JPG,Citrus canker,Citrus canker,0.998475,True,Citrus canker,0.998475,Greening,0.00081294385,Black spot,0.0006570848
+dataset/train/Citrus canker/2025_12_21_IMG (442).JPG,2025_12_21_IMG (442).JPG,Citrus canker,Citrus canker,0.99979144,True,Citrus canker,0.99979144,Black spot,8.559811e-05,Citrus pest,7.905434e-05
+dataset/train/Citrus canker/2025_12_21_IMG (446).JPG,2025_12_21_IMG (446).JPG,Citrus canker,Citrus canker,0.99992645,True,Citrus canker,0.99992645,Citrus pest,5.9517424e-05,Black spot,1.3191872e-05
+dataset/train/Citrus canker/2025_12_21_IMG (474).JPG,2025_12_21_IMG (474).JPG,Citrus canker,Citrus canker,0.9691171,True,Citrus canker,0.9691171,Black spot,0.023115551,Algal leaf spot,0.006051941
+dataset/train/Citrus canker/2025_12_21_IMG (482).JPG,2025_12_21_IMG (482).JPG,Citrus canker,Citrus canker,0.9854397,True,Citrus canker,0.9854397,Black spot,0.012484681,Citrus pest,0.0011901536
+dataset/train/Citrus canker/2025_12_21_IMG (486).JPG,2025_12_21_IMG (486).JPG,Citrus canker,Citrus canker,0.9944155,True,Citrus canker,0.9944155,Citrus pest,0.0033715973,Algal leaf spot,0.0010462836
+dataset/train/Citrus canker/2025_12_21_IMG (488).JPG,2025_12_21_IMG (488).JPG,Citrus canker,Citrus canker,0.99692947,True,Citrus canker,0.99692947,Greening,0.0013730577,Citrus pest,0.001359407
+dataset/train/Citrus canker/2025_12_21_IMG (490).JPG,2025_12_21_IMG (490).JPG,Citrus canker,Citrus canker,0.99739575,True,Citrus canker,0.99739575,Greening,0.001063635,Black spot,0.000808112
+dataset/train/Citrus canker/2025_12_21_IMG (491).JPG,2025_12_21_IMG (491).JPG,Citrus canker,Citrus canker,0.9982023,True,Citrus canker,0.9982023,Black spot,0.0017480068,Greening,3.3914504e-05
+dataset/train/Citrus canker/2025_12_21_IMG (492).JPG,2025_12_21_IMG (492).JPG,Citrus canker,Citrus canker,0.997242,True,Citrus canker,0.997242,Black spot,0.002729155,Algal leaf spot,1.9736026e-05
+dataset/train/Citrus canker/2025_12_21_IMG (498).JPG,2025_12_21_IMG (498).JPG,Citrus canker,Citrus canker,0.99908495,True,Citrus canker,0.99908495,Black spot,0.00091295625,Citrus pest,1.7491377e-06
+dataset/train/Citrus canker/2025_12_21_IMG (514).JPG,2025_12_21_IMG (514).JPG,Citrus canker,Citrus canker,0.9901136,True,Citrus canker,0.9901136,Black spot,0.009277752,Citrus pest,0.0006039927
+dataset/train/Citrus canker/2025_12_21_IMG (521).JPG,2025_12_21_IMG (521).JPG,Citrus canker,Citrus canker,0.98529184,True,Citrus canker,0.98529184,Black spot,0.013569414,Citrus pest,0.0011365263
+dataset/train/Citrus canker/2025_12_21_IMG (522).JPG,2025_12_21_IMG (522).JPG,Citrus canker,Citrus canker,0.9974152,True,Citrus canker,0.9974152,Black spot,0.001668638,Citrus pest,0.00091547903
+dataset/train/Citrus canker/2025_12_21_IMG (539).JPG,2025_12_21_IMG (539).JPG,Citrus canker,Citrus canker,0.9999827,True,Citrus canker,0.9999827,Black spot,1.43668485e-05,Citrus pest,2.8121776e-06
+dataset/train/Citrus canker/2025_12_21_IMG (540).JPG,2025_12_21_IMG (540).JPG,Citrus canker,Citrus canker,0.9110182,True,Citrus canker,0.9110182,Black spot,0.0887488,Citrus pest,0.00020050246
+dataset/train/Citrus canker/2025_12_21_IMG (561).JPG,2025_12_21_IMG (561).JPG,Citrus canker,Citrus canker,0.99758446,True,Citrus canker,0.99758446,Citrus pest,0.0013524755,Black spot,0.000996835
+dataset/train/Citrus pest/2025_12_20_IMG (104).JPG,2025_12_20_IMG (104).JPG,Citrus pest,Citrus pest,0.98251903,True,Citrus pest,0.98251903,Healthy leaf,0.014622767,Citrus canker,0.0017839507
+dataset/train/Citrus pest/2025_12_20_IMG (106).JPG,2025_12_20_IMG (106).JPG,Citrus pest,Citrus pest,0.9308067,True,Citrus pest,0.9308067,Healthy leaf,0.06500095,Citrus canker,0.0027476833
+dataset/train/Citrus pest/2025_12_20_IMG (109).JPG,2025_12_20_IMG (109).JPG,Citrus pest,Citrus pest,0.93877614,True,Citrus pest,0.93877614,Healthy leaf,0.058697283,Greening,0.0019983568
+dataset/train/Citrus pest/2025_12_20_IMG (120).JPG,2025_12_20_IMG (120).JPG,Citrus pest,Citrus pest,0.84818393,True,Citrus pest,0.84818393,Citrus canker,0.06610913,Black spot,0.043458227
+dataset/train/Citrus pest/2025_12_20_IMG (121).JPG,2025_12_20_IMG (121).JPG,Citrus pest,Citrus pest,0.9218752,True,Citrus pest,0.9218752,Citrus canker,0.07467919,Greening,0.002612864
+dataset/train/Citrus pest/2025_12_20_IMG (125).JPG,2025_12_20_IMG (125).JPG,Citrus pest,Citrus pest,0.9784788,True,Citrus pest,0.9784788,Citrus canker,0.01811156,Black spot,0.002531273
+dataset/train/Citrus pest/2025_12_20_IMG (132).JPG,2025_12_20_IMG (132).JPG,Citrus pest,Citrus pest,0.9003547,True,Citrus pest,0.9003547,Citrus canker,0.0913191,Greening,0.007346858
+dataset/train/Citrus pest/2025_12_20_IMG (154).JPG,2025_12_20_IMG (154).JPG,Citrus pest,Citrus pest,0.91648644,True,Citrus pest,0.91648644,Citrus canker,0.083370954,Greening,0.00010110417
+dataset/train/Citrus pest/2025_12_20_IMG (164).JPG,2025_12_20_IMG (164).JPG,Citrus pest,Citrus pest,0.99705875,True,Citrus pest,0.99705875,Citrus canker,0.0025306777,Healthy leaf,0.00024063776
+dataset/train/Citrus pest/2025_12_20_IMG (169).JPG,2025_12_20_IMG (169).JPG,Citrus pest,Citrus pest,0.9955089,True,Citrus pest,0.9955089,Healthy leaf,0.0031731601,Citrus canker,0.0012026373
+dataset/train/Citrus pest/2025_12_20_IMG (178).JPG,2025_12_20_IMG (178).JPG,Citrus pest,Citrus pest,0.9920868,True,Citrus pest,0.9920868,Healthy leaf,0.0040949266,Citrus canker,0.002289255
+dataset/train/Citrus pest/2025_12_20_IMG (18).JPG,2025_12_20_IMG (18).JPG,Citrus pest,Citrus pest,0.96855605,True,Citrus pest,0.96855605,Black spot,0.016428081,Citrus canker,0.014867736
+dataset/train/Citrus pest/2025_12_20_IMG (201).JPG,2025_12_20_IMG (201).JPG,Citrus pest,Citrus pest,0.98742515,True,Citrus pest,0.98742515,Citrus canker,0.011113074,Healthy leaf,0.001321992
+dataset/train/Citrus pest/2025_12_20_IMG (206).JPG,2025_12_20_IMG (206).JPG,Citrus pest,Citrus pest,0.9977423,True,Citrus pest,0.9977423,Citrus canker,0.00084517006,Greening,0.00078253396
+dataset/train/Citrus pest/2025_12_20_IMG (216).JPG,2025_12_20_IMG (216).JPG,Citrus pest,Citrus pest,0.9996165,True,Citrus pest,0.9996165,Greening,0.00028342928,Citrus canker,6.930786e-05
+dataset/train/Citrus pest/2025_12_20_IMG (244).JPG,2025_12_20_IMG (244).JPG,Citrus pest,Citrus pest,0.99947685,True,Citrus pest,0.99947685,Citrus canker,0.00052194996,Algal leaf spot,1.154184e-06
+dataset/train/Citrus pest/2025_12_20_IMG (245).JPG,2025_12_20_IMG (245).JPG,Citrus pest,Citrus pest,0.99555427,True,Citrus pest,0.99555427,Citrus canker,0.004437779,Algal leaf spot,6.5839613e-06
+dataset/train/Citrus pest/2025_12_20_IMG (286).JPG,2025_12_20_IMG (286).JPG,Citrus pest,Citrus pest,0.9998734,True,Citrus pest,0.9998734,Algal leaf spot,7.4083655e-05,Black spot,5.046889e-05
+dataset/train/Citrus pest/2025_12_20_IMG (288).JPG,2025_12_20_IMG (288).JPG,Citrus pest,Citrus pest,0.99171644,True,Citrus pest,0.99171644,Black spot,0.008188534,Citrus canker,4.2603955e-05
+dataset/train/Citrus pest/2025_12_20_IMG (289).JPG,2025_12_20_IMG (289).JPG,Citrus pest,Citrus pest,0.9999995,True,Citrus pest,0.9999995,Citrus canker,5.280356e-07,Greening,1.1145519e-09
+dataset/train/Citrus pest/2025_12_20_IMG (295).JPG,2025_12_20_IMG (295).JPG,Citrus pest,Citrus pest,0.9993319,True,Citrus pest,0.9993319,Citrus canker,0.0005638188,Healthy leaf,6.309887e-05
+dataset/train/Citrus pest/2025_12_20_IMG (30).JPG,2025_12_20_IMG (30).JPG,Citrus pest,Citrus pest,0.9869322,True,Citrus pest,0.9869322,Citrus canker,0.011939865,Greening,0.0006870059
+dataset/train/Citrus pest/2025_12_20_IMG (311).JPG,2025_12_20_IMG (311).JPG,Citrus pest,Citrus pest,0.99957997,True,Citrus pest,0.99957997,Citrus canker,0.00041871326,Greening,7.363926e-07
+dataset/train/Citrus pest/2025_12_20_IMG (319).JPG,2025_12_20_IMG (319).JPG,Citrus pest,Citrus pest,0.9781708,True,Citrus pest,0.9781708,Algal leaf spot,0.007261866,Greening,0.006264467
+dataset/train/Citrus pest/2025_12_20_IMG (324).JPG,2025_12_20_IMG (324).JPG,Citrus pest,Citrus pest,0.9959877,True,Citrus pest,0.9959877,Citrus canker,0.0040045716,Greening,3.782497e-06
+dataset/train/Citrus pest/2025_12_20_IMG (326).JPG,2025_12_20_IMG (326).JPG,Citrus pest,Citrus pest,0.99005413,True,Citrus pest,0.99005413,Citrus canker,0.009880111,Greening,3.604083e-05
+dataset/train/Citrus pest/2025_12_20_IMG (358).JPG,2025_12_20_IMG (358).JPG,Citrus pest,Citrus pest,0.9999871,True,Citrus pest,0.9999871,Citrus canker,1.2786619e-05,Algal leaf spot,4.012537e-08
+dataset/train/Citrus pest/2025_12_20_IMG (364).JPG,2025_12_20_IMG (364).JPG,Citrus pest,Citrus pest,0.9948891,True,Citrus pest,0.9948891,Healthy leaf,0.004897048,Citrus canker,0.00020110345
+dataset/train/Citrus pest/2025_12_20_IMG (372).JPG,2025_12_20_IMG (372).JPG,Citrus pest,Citrus pest,0.9999187,True,Citrus pest,0.9999187,Citrus canker,6.157072e-05,Algal leaf spot,1.21696685e-05
+dataset/train/Citrus pest/2025_12_20_IMG (389).JPG,2025_12_20_IMG (389).JPG,Citrus pest,Citrus pest,0.9999999,True,Citrus pest,0.9999999,Citrus canker,1.1214626e-07,Algal leaf spot,6.956002e-09
+dataset/train/Citrus pest/2025_12_20_IMG (393).JPG,2025_12_20_IMG (393).JPG,Citrus pest,Citrus pest,0.9992855,True,Citrus pest,0.9992855,Algal leaf spot,0.00048339917,Citrus canker,0.00018212551
+dataset/train/Citrus pest/2025_12_20_IMG (396).JPG,2025_12_20_IMG (396).JPG,Citrus pest,Citrus pest,0.9999988,True,Citrus pest,0.9999988,Citrus canker,1.1623941e-06,Algal leaf spot,6.9810087e-09
+dataset/train/Citrus pest/2025_12_20_IMG (406).JPG,2025_12_20_IMG (406).JPG,Citrus pest,Citrus pest,0.99998415,True,Citrus pest,0.99998415,Citrus canker,9.297389e-06,Black spot,4.539555e-06
+dataset/train/Citrus pest/2025_12_20_IMG (43).JPG,2025_12_20_IMG (43).JPG,Citrus pest,Citrus pest,0.9999957,True,Citrus pest,0.9999957,Black spot,1.886111e-06,Algal leaf spot,1.7381352e-06
+dataset/train/Citrus pest/2025_12_20_IMG (48).JPG,2025_12_20_IMG (48).JPG,Citrus pest,Citrus pest,0.9999932,True,Citrus pest,0.9999932,Citrus canker,3.5161272e-06,Black spot,2.4474905e-06
+dataset/train/Citrus pest/2025_12_20_IMG (49).JPG,2025_12_20_IMG (49).JPG,Citrus pest,Citrus pest,0.99999285,True,Citrus pest,0.99999285,Black spot,5.7420402e-06,Citrus canker,1.3028852e-06
+dataset/train/Citrus pest/2025_12_20_IMG (60).JPG,2025_12_20_IMG (60).JPG,Citrus pest,Citrus pest,0.99994135,True,Citrus pest,0.99994135,Citrus canker,5.798602e-05,Algal leaf spot,3.5724392e-07
+dataset/train/Citrus pest/2025_12_20_IMG (61).JPG,2025_12_20_IMG (61).JPG,Citrus pest,Citrus pest,0.9998574,True,Citrus pest,0.9998574,Citrus canker,0.00014061063,Greening,1.0286028e-06
+dataset/train/Citrus pest/2025_12_20_IMG (65).JPG,2025_12_20_IMG (65).JPG,Citrus pest,Citrus pest,0.99995637,True,Citrus pest,0.99995637,Citrus canker,4.193278e-05,Greening,1.0404476e-06
+dataset/train/Citrus pest/2025_12_20_IMG (79).JPG,2025_12_20_IMG (79).JPG,Citrus pest,Citrus pest,0.99959284,True,Citrus pest,0.99959284,Citrus canker,0.00022161013,Healthy leaf,0.00014884162
+dataset/train/Citrus pest/2025_12_20_IMG (81).JPG,2025_12_20_IMG (81).JPG,Citrus pest,Citrus pest,0.99948174,True,Citrus pest,0.99948174,Greening,0.00019257393,Healthy leaf,0.00018356969
+dataset/train/Greening/2025_12_21_IMG (100).JPG,2025_12_21_IMG (100).JPG,Greening,Greening,0.90986234,True,Greening,0.90986234,Black spot,0.057133928,Algal leaf spot,0.02864511
+dataset/train/Greening/2025_12_21_IMG (104).JPG,2025_12_21_IMG (104).JPG,Greening,Greening,0.8197443,True,Greening,0.8197443,Black spot,0.17926303,Algal leaf spot,0.0008399297
+dataset/train/Greening/2025_12_21_IMG (107).JPG,2025_12_21_IMG (107).JPG,Greening,Greening,0.95077956,True,Greening,0.95077956,Black spot,0.03793094,Algal leaf spot,0.01088585
+dataset/train/Greening/2025_12_21_IMG (116).JPG,2025_12_21_IMG (116).JPG,Greening,Greening,0.85708886,True,Greening,0.85708886,Black spot,0.13603623,Citrus canker,0.004844663
+dataset/train/Greening/2025_12_21_IMG (137).JPG,2025_12_21_IMG (137).JPG,Greening,Algal leaf spot,0.56280166,False,Algal leaf spot,0.56280166,Greening,0.4311669,Black spot,0.004091077
+dataset/train/Greening/2025_12_21_IMG (180).JPG,2025_12_21_IMG (180).JPG,Greening,Greening,0.97826654,True,Greening,0.97826654,Black spot,0.014500551,Algal leaf spot,0.0052547776
+dataset/train/Greening/2025_12_21_IMG (183).JPG,2025_12_21_IMG (183).JPG,Greening,Greening,0.9994999,True,Greening,0.9994999,Citrus canker,0.00039990133,Healthy leaf,7.666164e-05
+dataset/train/Greening/2025_12_21_IMG (184).JPG,2025_12_21_IMG (184).JPG,Greening,Greening,0.99645305,True,Greening,0.99645305,Citrus canker,0.0031777313,Black spot,0.00019728884
+dataset/train/Greening/2025_12_21_IMG (185).JPG,2025_12_21_IMG (185).JPG,Greening,Greening,0.99967575,True,Greening,0.99967575,Black spot,0.00021827781,Healthy leaf,8.0233025e-05
+dataset/train/Greening/2025_12_21_IMG (189).JPG,2025_12_21_IMG (189).JPG,Greening,Greening,0.99984086,True,Greening,0.99984086,Citrus canker,0.00012376635,Black spot,3.3527824e-05
+dataset/train/Greening/2025_12_21_IMG (193).JPG,2025_12_21_IMG (193).JPG,Greening,Citrus canker,0.5869646,False,Citrus canker,0.5869646,Greening,0.40533966,Black spot,0.006445948
+dataset/train/Greening/2025_12_21_IMG (195).JPG,2025_12_21_IMG (195).JPG,Greening,Greening,0.9097208,True,Greening,0.9097208,Citrus canker,0.08976696,Algal leaf spot,0.00023818742
+dataset/train/Greening/2025_12_21_IMG (208).JPG,2025_12_21_IMG (208).JPG,Greening,Greening,0.94247276,True,Greening,0.94247276,Citrus canker,0.049998045,Black spot,0.0038703207
+dataset/train/Greening/2025_12_21_IMG (212).JPG,2025_12_21_IMG (212).JPG,Greening,Greening,0.99234325,True,Greening,0.99234325,Black spot,0.0041516805,Algal leaf spot,0.0029726918
+dataset/train/Greening/2025_12_21_IMG (218).JPG,2025_12_21_IMG (218).JPG,Greening,Greening,0.99905616,True,Greening,0.99905616,Algal leaf spot,0.00091735297,Black spot,1.7961762e-05
+dataset/train/Greening/2025_12_21_IMG (224).JPG,2025_12_21_IMG (224).JPG,Greening,Greening,0.95680356,True,Greening,0.95680356,Algal leaf spot,0.039390426,Black spot,0.0037814302
+dataset/train/Greening/2025_12_21_IMG (239).JPG,2025_12_21_IMG (239).JPG,Greening,Greening,0.9967354,True,Greening,0.9967354,Algal leaf spot,0.0021385155,Citrus canker,0.0011240725
+dataset/train/Greening/2025_12_21_IMG (241).JPG,2025_12_21_IMG (241).JPG,Greening,Greening,0.9379377,True,Greening,0.9379377,Black spot,0.051201228,Algal leaf spot,0.006737445
+dataset/train/Greening/2025_12_21_IMG (242).JPG,2025_12_21_IMG (242).JPG,Greening,Algal leaf spot,0.8094298,False,Algal leaf spot,0.8094298,Greening,0.17292461,Black spot,0.010503839
+dataset/train/Greening/2025_12_21_IMG (26).JPG,2025_12_21_IMG (26).JPG,Greening,Greening,0.9436995,True,Greening,0.9436995,Healthy leaf,0.044971716,Citrus pest,0.008251047
+dataset/train/Greening/2025_12_21_IMG (272).JPG,2025_12_21_IMG (272).JPG,Greening,Greening,0.5858005,True,Greening,0.5858005,Citrus canker,0.3457767,Black spot,0.036905285
+dataset/train/Greening/2025_12_21_IMG (282).JPG,2025_12_21_IMG (282).JPG,Greening,Greening,0.9301408,True,Greening,0.9301408,Healthy leaf,0.043603316,Black spot,0.018721266
+dataset/train/Greening/2025_12_21_IMG (289).JPG,2025_12_21_IMG (289).JPG,Greening,Greening,0.9933658,True,Greening,0.9933658,Citrus canker,0.0036358566,Algal leaf spot,0.0011494382
+dataset/train/Greening/2025_12_21_IMG (295).JPG,2025_12_21_IMG (295).JPG,Greening,Greening,0.9836203,True,Greening,0.9836203,Black spot,0.013291973,Healthy leaf,0.0019570992
+dataset/train/Greening/2025_12_21_IMG (3).JPG,2025_12_21_IMG (3).JPG,Greening,Greening,0.99808395,True,Greening,0.99808395,Healthy leaf,0.0018985778,Black spot,7.1496793e-06
+dataset/train/Greening/2025_12_21_IMG (300).JPG,2025_12_21_IMG (300).JPG,Greening,Greening,0.99262756,True,Greening,0.99262756,Black spot,0.0044415635,Algal leaf spot,0.0022271362
+dataset/train/Greening/2025_12_21_IMG (309).JPG,2025_12_21_IMG (309).JPG,Greening,Greening,0.91911125,True,Greening,0.91911125,Healthy leaf,0.067516536,Citrus canker,0.0069443225
+dataset/train/Greening/2025_12_21_IMG (314).JPG,2025_12_21_IMG (314).JPG,Greening,Greening,0.9844641,True,Greening,0.9844641,Black spot,0.011403535,Citrus canker,0.004038782
+dataset/train/Greening/2025_12_21_IMG (316).JPG,2025_12_21_IMG (316).JPG,Greening,Greening,0.9885387,True,Greening,0.9885387,Black spot,0.008796602,Citrus canker,0.0022350657
+dataset/train/Greening/2025_12_21_IMG (317).JPG,2025_12_21_IMG (317).JPG,Greening,Greening,0.97229517,True,Greening,0.97229517,Black spot,0.021699814,Citrus canker,0.00491891
+dataset/train/Greening/2025_12_21_IMG (328).JPG,2025_12_21_IMG (328).JPG,Greening,Greening,0.9431905,True,Greening,0.9431905,Black spot,0.049483806,Citrus canker,0.005343286
+dataset/train/Greening/2025_12_21_IMG (33).JPG,2025_12_21_IMG (33).JPG,Greening,Greening,0.83683485,True,Greening,0.83683485,Black spot,0.09241105,Citrus pest,0.031678528
+dataset/train/Greening/2025_12_21_IMG (332).JPG,2025_12_21_IMG (332).JPG,Greening,Greening,0.61328495,True,Greening,0.61328495,Citrus canker,0.34793162,Black spot,0.02495063
+dataset/train/Greening/2025_12_21_IMG (334).JPG,2025_12_21_IMG (334).JPG,Greening,Greening,0.9951539,True,Greening,0.9951539,Citrus canker,0.0038691675,Citrus pest,0.0006541751
+dataset/train/Greening/2025_12_21_IMG (340).JPG,2025_12_21_IMG (340).JPG,Greening,Greening,0.72779477,True,Greening,0.72779477,Citrus canker,0.2641838,Citrus pest,0.007954881
+dataset/train/Greening/2025_12_21_IMG (39).JPG,2025_12_21_IMG (39).JPG,Greening,Greening,0.8864845,True,Greening,0.8864845,Black spot,0.09559807,Citrus canker,0.013678352
+dataset/train/Greening/2025_12_21_IMG (52).JPG,2025_12_21_IMG (52).JPG,Greening,Greening,0.9533325,True,Greening,0.9533325,Algal leaf spot,0.017076243,Black spot,0.015514667
+dataset/train/Greening/2025_12_21_IMG (63).JPG,2025_12_21_IMG (63).JPG,Greening,Greening,0.99093515,True,Greening,0.99093515,Black spot,0.00689028,Citrus canker,0.0017388789
+dataset/train/Greening/2025_12_21_IMG (73).JPG,2025_12_21_IMG (73).JPG,Greening,Greening,0.91398704,True,Greening,0.91398704,Citrus canker,0.085692056,Black spot,0.00031898968
+dataset/train/Greening/2025_12_21_IMG (78).JPG,2025_12_21_IMG (78).JPG,Greening,Greening,0.9765637,True,Greening,0.9765637,Citrus canker,0.017795326,Black spot,0.0028949985
+dataset/train/Greening/2025_12_21_IMG (85).JPG,2025_12_21_IMG (85).JPG,Greening,Greening,0.60588473,True,Greening,0.60588473,Black spot,0.3169165,Citrus canker,0.07699537
+dataset/train/Greening/2025_12_21_IMG (9).JPG,2025_12_21_IMG (9).JPG,Greening,Greening,0.8554743,True,Greening,0.8554743,Healthy leaf,0.13932534,Black spot,0.0024682062
+dataset/train/Healthy leaf/2025_11_21_IMG (103).JPG,2025_11_21_IMG (103).JPG,Healthy leaf,Healthy leaf,0.9996718,True,Healthy leaf,0.9996718,Greening,0.00029422026,Black spot,2.5237216e-05
+dataset/train/Healthy leaf/2025_11_21_IMG (108).JPG,2025_11_21_IMG (108).JPG,Healthy leaf,Healthy leaf,0.9964635,True,Healthy leaf,0.9964635,Greening,0.0022937548,Black spot,0.00079677545
+dataset/train/Healthy leaf/2025_11_21_IMG (120).JPG,2025_11_21_IMG (120).JPG,Healthy leaf,Healthy leaf,0.9994481,True,Healthy leaf,0.9994481,Greening,0.00049357716,Citrus canker,3.5880035e-05
+dataset/train/Healthy leaf/2025_11_21_IMG (130).JPG,2025_11_21_IMG (130).JPG,Healthy leaf,Healthy leaf,0.9979779,True,Healthy leaf,0.9979779,Citrus pest,0.0014048654,Greening,0.0005240412
+dataset/train/Healthy leaf/2025_11_21_IMG (132).JPG,2025_11_21_IMG (132).JPG,Healthy leaf,Citrus pest,0.62635493,False,Citrus pest,0.62635493,Healthy leaf,0.3531344,Greening,0.019287879
+dataset/train/Healthy leaf/2025_11_21_IMG (174).JPG,2025_11_21_IMG (174).JPG,Healthy leaf,Healthy leaf,0.9992853,True,Healthy leaf,0.9992853,Greening,0.0005957864,Citrus pest,6.049918e-05
+dataset/train/Healthy leaf/2025_11_21_IMG (178).JPG,2025_11_21_IMG (178).JPG,Healthy leaf,Healthy leaf,0.9715911,True,Healthy leaf,0.9715911,Greening,0.010284552,Citrus pest,0.008118574
+dataset/train/Healthy leaf/2025_11_21_IMG (179).JPG,2025_11_21_IMG (179).JPG,Healthy leaf,Healthy leaf,0.94207966,True,Healthy leaf,0.94207966,Greening,0.023483673,Black spot,0.0179783
+dataset/train/Healthy leaf/2025_11_21_IMG (193).JPG,2025_11_21_IMG (193).JPG,Healthy leaf,Healthy leaf,0.99985504,True,Healthy leaf,0.99985504,Greening,0.000107851614,Citrus pest,2.5252652e-05
+dataset/train/Healthy leaf/2025_11_21_IMG (213).JPG,2025_11_21_IMG (213).JPG,Healthy leaf,Healthy leaf,0.9970337,True,Healthy leaf,0.9970337,Greening,0.0027994812,Citrus pest,0.00012208585
+dataset/train/Healthy leaf/2025_11_21_IMG (217).JPG,2025_11_21_IMG (217).JPG,Healthy leaf,Healthy leaf,0.9984357,True,Healthy leaf,0.9984357,Greening,0.0013229211,Black spot,0.00018503149
+dataset/train/Healthy leaf/2025_11_21_IMG (219).JPG,2025_11_21_IMG (219).JPG,Healthy leaf,Healthy leaf,0.93979394,True,Healthy leaf,0.93979394,Greening,0.05946708,Black spot,0.0005892468
+dataset/train/Healthy leaf/2025_11_21_IMG (224).JPG,2025_11_21_IMG (224).JPG,Healthy leaf,Healthy leaf,0.8913898,True,Healthy leaf,0.8913898,Citrus pest,0.08662762,Greening,0.015622802
+dataset/train/Healthy leaf/2025_11_21_IMG (233).JPG,2025_11_21_IMG (233).JPG,Healthy leaf,Healthy leaf,0.74538475,True,Healthy leaf,0.74538475,Greening,0.25216046,Citrus pest,0.0021393567
+dataset/train/Healthy leaf/2025_11_21_IMG (241).JPG,2025_11_21_IMG (241).JPG,Healthy leaf,Healthy leaf,0.9901759,True,Healthy leaf,0.9901759,Greening,0.008578165,Black spot,0.00091452757
+dataset/train/Healthy leaf/2025_11_21_IMG (249).JPG,2025_11_21_IMG (249).JPG,Healthy leaf,Healthy leaf,0.9030441,True,Healthy leaf,0.9030441,Greening,0.09590778,Black spot,0.00096177263
+dataset/train/Healthy leaf/2025_11_21_IMG (281).JPG,2025_11_21_IMG (281).JPG,Healthy leaf,Healthy leaf,0.9648133,True,Healthy leaf,0.9648133,Greening,0.030416483,Citrus pest,0.0036471777
+dataset/train/Healthy leaf/2025_11_21_IMG (282).JPG,2025_11_21_IMG (282).JPG,Healthy leaf,Healthy leaf,0.9648133,True,Healthy leaf,0.9648133,Greening,0.030416483,Citrus pest,0.0036471777
+dataset/train/Healthy leaf/2025_11_21_IMG (29).JPG,2025_11_21_IMG (29).JPG,Healthy leaf,Healthy leaf,0.992065,True,Healthy leaf,0.992065,Greening,0.0052085794,Citrus pest,0.0024119632
+dataset/train/Healthy leaf/2025_11_21_IMG (295).JPG,2025_11_21_IMG (295).JPG,Healthy leaf,Healthy leaf,0.9952087,True,Healthy leaf,0.9952087,Greening,0.0045161704,Citrus pest,0.000155986
+dataset/train/Healthy leaf/2025_11_21_IMG (3).JPG,2025_11_21_IMG (3).JPG,Healthy leaf,Healthy leaf,0.98827064,True,Healthy leaf,0.98827064,Greening,0.011645868,Citrus pest,5.68881e-05
+dataset/train/Healthy leaf/2025_11_21_IMG (43).JPG,2025_11_21_IMG (43).JPG,Healthy leaf,Healthy leaf,0.99429506,True,Healthy leaf,0.99429506,Citrus pest,0.0037595886,Greening,0.0012722693
+dataset/train/Healthy leaf/2025_11_21_IMG (48).JPG,2025_11_21_IMG (48).JPG,Healthy leaf,Healthy leaf,0.95111513,True,Healthy leaf,0.95111513,Greening,0.04819118,Citrus pest,0.00041071654
+dataset/train/Healthy leaf/2025_11_21_IMG (49).JPG,2025_11_21_IMG (49).JPG,Healthy leaf,Healthy leaf,0.9767179,True,Healthy leaf,0.9767179,Greening,0.022694342,Citrus pest,0.0004842247
+dataset/train/Healthy leaf/2025_11_21_IMG (51).JPG,2025_11_21_IMG (51).JPG,Healthy leaf,Healthy leaf,0.9800505,True,Healthy leaf,0.9800505,Greening,0.01900442,Citrus pest,0.0005651074
+dataset/train/Healthy leaf/2025_11_21_IMG (53).JPG,2025_11_21_IMG (53).JPG,Healthy leaf,Healthy leaf,0.99616134,True,Healthy leaf,0.99616134,Black spot,0.0030993656,Greening,0.00062396796
+dataset/train/Healthy leaf/2025_11_21_IMG (57).JPG,2025_11_21_IMG (57).JPG,Healthy leaf,Healthy leaf,0.99869424,True,Healthy leaf,0.99869424,Greening,0.0012707494,Citrus pest,2.2866629e-05
+dataset/train/Healthy leaf/2025_11_21_IMG (6).JPG,2025_11_21_IMG (6).JPG,Healthy leaf,Healthy leaf,0.9902242,True,Healthy leaf,0.9902242,Greening,0.0075047393,Citrus pest,0.0021146687
+dataset/train/Healthy leaf/2025_11_21_IMG (63).JPG,2025_11_21_IMG (63).JPG,Healthy leaf,Healthy leaf,0.9989863,True,Healthy leaf,0.9989863,Greening,0.000624401,Citrus pest,0.0003706626
+dataset/train/Healthy leaf/2025_11_21_IMG (67).JPG,2025_11_21_IMG (67).JPG,Healthy leaf,Healthy leaf,0.99799985,True,Healthy leaf,0.99799985,Greening,0.0018151611,Citrus pest,0.00015830208
+dataset/train/Healthy leaf/2025_11_21_IMG (7).JPG,2025_11_21_IMG (7).JPG,Healthy leaf,Healthy leaf,0.9931136,True,Healthy leaf,0.9931136,Greening,0.00683157,Citrus pest,2.5934201e-05
+dataset/train/Healthy leaf/2025_11_21_IMG (89).JPG,2025_11_21_IMG (89).JPG,Healthy leaf,Healthy leaf,0.92489135,True,Healthy leaf,0.92489135,Greening,0.07031002,Citrus pest,0.004632568
+dataset/train/Healthy leaf/2025_11_21_IMG (98).JPG,2025_11_21_IMG (98).JPG,Healthy leaf,Healthy leaf,0.9972475,True,Healthy leaf,0.9972475,Greening,0.0027280757,Black spot,1.208304e-05
+dataset/val/Algal leaf spot/2025_12_21_IMG (138).JPG,2025_12_21_IMG (138).JPG,Algal leaf spot,Algal leaf spot,0.9999,True,Algal leaf spot,0.9999,Greening,9.409535e-05,Citrus canker,5.86096e-06
+dataset/val/Algal leaf spot/2025_12_21_IMG (147).JPG,2025_12_21_IMG (147).JPG,Algal leaf spot,Algal leaf spot,0.99998915,True,Algal leaf spot,0.99998915,Black spot,9.180078e-06,Citrus canker,7.3835685e-07
+dataset/val/Algal leaf spot/2025_12_21_IMG (180).JPG,2025_12_21_IMG (180).JPG,Algal leaf spot,Algal leaf spot,0.99649125,True,Algal leaf spot,0.99649125,Black spot,0.0016401048,Citrus canker,0.0011743959
+dataset/val/Algal leaf spot/2025_12_21_IMG (187).JPG,2025_12_21_IMG (187).JPG,Algal leaf spot,Algal leaf spot,0.99311393,True,Algal leaf spot,0.99311393,Greening,0.0064469688,Black spot,0.00026004363
+dataset/val/Algal leaf spot/2025_12_21_IMG (232).JPG,2025_12_21_IMG (232).JPG,Algal leaf spot,Algal leaf spot,0.9999337,True,Algal leaf spot,0.9999337,Black spot,3.361957e-05,Greening,2.8558014e-05
+dataset/val/Algal leaf spot/2025_12_21_IMG (246).JPG,2025_12_21_IMG (246).JPG,Algal leaf spot,Algal leaf spot,0.99978894,True,Algal leaf spot,0.99978894,Black spot,0.00019546707,Citrus canker,9.952982e-06
+dataset/val/Algal leaf spot/2025_12_21_IMG (253).JPG,2025_12_21_IMG (253).JPG,Algal leaf spot,Algal leaf spot,0.85697764,True,Algal leaf spot,0.85697764,Black spot,0.07656969,Citrus canker,0.06518704
+dataset/val/Algal leaf spot/2025_12_21_IMG (278).JPG,2025_12_21_IMG (278).JPG,Algal leaf spot,Algal leaf spot,0.99983764,True,Algal leaf spot,0.99983764,Greening,0.00013285279,Black spot,1.2455567e-05
+dataset/val/Algal leaf spot/2025_12_21_IMG (44).JPG,2025_12_21_IMG (44).JPG,Algal leaf spot,Algal leaf spot,0.9979867,True,Algal leaf spot,0.9979867,Black spot,0.0011969976,Greening,0.00044215098
+dataset/val/Algal leaf spot/2025_12_21_IMG (47).JPG,2025_12_21_IMG (47).JPG,Algal leaf spot,Algal leaf spot,0.9996822,True,Algal leaf spot,0.9996822,Black spot,0.00016486469,Citrus canker,8.258378e-05
+dataset/val/Algal leaf spot/2025_12_21_IMG (94).JPG,2025_12_21_IMG (94).JPG,Algal leaf spot,Algal leaf spot,0.98527086,True,Algal leaf spot,0.98527086,Black spot,0.013253911,Citrus canker,0.0011214451
+dataset/val/Black spot/2025_12_20_IMG (111).JPG,2025_12_20_IMG (111).JPG,Black spot,Black spot,0.98355424,True,Black spot,0.98355424,Citrus canker,0.014998891,Citrus pest,0.0012552347
+dataset/val/Black spot/2025_12_20_IMG (223).JPG,2025_12_20_IMG (223).JPG,Black spot,Black spot,0.99414235,True,Black spot,0.99414235,Greening,0.0058207195,Citrus canker,3.632859e-05
+dataset/val/Black spot/2025_12_20_IMG (262).JPG,2025_12_20_IMG (262).JPG,Black spot,Black spot,0.9999907,True,Black spot,0.9999907,Greening,5.9652543e-06,Citrus canker,1.8584069e-06
+dataset/val/Black spot/2025_12_20_IMG (276).JPG,2025_12_20_IMG (276).JPG,Black spot,Black spot,0.9930413,True,Black spot,0.9930413,Greening,0.0063849087,Citrus canker,0.00033846108
+dataset/val/Black spot/2025_12_20_IMG (289).JPG,2025_12_20_IMG (289).JPG,Black spot,Black spot,0.9999944,True,Black spot,0.9999944,Greening,3.1912011e-06,Citrus canker,1.9713666e-06
+dataset/val/Black spot/2025_12_20_IMG (300).JPG,2025_12_20_IMG (300).JPG,Black spot,Black spot,0.9950224,True,Black spot,0.9950224,Greening,0.0026494977,Algal leaf spot,0.0019129122
+dataset/val/Black spot/2025_12_20_IMG (41).JPG,2025_12_20_IMG (41).JPG,Black spot,Black spot,0.9999232,True,Black spot,0.9999232,Algal leaf spot,6.317174e-05,Greening,9.608984e-06
+dataset/val/Black spot/2025_12_20_IMG (44).JPG,2025_12_20_IMG (44).JPG,Black spot,Black spot,0.8694977,True,Black spot,0.8694977,Citrus canker,0.10824325,Greening,0.021202944
+dataset/val/Black spot/2025_12_20_IMG (84).JPG,2025_12_20_IMG (84).JPG,Black spot,Black spot,0.9864559,True,Black spot,0.9864559,Greening,0.013424456,Citrus canker,0.000117230134
+dataset/val/Citrus canker/2025_12_21_IMG (226).JPG,2025_12_21_IMG (226).JPG,Citrus canker,Citrus pest,0.78528357,False,Citrus pest,0.78528357,Citrus canker,0.21386391,Black spot,0.00082473893
+dataset/val/Citrus canker/2025_12_21_IMG (235).JPG,2025_12_21_IMG (235).JPG,Citrus canker,Citrus canker,0.98386395,True,Citrus canker,0.98386395,Citrus pest,0.015035864,Algal leaf spot,0.0005141321
+dataset/val/Citrus canker/2025_12_21_IMG (237).JPG,2025_12_21_IMG (237).JPG,Citrus canker,Citrus pest,0.85738075,False,Citrus pest,0.85738075,Citrus canker,0.10397127,Healthy leaf,0.031763107
+dataset/val/Citrus canker/2025_12_21_IMG (272).JPG,2025_12_21_IMG (272).JPG,Citrus canker,Greening,0.89031327,False,Greening,0.89031327,Black spot,0.0676956,Citrus canker,0.0360353
+dataset/val/Citrus canker/2025_12_21_IMG (309).JPG,2025_12_21_IMG (309).JPG,Citrus canker,Citrus canker,0.97791034,True,Citrus canker,0.97791034,Greening,0.0125513,Black spot,0.008042077
+dataset/val/Citrus canker/2025_12_21_IMG (328).JPG,2025_12_21_IMG (328).JPG,Citrus canker,Citrus canker,0.94055945,True,Citrus canker,0.94055945,Greening,0.04379928,Black spot,0.014439904
+dataset/val/Citrus canker/2025_12_21_IMG (388).JPG,2025_12_21_IMG (388).JPG,Citrus canker,Citrus canker,0.99975556,True,Citrus canker,0.99975556,Black spot,0.00019699564,Greening,4.3977645e-05
+dataset/val/Citrus canker/2025_12_21_IMG (434).JPG,2025_12_21_IMG (434).JPG,Citrus canker,Citrus canker,0.9900412,True,Citrus canker,0.9900412,Black spot,0.008520114,Greening,0.0014310379
+dataset/val/Citrus canker/2025_12_21_IMG (519).JPG,2025_12_21_IMG (519).JPG,Citrus canker,Citrus canker,0.9843231,True,Citrus canker,0.9843231,Black spot,0.014061237,Citrus pest,0.0016153874
+dataset/val/Citrus canker/2025_12_21_IMG (520).JPG,2025_12_21_IMG (520).JPG,Citrus canker,Citrus canker,0.9657949,True,Citrus canker,0.9657949,Citrus pest,0.024091607,Black spot,0.010109279
+dataset/val/Citrus canker/2025_12_21_IMG (531).JPG,2025_12_21_IMG (531).JPG,Citrus canker,Citrus canker,0.8665379,True,Citrus canker,0.8665379,Black spot,0.09005199,Citrus pest,0.041506566
+dataset/val/Citrus pest/2025_12_20_IMG (135).JPG,2025_12_20_IMG (135).JPG,Citrus pest,Citrus pest,0.9976634,True,Citrus pest,0.9976634,Citrus canker,0.0018501678,Greening,0.00023507811
+dataset/val/Citrus pest/2025_12_20_IMG (151).JPG,2025_12_20_IMG (151).JPG,Citrus pest,Citrus pest,0.9873719,True,Citrus pest,0.9873719,Citrus canker,0.01102587,Greening,0.00081093994
+dataset/val/Citrus pest/2025_12_20_IMG (173).JPG,2025_12_20_IMG (173).JPG,Citrus pest,Citrus pest,0.7776058,True,Citrus pest,0.7776058,Greening,0.18830952,Healthy leaf,0.029137092
+dataset/val/Citrus pest/2025_12_20_IMG (196).JPG,2025_12_20_IMG (196).JPG,Citrus pest,Citrus pest,0.9968746,True,Citrus pest,0.9968746,Citrus canker,0.0030004582,Healthy leaf,8.716829e-05
+dataset/val/Citrus pest/2025_12_20_IMG (241).JPG,2025_12_20_IMG (241).JPG,Citrus pest,Citrus pest,0.9962012,True,Citrus pest,0.9962012,Citrus canker,0.003791965,Greening,4.93315e-06
+dataset/val/Citrus pest/2025_12_20_IMG (290).JPG,2025_12_20_IMG (290).JPG,Citrus pest,Citrus pest,0.9999877,True,Citrus pest,0.9999877,Citrus canker,1.2123882e-05,Algal leaf spot,1.569327e-07
+dataset/val/Citrus pest/2025_12_20_IMG (336).JPG,2025_12_20_IMG (336).JPG,Citrus pest,Citrus pest,0.9996486,True,Citrus pest,0.9996486,Citrus canker,0.00026685678,Greening,6.908472e-05
+dataset/val/Citrus pest/2025_12_20_IMG (80).JPG,2025_12_20_IMG (80).JPG,Citrus pest,Citrus pest,0.9997905,True,Citrus pest,0.9997905,Citrus canker,0.00011959911,Greening,7.7079276e-05
+dataset/val/Citrus pest/2025_12_20_IMG (86).JPG,2025_12_20_IMG (86).JPG,Citrus pest,Citrus pest,0.9929951,True,Citrus pest,0.9929951,Greening,0.0028436468,Citrus canker,0.002838312
+dataset/val/Greening/2025_12_21_IMG (130).JPG,2025_12_21_IMG (130).JPG,Greening,Greening,0.9980268,True,Greening,0.9980268,Citrus canker,0.0008872456,Citrus pest,0.000789594
+dataset/val/Greening/2025_12_21_IMG (165).JPG,2025_12_21_IMG (165).JPG,Greening,Algal leaf spot,0.675134,False,Algal leaf spot,0.675134,Greening,0.3218966,Black spot,0.00288787
+dataset/val/Greening/2025_12_21_IMG (221).JPG,2025_12_21_IMG (221).JPG,Greening,Greening,0.83666855,True,Greening,0.83666855,Black spot,0.08174241,Algal leaf spot,0.08141379
+dataset/val/Greening/2025_12_21_IMG (232).JPG,2025_12_21_IMG (232).JPG,Greening,Greening,0.87211365,True,Greening,0.87211365,Citrus canker,0.12654093,Black spot,0.0013446457
+dataset/val/Greening/2025_12_21_IMG (308).JPG,2025_12_21_IMG (308).JPG,Greening,Greening,0.64429504,True,Greening,0.64429504,Healthy leaf,0.33795434,Citrus pest,0.017020704
+dataset/val/Greening/2025_12_21_IMG (7).JPG,2025_12_21_IMG (7).JPG,Greening,Greening,0.8754835,True,Greening,0.8754835,Healthy leaf,0.11745882,Black spot,0.004129105
+dataset/val/Healthy leaf/2025_11_21_IMG (115).JPG,2025_11_21_IMG (115).JPG,Healthy leaf,Healthy leaf,0.9998975,True,Healthy leaf,0.9998975,Greening,6.632728e-05,Citrus pest,1.8505856e-05
+dataset/val/Healthy leaf/2025_11_21_IMG (180).JPG,2025_11_21_IMG (180).JPG,Healthy leaf,Healthy leaf,0.94259316,True,Healthy leaf,0.94259316,Greening,0.023621123,Citrus pest,0.014512318
+dataset/val/Healthy leaf/2025_11_21_IMG (205).JPG,2025_11_21_IMG (205).JPG,Healthy leaf,Healthy leaf,0.84506434,True,Healthy leaf,0.84506434,Greening,0.12804276,Citrus pest,0.019432114
+dataset/val/Healthy leaf/2025_11_21_IMG (231).JPG,2025_11_21_IMG (231).JPG,Healthy leaf,Healthy leaf,0.89799184,True,Healthy leaf,0.89799184,Greening,0.1005753,Citrus pest,0.0012778328
+dataset/val/Healthy leaf/2025_11_21_IMG (246).JPG,2025_11_21_IMG (246).JPG,Healthy leaf,Healthy leaf,0.99437284,True,Healthy leaf,0.99437284,Greening,0.005127485,Black spot,0.00032537789
+dataset/val/Healthy leaf/2025_11_21_IMG (251).JPG,2025_11_21_IMG (251).JPG,Healthy leaf,Healthy leaf,0.98057187,True,Healthy leaf,0.98057187,Greening,0.01917622,Black spot,0.00016806198

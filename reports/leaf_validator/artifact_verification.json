@@ -1,0 +1,9 @@
+{
+  "all_required_artifacts_present": true,
+  "all_notebook_code_cells_executed": 7,
+  "model_and_threshold_hashes_consistent": true,
+  "test_counts_recomputed_from_saved_predictions": true,
+  "selected_model_validation_loss_matches_best_training_checkpoint": true,
+  "cached_validation_binary_crossentropy": 0.008086213048897103,
+  "test_inference_repeated": false
+}

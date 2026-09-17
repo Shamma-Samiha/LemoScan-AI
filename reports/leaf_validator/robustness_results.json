@@ -1,0 +1,139 @@
+{
+  "cases": [
+    {
+      "case": "beans",
+      "filepath": "data/leaf_validator/external/a87a4140a2fce72c93ce4a4aa13b9e38606b320af8046c4eb01026ddc02f931a.jpg",
+      "lemon_probability": 0.0010058782063424587,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "beans",
+      "filepath": "data/leaf_validator/external/259062e54557ba3c20625c15be84173affa90b21b8305380ede6ff6a937f3517.jpg",
+      "lemon_probability": 0.008036197163164616,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "beans",
+      "filepath": "data/leaf_validator/external/ce13ecc8a6951e6164fe1e388330c35991ed268e7cf4abc6512e11c58908fc46.jpg",
+      "lemon_probability": 0.004433402791619301,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "beans",
+      "filepath": "data/leaf_validator/external/3e2bf84f8dcda68e7e4c66c90c0747b985e1c735a0028770387f22a6fc89b37e.jpg",
+      "lemon_probability": 0.001349001657217741,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "beans",
+      "filepath": "data/leaf_validator/external/193a0a0a76f780933edcb19dde3a15b78e7168325b3c7ca28a4eb4e3194be169.jpg",
+      "lemon_probability": 3.497336365398951e-05,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "beans",
+      "filepath": "data/leaf_validator/external/0f105f3812f627c6db6abeda1ee694dc9bdb16cfe535170e2019b5d1d7943bad.jpg",
+      "lemon_probability": 0.0011870446614921093,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "caltech101",
+      "filepath": "data/leaf_validator/external/febaf460da4981c818c1e7feedfc793db700b29200ac68c4db83205679a16c93.jpg",
+      "lemon_probability": 4.2958663470926695e-06,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "caltech101",
+      "filepath": "data/leaf_validator/external/e5ae9f435c9fdf3c89a88d15d9fd455f670db858d927c8cad9732a87a06d17f9.jpg",
+      "lemon_probability": 4.828759188058029e-07,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "caltech101",
+      "filepath": "data/leaf_validator/external/2119f3ff9b2ab852ac00ff7a398de6b6210688630d4c1d369e06e1322757d4f3.jpg",
+      "lemon_probability": 5.398641951614991e-05,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "caltech101",
+      "filepath": "data/leaf_validator/external/86346c0754edc4a8a690acc770832dc6d9ccb07c3e19b80f2625e2d1d206d2e7.jpg",
+      "lemon_probability": 1.1005420674337074e-05,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "caltech101",
+      "filepath": "data/leaf_validator/external/2f900b5793827db8be367787138dc60503423d14d6b226ce4381f39e01ac5afd.jpg",
+      "lemon_probability": 1.6890038750716485e-05,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "caltech101",
+      "filepath": "data/leaf_validator/external/564b9d672dacc9ffea86af5b3f5294b12b98fb6941d760f9c33dd694f8065dac.jpg",
+      "lemon_probability": 3.6278254356147954e-06,
+      "accepted": false,
+      "expected_accept": false
+    },
+    {
+      "case": "lemoscan",
+      "filepath": "dataset/test/Algal leaf spot/2025_12_21_IMG (135).JPG",
+      "lemon_probability": 0.9989833235740662,
+      "accepted": true,
+      "expected_accept": true
+    },
+    {
+      "case": "lemoscan",
+      "filepath": "dataset/test/Algal leaf spot/2025_12_21_IMG (211).JPG",
+      "lemon_probability": 0.9996116161346436,
+      "accepted": true,
+      "expected_accept": true
+    },
+    {
+      "case": "lemoscan",
+      "filepath": "dataset/test/Algal leaf spot/2025_12_21_IMG (254).JPG",
+      "lemon_probability": 0.9992992877960205,
+      "accepted": true,
+      "expected_accept": true
+    },
+    {
+      "case": "lemoscan",
+      "filepath": "dataset/test/Algal leaf spot/2025_12_21_IMG (266).JPG",
+      "lemon_probability": 0.9998798966407776,
+      "accepted": true,
+      "expected_accept": true
+    },
+    {
+      "case": "lemoscan",
+      "filepath": "dataset/test/Algal leaf spot/2025_12_21_IMG (292).JPG",
+      "lemon_probability": 0.9998371601104736,
+      "accepted": true,
+      "expected_accept": true
+    },
+    {
+      "case": "lemoscan",
+      "filepath": "dataset/test/Black spot/2025_12_20_IMG (113).JPG",
+      "lemon_probability": 0.9991560578346252,
+      "accepted": true,
+      "expected_accept": true
+    },
+    {
+      "case": "canonical_solid_green_RGB_0_255_0",
+      "lemon_probability": 0.07330690324306488,
+      "accepted": false,
+      "expected_accept": false
+    }
+  ],
+  "solid_green_rejected": true,
+  "passed": true,
+  "policy": "Post-freeze robustness inspection only; never retune on these results."
+}

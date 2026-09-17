@@ -25,3 +25,26 @@ model/*.h5
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local downloaded / external validator data
+data/
+
+# Generated visual review artifacts
+reports/dataset_audit/duplicate_review_contact_sheets/
+reports/dataset_audit/manual_review_contact_sheets/
+reports/dataset_audit/duplicate_review_contact_sheets.json
+reports/dataset_audit/manual_review_contact_sheets.json
+
+# Temporary/manual-review backups and queues
+reports/dataset_audit/manual_review_decisions_before_autofill*.csv
+reports/dataset_audit/manual_review_queue.csv
+
+# Regenerable intermediate audit outputs
+reports/dataset_audit/capture_sequence_candidates.csv
+reports/dataset_audit/cross_split_exposure.csv
+reports/dataset_audit/dhash_zero_review.csv
+reports/dataset_audit/duplicate_cluster_summary.csv
+
+# Streamlit UI test artifacts / browser profile
+reports/streamlit_ui/*
+!reports/streamlit_ui/deployment_readiness.md

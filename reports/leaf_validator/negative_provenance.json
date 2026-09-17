@@ -1,0 +1,69 @@
+{
+  "seed": 42,
+  "source_urls": {
+    "beans_train": "https://huggingface.co/datasets/AI-Lab-Makerere/beans/resolve/main/data/train.zip",
+    "beans_validation": "https://huggingface.co/datasets/AI-Lab-Makerere/beans/resolve/main/data/validation.zip",
+    "beans_test": "https://huggingface.co/datasets/AI-Lab-Makerere/beans/resolve/main/data/test.zip",
+    "caltech101": "https://huggingface.co/datasets/HuggingFaceM4/Caltech-101/resolve/71d2394c09f83658fb6f6a1eb272a0d9dc71b331/caltech-101.zip"
+  },
+  "archive_sha256": {
+    "beans_train": "284fe8456ce20687f4367ae7ad94a64577e7f9fde2c2c6b1c74340ab5dc82715",
+    "beans_validation": "90b7aa1c26d91d9afff07a30bbc67a5ea34f1f1397f068d8675be09d7d0c602d",
+    "beans_test": "ca67b15d960d1e2fd9d23fd8498ce86818ead90755c630a43baf19ec4af09312",
+    "caltech101": "331234750fc7f77520e50d9565e8b6907b03565e30320da1401130db08c61f91"
+  },
+  "tfds_fallback": "TFDS 4.9.10 installed but download_and_prepare failed: missing importlib_resources. Original GCS/Caltech hosts returned HTTP 403; identical archives downloaded from AI-Lab-Makerere and HuggingFaceM4 mirrors with SHA256 checks; no packages installed.",
+  "caltech_categories": [
+    "airplanes",
+    "anchor",
+    "barrel",
+    "revolver",
+    "buddha",
+    "camera",
+    "car_side",
+    "ceiling_fan",
+    "cellphone",
+    "chair",
+    "chandelier",
+    "cup",
+    "dollar_bill",
+    "euphonium",
+    "ewer",
+    "ferry",
+    "soccer_ball",
+    "grand_piano",
+    "gramophone",
+    "headphone",
+    "helicopter",
+    "schooner",
+    "laptop",
+    "motorbikes",
+    "watch"
+  ],
+  "selection": "1000 Beans, 40 examples per each of 25 Caltech categories, 50 synthetic; exact decoded-RGB duplicates removed before sampling and splitting.",
+  "counts": {
+    "beans": {
+      "test": 150,
+      "train": 700,
+      "val": 150
+    },
+    "caltech101": {
+      "test": 150,
+      "train": 700,
+      "val": 150
+    },
+    "lemoscan": {
+      "test": 307,
+      "train": 1435,
+      "val": 308
+    },
+    "synthetic": {
+      "test": 7,
+      "train": 35,
+      "val": 8
+    }
+  },
+  "caltech_catalog": "https://www.tensorflow.org/datasets/catalog/caltech101",
+  "beans_catalog": "https://www.tensorflow.org/datasets/catalog/beans",
+  "limitation": "Class-level semantic filtering only; object backgrounds not exhaustively audited. Bean source/session independence is not proven. LemoScan retains the 410 unresolved C/D cross-split candidate limitation."
+}

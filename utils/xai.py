@@ -1,123 +1,57 @@
-"""Explain model predictions with Grad-CAM."""
-
+"""Grad-CAM for an explicit previously predicted target; never selects a class."""
 from pathlib import Path
-
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image
 import tensorflow as tf
+from utils.model_loader import get_model
+from utils.preprocessing import PreparedImage
 
-from utils.model_loader import get_image_size, get_model, get_preprocess_function
+def get_gradcam_layer():
+    backbone = get_model().get_layer("inception_v3")
+    # mixed10 concatenates the final convolution branches before global pooling.
+    layer = backbone.get_layer("mixed10")
+    if len(layer.output.shape) != 4 or backbone.output is not layer.output:
+        raise ValueError("Expected mixed10 to be the backbone's final spatial feature map.")
+    return backbone, layer
 
+def generate_gradcam(prepared, target_class_index, output_path=None):
+    """Explain the shared PreparedImage for the explicit prediction class.
 
-def _output_rank(layer):
-    """Return a layer's output rank, or None when it cannot be determined."""
-    try:
-        return len(layer.output.shape)
-    except (AttributeError, TypeError):
-        return None
-
-
-def _find_last_convolutional_layer(model):
-    """Find the last layer that produces a convolutional feature map."""
-    for layer in reversed(model.layers):
-        if _output_rank(layer) == 4:
-            return layer
-
-    raise ValueError("Could not find a convolutional feature layer for Grad-CAM.")
-
-
-def _heatmap_to_rgb(heatmap):
-    """Convert a 0-1 heatmap to a simple yellow-to-red RGB colour map."""
-    red = np.ones_like(heatmap)
-    green = 1.0 - heatmap
-    blue = np.zeros_like(heatmap)
-    return np.stack([red, green, blue], axis=-1) * 255.0
-
-
-def _preprocess_image(image_path):
-    """Resize and preprocess an image for the active model."""
-    with Image.open(image_path) as image:
-        image = image.convert("RGB").resize(get_image_size(), Image.Resampling.LANCZOS)
-        image_array = np.asarray(image, dtype=np.float32)
-
-    image_array = np.expand_dims(image_array, axis=0)
-    return get_preprocess_function()(image_array)
-
-
-def _resize_and_focus_heatmap(heatmap, image_size):
-    """Smooth the heatmap and keep only its stronger activation regions."""
-    heatmap_image = Image.fromarray(np.uint8(np.clip(heatmap, 0, 1) * 255))
-
-    heatmap_image = heatmap_image.resize(image_size, Image.Resampling.BICUBIC)
-    blur_radius = max(2.0, min(image_size) * 0.012)
-    heatmap_image = heatmap_image.filter(ImageFilter.GaussianBlur(blur_radius))
-    smooth_heatmap = np.asarray(heatmap_image, dtype=np.float32) / 255.0
-
-    positive_values = smooth_heatmap[smooth_heatmap > 0]
-    if positive_values.size == 0:
-        return np.zeros_like(smooth_heatmap)
-
-    threshold = np.percentile(positive_values, 65)
-    focused_heatmap = np.clip(
-        (smooth_heatmap - threshold) / (smooth_heatmap.max() - threshold + 1e-8),
-        0,
-        1,
-    )
-
-    return focused_heatmap**2 * (3.0 - 2.0 * focused_heatmap)
-
-
-def generate_gradcam(image_path, output_path):
-    """Generate and save a Grad-CAM overlay for the predicted class."""
+    A differentiable forward pass is required for gradients. It never runs argmax.
+    The original model's layers, activations and weights are not modified.
+    """
+    if not isinstance(prepared, PreparedImage):
+        raise TypeError("Grad-CAM requires the PreparedImage used for prediction.")
+    if isinstance(target_class_index, bool) or not isinstance(target_class_index, (int, np.integer)) or not 0 <= target_class_index < 6:
+        raise ValueError("target_class_index must be an integer from 0 to 5.")
     model = get_model()
-    last_conv_layer = _find_last_convolutional_layer(model)
-    processed_image = _preprocess_image(image_path)
-
+    backbone, layer = get_gradcam_layer()
+    features = backbone(prepared.tensor, training=False)
     with tf.GradientTape() as tape:
-        if isinstance(last_conv_layer, tf.keras.Model):
-            feature_maps = last_conv_layer(processed_image, training=False)
-            predictions = feature_maps
-            target_was_reached = False
-
-            for layer in model.layers:
-                if target_was_reached:
-                    predictions = layer(predictions, training=False)
-                elif layer is last_conv_layer:
-                    target_was_reached = True
-        else:
-            gradient_model = tf.keras.Model(
-                inputs=model.inputs,
-                outputs=[last_conv_layer.output, model.output],
-            )
-            feature_maps, predictions = gradient_model(
-                processed_image, training=False
-            )
-
-        predicted_index = tf.argmax(predictions[0])
-        predicted_score = predictions[:, predicted_index]
-
-    gradients = tape.gradient(predicted_score, feature_maps)
-    if gradients is None:
-        raise RuntimeError("Grad-CAM could not calculate gradients for this model.")
-
-    channel_weights = tf.reduce_mean(gradients, axis=(0, 1, 2))
-    heatmap = tf.reduce_sum(feature_maps[0] * channel_weights, axis=-1)
-    heatmap = tf.maximum(heatmap, 0)
-    heatmap /= tf.reduce_max(heatmap) + tf.keras.backend.epsilon()
-
-    with Image.open(image_path) as image:
-        original_image = image.convert("RGB")
-        original_array = np.asarray(original_image, dtype=np.float32)
-
-    focused_heatmap = _resize_and_focus_heatmap(heatmap.numpy(), original_image.size)
-    heatmap_rgb = _heatmap_to_rgb(focused_heatmap)
-
-    alpha = (0.38 * focused_heatmap)[..., np.newaxis]
-    overlay = original_array * (1.0 - alpha) + heatmap_rgb * alpha
-    overlay = np.clip(overlay, 0, 255).astype(np.uint8)
-
-    output_path = Path(output_path)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    Image.fromarray(overlay).save(output_path)
-
-    return str(output_path)
+        tape.watch(features)
+        scores = features
+        for head_layer in model.layers[model.layers.index(backbone) + 1:]:
+            scores = head_layer(scores, training=False)
+        target_score = scores[:, target_class_index]
+    gradients = tape.gradient(target_score, features)
+    if gradients is None or not bool(tf.reduce_all(tf.math.is_finite(gradients))):
+        raise RuntimeError("Grad-CAM gradients are unavailable or non-finite.")
+    weights = tf.reduce_mean(gradients, axis=(1, 2), keepdims=True)
+    heatmap = tf.nn.relu(tf.reduce_sum(features * weights, axis=-1))[0]
+    heatmap = tf.math.divide_no_nan(heatmap, tf.reduce_max(heatmap)).numpy()
+    if heatmap.ndim != 2 or min(heatmap.shape) < 1 or not np.isfinite(heatmap).all():
+        raise RuntimeError("Invalid Grad-CAM heatmap.")
+    result = {"status": "available", "target_class_index": int(target_class_index),
+              "layer": f"{backbone.name}/{layer.name}", "heatmap": heatmap,
+              "target_probability": float(scores[0, target_class_index]), "heatmap_shape": list(heatmap.shape), "all_zero": bool(not np.any(heatmap)), "output_path": None}
+    if output_path is not None:
+        image = prepared.rgb
+        resized = np.asarray(Image.fromarray(heatmap).resize(image.size, Image.Resampling.BILINEAR))
+        colors = np.stack([np.ones_like(resized), 1-resized, np.zeros_like(resized)], axis=-1) * 255
+        alpha = 0.38 * resized[..., None]
+        overlay = np.clip(np.asarray(image, dtype=np.float32)*(1-alpha) + colors*alpha, 0, 255).astype(np.uint8)
+        path = Path(output_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        Image.fromarray(overlay).save(path)
+        result["output_path"] = str(path)
+    return result

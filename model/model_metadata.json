@@ -1,0 +1,43 @@
+{
+  "model_name": "InceptionV3",
+  "architecture": "inceptionv3",
+  "model_path": "model/inceptionv3_best_model.keras",
+  "input_size": [
+    299,
+    299
+  ],
+  "image_size": [
+    299,
+    299
+  ],
+  "channels": 3,
+  "number_of_classes": 6,
+  "class_names": [
+    "Algal leaf spot",
+    "Black spot",
+    "Citrus canker",
+    "Citrus pest",
+    "Greening",
+    "Healthy leaf"
+  ],
+  "class_indices_path": "training/inceptionv3_class_indices.json",
+  "preprocessing": "inception_v3.preprocess_input",
+  "preprocessing_location": "external_before_model",
+  "training_manifest_path": "reports/final_split/final_split_manifest.csv",
+  "manifest_sha256": "4e3dcd248ba68ec061bd0e586fc83224b5a3e4aacedacbed0763bf43c93ab694",
+  "random_seed": 42,
+  "validation_metrics": {
+    "loss": 0.13667435944080353,
+    "accuracy": 0.9577922077922078,
+    "macro_precision": 0.9589882226565529,
+    "macro_recall": 0.9594217518969677,
+    "macro_f1": 0.9586287744667961,
+    "weighted_precision": 0.9587486488858994,
+    "weighted_recall": 0.9577922077922078,
+    "weighted_f1": 0.9576856868743894
+  },
+  "selection_metric": "validation_loss",
+  "selected_phase": "phase2",
+  "test_evaluated": false,
+  "timestamp_utc": "2026-09-16T17:14:01.691048+00:00"
+}

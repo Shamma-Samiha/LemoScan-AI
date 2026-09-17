@@ -1,0 +1,32 @@
+{
+  "threshold": 0.397647500038147,
+  "method": "Predeclared: among validation thresholds retaining at least 95% lemon recall and rejecting all validation synthetic negatives, minimize false accepts; tie-break by highest lemon recall, then threshold closest to 0.5. If infeasible, stop before test; never tune on test or final robustness results.",
+  "validation_metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "false_accepts": 0,
+    "false_rejects": 0,
+    "true_accepts": 308,
+    "true_rejects": 308,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.0,
+    "images": 616,
+    "threshold": 0.397647500038147,
+    "confusion_matrix": [
+      [
+        308,
+        0
+      ],
+      [
+        0,
+        308
+      ]
+    ]
+  },
+  "model_sha256": "b4d21d79003758979cb82428a52930d3615bcf0af2656aeeeafa2211cb87a297",
+  "manifest_sha256": "ab69741c906d76cf968a4abf7cf095aeeafa0cb5987f7485ed9674bd2bc5889f",
+  "frozen_before_test": true,
+  "timestamp_utc": "2026-09-16T20:33:15.147896+00:00"
+}

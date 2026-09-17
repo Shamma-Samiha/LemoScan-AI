@@ -1,0 +1,140 @@
+{
+  "architecture": "InceptionV3",
+  "image_size": [
+    299,
+    299
+  ],
+  "channels": 3,
+  "number_of_classes": 6,
+  "batch_size": 16,
+  "seed": 42,
+  "augmentation": {
+    "horizontal_flip": true,
+    "rotation_factor": 0.05,
+    "zoom_factor": 0.08,
+    "translation_height": 0.05,
+    "translation_width": 0.05,
+    "contrast_factor": 0.1,
+    "fill_mode": "reflect"
+  },
+  "phase1_learning_rate": 0.001,
+  "finetuning_learning_rate": 1e-05,
+  "dropout_rate": 0.4,
+  "head_l2": 0.0001,
+  "phase1_epochs_run": 25,
+  "finetune_epochs_run": 15,
+  "phase1_max_epochs": 25,
+  "finetune_max_epochs": 15,
+  "phase1_patience": 5,
+  "finetune_patience": 4,
+  "selection_metric": "minimum validation loss across both phases",
+  "selected_phase": "phase2",
+  "selected_phase_epoch": 12,
+  "selected_global_epoch": 37,
+  "phase1_best_epoch": 23,
+  "finetune_best_epoch": 12,
+  "peak_observed_validation_accuracy": 0.9577922224998474,
+  "validation_metrics": {
+    "loss": 0.13667435944080353,
+    "accuracy": 0.9577922077922078,
+    "macro_precision": 0.9589882226565529,
+    "macro_recall": 0.9594217518969677,
+    "macro_f1": 0.9586287744667961,
+    "weighted_precision": 0.9587486488858994,
+    "weighted_recall": 0.9577922077922078,
+    "weighted_f1": 0.9576856868743894
+  },
+  "selected_epoch_augmented_training_accuracy": 0.9721254110336304,
+  "selected_epoch_train_minus_val_accuracy_gap": 0.014333188533782959,
+  "phase1_diagnosis": {
+    "best_epoch": 23,
+    "best_validation_loss": 0.27018171548843384,
+    "validation_accuracy_at_best_loss": 0.9253246784210205,
+    "peak_validation_accuracy": 0.9253246784210205,
+    "training_accuracy_at_best_loss": 0.9198606014251709,
+    "train_minus_val_accuracy_gap_at_best_loss": -0.005464076995849609,
+    "epochs_after_best_with_val_loss_rise_over_0_01_and_lower_train_loss": 1,
+    "overfitting_signal": false,
+    "interpretation": "A sustained warning signal is >=2 later epochs with val_loss > best+0.01 while training loss is lower. This is a descriptive heuristic, not a statistical test."
+  },
+  "finetune_diagnosis": {
+    "best_epoch": 12,
+    "best_validation_loss": 0.13667435944080353,
+    "validation_accuracy_at_best_loss": 0.9577922224998474,
+    "peak_validation_accuracy": 0.9577922224998474,
+    "training_accuracy_at_best_loss": 0.9721254110336304,
+    "train_minus_val_accuracy_gap_at_best_loss": 0.014333188533782959,
+    "epochs_after_best_with_val_loss_rise_over_0_01_and_lower_train_loss": 2,
+    "overfitting_signal": true,
+    "interpretation": "A sustained warning signal is >=2 later epochs with val_loss > best+0.01 while training loss is lower. This is a descriptive heuristic, not a statistical test."
+  },
+  "overfitting_signal_observed": true,
+  "phase1_parameters": {
+    "total": 21815078,
+    "trainable": 12294,
+    "frozen": 21802784
+  },
+  "finetune_parameters": {
+    "total": 21815078,
+    "trainable": 6082566,
+    "frozen": 15732512
+  },
+  "phase1_frozen_backbone_layers": 311,
+  "phase1_unfrozen_backbone_layers": 0,
+  "finetune_layer_counts": {
+    "backbone_layers": 311,
+    "frozen_backbone_layers": 289,
+    "unfrozen_backbone_layers": 22,
+    "unfrozen_weighted_backbone_layers": 9,
+    "frozen_batchnorm_layers": 94,
+    "unfreeze_after_layer": "mixed9",
+    "boundary_index": 279
+  },
+  "phase1_seconds": 3426.4666921999988,
+  "finetune_seconds": 1895.706988599999,
+  "training_seconds": 5322.173680799998,
+  "total_notebook_seconds": 5380.1659774,
+  "environment": {
+    "python": "3.13.2",
+    "tensorflow": "2.21.0",
+    "keras": "3.14.1",
+    "numpy": "2.3.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "device": "CPU",
+    "physical_devices": [
+      "/physical_device:CPU:0"
+    ],
+    "seed": 42,
+    "deterministic_ops_requested": true,
+    "cpu_threads_intra": 4,
+    "cpu_threads_inter": 2
+  },
+  "class_names": [
+    "Algal leaf spot",
+    "Black spot",
+    "Citrus canker",
+    "Citrus pest",
+    "Greening",
+    "Healthy leaf"
+  ],
+  "class_indices": {
+    "Algal leaf spot": 0,
+    "Black spot": 1,
+    "Citrus canker": 2,
+    "Citrus pest": 3,
+    "Greening": 4,
+    "Healthy leaf": 5
+  },
+  "manifest_path": "reports/final_split/final_split_manifest.csv",
+  "manifest_sha256": "4e3dcd248ba68ec061bd0e586fc83224b5a3e4aacedacbed0763bf43c93ab694",
+  "final_model_path": "model/inceptionv3_best_model.keras",
+  "final_model_sha256": "c9e07156c3be748d93378e687ecbd847123c30ca7ed3664b8f2303e14499e817",
+  "phase1_model_path": "model/inceptionv3_phase1_best.keras",
+  "finetune_model_path": "model/inceptionv3_finetune_best.keras",
+  "test_evaluated": false,
+  "test_pipeline_constructed": false,
+  "known_unresolved_CD_cross_split_pairs": 410,
+  "limitation": "410 unresolved C/D similarity candidate pairs cross the split; they were not proven same-source and were not automatically merged. Validation was used for model development.",
+  "timestamp_utc": "2026-09-16T17:14:01.691048+00:00"
+}

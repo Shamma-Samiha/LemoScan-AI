@@ -1,0 +1,16 @@
+{
+  "python": "3.13.2",
+  "tensorflow": "2.21.0",
+  "keras": "3.14.1",
+  "numpy": "2.3.4",
+  "pandas": "2.3.3",
+  "sklearn": "1.7.2",
+  "device": "CPU",
+  "physical_devices": [
+    "/physical_device:CPU:0"
+  ],
+  "seed": 42,
+  "deterministic_ops_requested": true,
+  "cpu_threads_intra": 4,
+  "cpu_threads_inter": 2
+}

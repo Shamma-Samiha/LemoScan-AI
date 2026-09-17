@@ -1,0 +1,309 @@
+filepath,true_class,predicted_class,confidence
+dataset/test/Algal leaf spot/2025_12_21_IMG (110).JPG,Algal leaf spot,Algal leaf spot,0.9961552
+dataset/test/Algal leaf spot/2025_12_21_IMG (119).JPG,Algal leaf spot,Algal leaf spot,0.98830557
+dataset/test/Algal leaf spot/2025_12_21_IMG (141).JPG,Algal leaf spot,Algal leaf spot,0.9975726
+dataset/test/Algal leaf spot/2025_12_21_IMG (2).JPG,Algal leaf spot,Algal leaf spot,0.99997485
+dataset/test/Algal leaf spot/2025_12_21_IMG (201).JPG,Algal leaf spot,Algal leaf spot,0.99998534
+dataset/test/Algal leaf spot/2025_12_21_IMG (225).JPG,Algal leaf spot,Algal leaf spot,0.99983287
+dataset/test/Algal leaf spot/2025_12_21_IMG (256).JPG,Algal leaf spot,Algal leaf spot,0.9973047
+dataset/test/Algal leaf spot/2025_12_21_IMG (294).JPG,Algal leaf spot,Algal leaf spot,0.99588156
+dataset/test/Algal leaf spot/2025_12_21_IMG (310).JPG,Algal leaf spot,Algal leaf spot,0.9999875
+dataset/test/Algal leaf spot/2025_12_21_IMG (71).JPG,Algal leaf spot,Algal leaf spot,0.9990476
+dataset/test/Algal leaf spot/2025_12_21_IMG (90).JPG,Algal leaf spot,Algal leaf spot,0.95418376
+dataset/test/Algal leaf spot/2025_12_21_IMG (92).JPG,Algal leaf spot,Algal leaf spot,0.9987318
+dataset/test/Black spot/2025_12_20_IMG (135).JPG,Black spot,Black spot,0.9985769
+dataset/test/Black spot/2025_12_20_IMG (143).JPG,Black spot,Black spot,0.99894613
+dataset/test/Black spot/2025_12_20_IMG (163).JPG,Black spot,Greening,0.8283801
+dataset/test/Black spot/2025_12_20_IMG (170).JPG,Black spot,Black spot,0.9498662
+dataset/test/Black spot/2025_12_20_IMG (201).JPG,Black spot,Black spot,0.9980508
+dataset/test/Black spot/2025_12_20_IMG (234).JPG,Black spot,Black spot,0.99851674
+dataset/test/Black spot/2025_12_20_IMG (258).JPG,Black spot,Black spot,0.965191
+dataset/test/Black spot/2025_12_20_IMG (53).JPG,Black spot,Black spot,0.95208246
+dataset/test/Black spot/2025_12_20_IMG (91).JPG,Black spot,Black spot,0.9804088
+dataset/test/Citrus canker/2025_12_21_IMG (214).JPG,Citrus canker,Citrus pest,0.97027934
+dataset/test/Citrus canker/2025_12_21_IMG (215).JPG,Citrus canker,Citrus canker,0.6865872
+dataset/test/Citrus canker/2025_12_21_IMG (316).JPG,Citrus canker,Citrus canker,0.9969265
+dataset/test/Citrus canker/2025_12_21_IMG (396).JPG,Citrus canker,Citrus canker,0.9990386
+dataset/test/Citrus canker/2025_12_21_IMG (418).JPG,Citrus canker,Citrus canker,0.9804859
+dataset/test/Citrus canker/2025_12_21_IMG (431).JPG,Citrus canker,Citrus canker,0.9822869
+dataset/test/Citrus canker/2025_12_21_IMG (460).JPG,Citrus canker,Citrus canker,0.99964094
+dataset/test/Citrus pest/2025_12_20_IMG (115).JPG,Citrus pest,Citrus pest,0.9899154
+dataset/test/Citrus pest/2025_12_20_IMG (116).JPG,Citrus pest,Citrus pest,0.78420854
+dataset/test/Citrus pest/2025_12_20_IMG (152).JPG,Citrus pest,Citrus pest,0.6789423
+dataset/test/Citrus pest/2025_12_20_IMG (179).JPG,Citrus pest,Citrus pest,0.9992113
+dataset/test/Citrus pest/2025_12_20_IMG (207).JPG,Citrus pest,Citrus pest,0.99803966
+dataset/test/Citrus pest/2025_12_20_IMG (209).JPG,Citrus pest,Citrus pest,0.99997306
+dataset/test/Citrus pest/2025_12_20_IMG (243).JPG,Citrus pest,Citrus pest,0.9998981
+dataset/test/Citrus pest/2025_12_20_IMG (303).JPG,Citrus pest,Citrus pest,0.9989077
+dataset/test/Citrus pest/2025_12_20_IMG (90).JPG,Citrus pest,Citrus pest,0.98534447
+dataset/test/Greening/2025_12_21_IMG (172).JPG,Greening,Greening,0.78859514
+dataset/test/Greening/2025_12_21_IMG (211).JPG,Greening,Greening,0.9991079
+dataset/test/Greening/2025_12_21_IMG (225).JPG,Greening,Greening,0.98990893
+dataset/test/Greening/2025_12_21_IMG (256).JPG,Greening,Greening,0.87470365
+dataset/test/Greening/2025_12_21_IMG (86).JPG,Greening,Black spot,0.9764118
+dataset/test/Greening/2025_12_21_IMG (89).JPG,Greening,Black spot,0.6194789
+dataset/test/Healthy leaf/2025_11_21_IMG (135).JPG,Healthy leaf,Healthy leaf,0.9735868
+dataset/test/Healthy leaf/2025_11_21_IMG (2).JPG,Healthy leaf,Healthy leaf,0.99974364
+dataset/test/Healthy leaf/2025_11_21_IMG (258).JPG,Healthy leaf,Healthy leaf,0.9571085
+dataset/test/Healthy leaf/2025_11_21_IMG (266).JPG,Healthy leaf,Healthy leaf,0.996779
+dataset/test/Healthy leaf/2025_11_21_IMG (273).JPG,Healthy leaf,Healthy leaf,0.99796224
+dataset/test/Healthy leaf/2025_11_21_IMG (40).JPG,Healthy leaf,Healthy leaf,0.78273654
+dataset/test/Healthy leaf/2025_11_21_IMG (88).JPG,Healthy leaf,Healthy leaf,0.99937785
+dataset/test/Healthy leaf/2025_11_21_IMG (90).JPG,Healthy leaf,Healthy leaf,0.97513074
+dataset/train/Algal leaf spot/2025_12_21_IMG (108).JPG,Algal leaf spot,Algal leaf spot,0.98818165
+dataset/train/Algal leaf spot/2025_12_21_IMG (122).JPG,Algal leaf spot,Algal leaf spot,0.92737883
+dataset/train/Algal leaf spot/2025_12_21_IMG (133).JPG,Algal leaf spot,Algal leaf spot,0.99986696
+dataset/train/Algal leaf spot/2025_12_21_IMG (140).JPG,Algal leaf spot,Algal leaf spot,0.9999907
+dataset/train/Algal leaf spot/2025_12_21_IMG (152).JPG,Algal leaf spot,Algal leaf spot,0.99922585
+dataset/train/Algal leaf spot/2025_12_21_IMG (19).JPG,Algal leaf spot,Algal leaf spot,0.99986196
+dataset/train/Algal leaf spot/2025_12_21_IMG (191).JPG,Algal leaf spot,Algal leaf spot,0.94780385
+dataset/train/Algal leaf spot/2025_12_21_IMG (194).JPG,Algal leaf spot,Algal leaf spot,0.9950389
+dataset/train/Algal leaf spot/2025_12_21_IMG (200).JPG,Algal leaf spot,Algal leaf spot,0.9999988
+dataset/train/Algal leaf spot/2025_12_21_IMG (21).JPG,Algal leaf spot,Algal leaf spot,0.99979776
+dataset/train/Algal leaf spot/2025_12_21_IMG (23).JPG,Algal leaf spot,Algal leaf spot,0.9888272
+dataset/train/Algal leaf spot/2025_12_21_IMG (241).JPG,Algal leaf spot,Algal leaf spot,0.99753296
+dataset/train/Algal leaf spot/2025_12_21_IMG (243).JPG,Algal leaf spot,Algal leaf spot,0.58481276
+dataset/train/Algal leaf spot/2025_12_21_IMG (247).JPG,Algal leaf spot,Algal leaf spot,0.9978309
+dataset/train/Algal leaf spot/2025_12_21_IMG (263).JPG,Algal leaf spot,Algal leaf spot,0.99795365
+dataset/train/Algal leaf spot/2025_12_21_IMG (275).JPG,Algal leaf spot,Algal leaf spot,0.99993896
+dataset/train/Algal leaf spot/2025_12_21_IMG (281).JPG,Algal leaf spot,Algal leaf spot,0.99980265
+dataset/train/Algal leaf spot/2025_12_21_IMG (296).JPG,Algal leaf spot,Algal leaf spot,0.9968182
+dataset/train/Algal leaf spot/2025_12_21_IMG (298).JPG,Algal leaf spot,Algal leaf spot,0.99999785
+dataset/train/Algal leaf spot/2025_12_21_IMG (304).JPG,Algal leaf spot,Algal leaf spot,0.9999403
+dataset/train/Algal leaf spot/2025_12_21_IMG (5).JPG,Algal leaf spot,Algal leaf spot,0.9999348
+dataset/train/Algal leaf spot/2025_12_21_IMG (56).JPG,Algal leaf spot,Algal leaf spot,0.99928963
+dataset/train/Algal leaf spot/2025_12_21_IMG (67).JPG,Algal leaf spot,Algal leaf spot,0.9863877
+dataset/train/Algal leaf spot/2025_12_21_IMG (7).JPG,Algal leaf spot,Algal leaf spot,0.9999664
+dataset/train/Algal leaf spot/2025_12_21_IMG (80).JPG,Algal leaf spot,Algal leaf spot,0.99980515
+dataset/train/Algal leaf spot/2025_12_21_IMG (81).JPG,Algal leaf spot,Algal leaf spot,0.99952984
+dataset/train/Algal leaf spot/2025_12_21_IMG (95).JPG,Algal leaf spot,Algal leaf spot,0.9883786
+dataset/train/Black spot/2025_12_20_IMG (123).JPG,Black spot,Black spot,0.99589205
+dataset/train/Black spot/2025_12_20_IMG (126).JPG,Black spot,Black spot,0.99873346
+dataset/train/Black spot/2025_12_20_IMG (128).JPG,Black spot,Black spot,0.9942319
+dataset/train/Black spot/2025_12_20_IMG (129).JPG,Black spot,Black spot,0.99592257
+dataset/train/Black spot/2025_12_20_IMG (142).JPG,Black spot,Black spot,0.9977139
+dataset/train/Black spot/2025_12_20_IMG (144).JPG,Black spot,Black spot,0.99602354
+dataset/train/Black spot/2025_12_20_IMG (166).JPG,Black spot,Black spot,0.9984925
+dataset/train/Black spot/2025_12_20_IMG (184).JPG,Black spot,Black spot,0.9899877
+dataset/train/Black spot/2025_12_20_IMG (186).JPG,Black spot,Black spot,0.99644107
+dataset/train/Black spot/2025_12_20_IMG (192).JPG,Black spot,Black spot,0.9982248
+dataset/train/Black spot/2025_12_20_IMG (197).JPG,Black spot,Black spot,0.9992599
+dataset/train/Black spot/2025_12_20_IMG (198).JPG,Black spot,Black spot,0.97500247
+dataset/train/Black spot/2025_12_20_IMG (208).JPG,Black spot,Black spot,0.9992385
+dataset/train/Black spot/2025_12_20_IMG (21).JPG,Black spot,Black spot,0.9766322
+dataset/train/Black spot/2025_12_20_IMG (242).JPG,Black spot,Black spot,0.9686571
+dataset/train/Black spot/2025_12_20_IMG (250).JPG,Black spot,Black spot,0.9940797
+dataset/train/Black spot/2025_12_20_IMG (252).JPG,Black spot,Black spot,0.8261181
+dataset/train/Black spot/2025_12_20_IMG (269).JPG,Black spot,Black spot,0.37898093
+dataset/train/Black spot/2025_12_20_IMG (280).JPG,Black spot,Black spot,0.9992636
+dataset/train/Black spot/2025_12_20_IMG (284).JPG,Black spot,Black spot,0.9952839
+dataset/train/Black spot/2025_12_20_IMG (29).JPG,Black spot,Black spot,0.998248
+dataset/train/Black spot/2025_12_20_IMG (30).JPG,Black spot,Black spot,0.9832017
+dataset/train/Black spot/2025_12_20_IMG (303).JPG,Black spot,Black spot,0.9978155
+dataset/train/Black spot/2025_12_20_IMG (307).JPG,Black spot,Black spot,0.99977225
+dataset/train/Black spot/2025_12_20_IMG (316).JPG,Black spot,Black spot,0.98298323
+dataset/train/Black spot/2025_12_20_IMG (317).JPG,Black spot,Black spot,0.99790937
+dataset/train/Black spot/2025_12_20_IMG (321).JPG,Black spot,Black spot,0.9943768
+dataset/train/Black spot/2025_12_20_IMG (323).JPG,Black spot,Black spot,0.9579173
+dataset/train/Black spot/2025_12_20_IMG (324).JPG,Black spot,Black spot,0.9812252
+dataset/train/Black spot/2025_12_20_IMG (47).JPG,Black spot,Black spot,0.99405813
+dataset/train/Black spot/2025_12_20_IMG (5).JPG,Black spot,Black spot,0.9994568
+dataset/train/Black spot/2025_12_20_IMG (51).JPG,Black spot,Black spot,0.99692863
+dataset/train/Black spot/2025_12_20_IMG (54).JPG,Black spot,Black spot,0.9497872
+dataset/train/Black spot/2025_12_20_IMG (58).JPG,Black spot,Black spot,0.8407424
+dataset/train/Black spot/2025_12_20_IMG (72).JPG,Black spot,Black spot,0.9981158
+dataset/train/Black spot/2025_12_20_IMG (87).JPG,Black spot,Black spot,0.86499816
+dataset/train/Citrus canker/2025_12_21_IMG (210).JPG,Citrus canker,Citrus canker,0.9995516
+dataset/train/Citrus canker/2025_12_21_IMG (239).JPG,Citrus canker,Citrus canker,0.44215804
+dataset/train/Citrus canker/2025_12_21_IMG (274).JPG,Citrus canker,Citrus canker,0.7071372
+dataset/train/Citrus canker/2025_12_21_IMG (279).JPG,Citrus canker,Citrus canker,0.94961184
+dataset/train/Citrus canker/2025_12_21_IMG (286).JPG,Citrus canker,Citrus canker,0.80331415
+dataset/train/Citrus canker/2025_12_21_IMG (296).JPG,Citrus canker,Citrus canker,0.9733331
+dataset/train/Citrus canker/2025_12_21_IMG (302).JPG,Citrus canker,Black spot,0.7064699
+dataset/train/Citrus canker/2025_12_21_IMG (307).JPG,Citrus canker,Citrus canker,0.99692756
+dataset/train/Citrus canker/2025_12_21_IMG (323).JPG,Citrus canker,Citrus canker,0.95989525
+dataset/train/Citrus canker/2025_12_21_IMG (326).JPG,Citrus canker,Citrus canker,0.96101934
+dataset/train/Citrus canker/2025_12_21_IMG (329).JPG,Citrus canker,Citrus canker,0.8421774
+dataset/train/Citrus canker/2025_12_21_IMG (345).JPG,Citrus canker,Citrus canker,0.9956007
+dataset/train/Citrus canker/2025_12_21_IMG (359).JPG,Citrus canker,Citrus canker,0.9972888
+dataset/train/Citrus canker/2025_12_21_IMG (371).JPG,Citrus canker,Citrus canker,0.99494225
+dataset/train/Citrus canker/2025_12_21_IMG (373).JPG,Citrus canker,Citrus canker,0.9991055
+dataset/train/Citrus canker/2025_12_21_IMG (377).JPG,Citrus canker,Citrus canker,0.99998176
+dataset/train/Citrus canker/2025_12_21_IMG (384).JPG,Citrus canker,Citrus canker,0.99975306
+dataset/train/Citrus canker/2025_12_21_IMG (399).JPG,Citrus canker,Citrus canker,0.98064774
+dataset/train/Citrus canker/2025_12_21_IMG (426).JPG,Citrus canker,Citrus canker,0.99960214
+dataset/train/Citrus canker/2025_12_21_IMG (427).JPG,Citrus canker,Citrus canker,0.9989423
+dataset/train/Citrus canker/2025_12_21_IMG (435).JPG,Citrus canker,Citrus canker,0.99849665
+dataset/train/Citrus canker/2025_12_21_IMG (445).JPG,Citrus canker,Citrus canker,0.9998634
+dataset/train/Citrus canker/2025_12_21_IMG (450).JPG,Citrus canker,Citrus canker,0.99989843
+dataset/train/Citrus canker/2025_12_21_IMG (458).JPG,Citrus canker,Citrus canker,0.9999391
+dataset/train/Citrus canker/2025_12_21_IMG (463).JPG,Citrus canker,Citrus canker,0.9990871
+dataset/train/Citrus canker/2025_12_21_IMG (466).JPG,Citrus canker,Citrus canker,0.9954749
+dataset/train/Citrus canker/2025_12_21_IMG (467).JPG,Citrus canker,Citrus canker,0.9932459
+dataset/train/Citrus canker/2025_12_21_IMG (468).JPG,Citrus canker,Citrus canker,0.99976724
+dataset/train/Citrus canker/2025_12_21_IMG (471).JPG,Citrus canker,Citrus canker,0.999009
+dataset/train/Citrus canker/2025_12_21_IMG (472).JPG,Citrus canker,Citrus canker,0.97261566
+dataset/train/Citrus canker/2025_12_21_IMG (478).JPG,Citrus canker,Citrus canker,0.99787796
+dataset/train/Citrus canker/2025_12_21_IMG (512).JPG,Citrus canker,Citrus canker,0.9612791
+dataset/train/Citrus canker/2025_12_21_IMG (513).JPG,Citrus canker,Citrus canker,0.9631747
+dataset/train/Citrus canker/2025_12_21_IMG (523).JPG,Citrus canker,Citrus canker,0.9988348
+dataset/train/Citrus canker/2025_12_21_IMG (530).JPG,Citrus canker,Citrus canker,0.951903
+dataset/train/Citrus canker/2025_12_21_IMG (532).JPG,Citrus canker,Citrus canker,0.94799966
+dataset/train/Citrus canker/2025_12_21_IMG (536).JPG,Citrus canker,Citrus canker,0.997681
+dataset/train/Citrus canker/2025_12_21_IMG (544).JPG,Citrus canker,Citrus canker,0.9999821
+dataset/train/Citrus canker/2025_12_21_IMG (571).JPG,Citrus canker,Citrus canker,0.9583618
+dataset/train/Citrus pest/2025_12_20_IMG (101).JPG,Citrus pest,Citrus pest,0.84692067
+dataset/train/Citrus pest/2025_12_20_IMG (107).JPG,Citrus pest,Citrus pest,0.99802566
+dataset/train/Citrus pest/2025_12_20_IMG (110).JPG,Citrus pest,Citrus pest,0.99746144
+dataset/train/Citrus pest/2025_12_20_IMG (118).JPG,Citrus pest,Citrus pest,0.9481164
+dataset/train/Citrus pest/2025_12_20_IMG (119).JPG,Citrus pest,Citrus pest,0.9770642
+dataset/train/Citrus pest/2025_12_20_IMG (127).JPG,Citrus pest,Citrus pest,0.68843025
+dataset/train/Citrus pest/2025_12_20_IMG (129).JPG,Citrus pest,Citrus pest,0.984617
+dataset/train/Citrus pest/2025_12_20_IMG (131).JPG,Citrus pest,Citrus pest,0.7850027
+dataset/train/Citrus pest/2025_12_20_IMG (150).JPG,Citrus pest,Citrus pest,0.91299945
+dataset/train/Citrus pest/2025_12_20_IMG (156).JPG,Citrus pest,Citrus pest,0.9934462
+dataset/train/Citrus pest/2025_12_20_IMG (158).JPG,Citrus pest,Citrus pest,0.8479847
+dataset/train/Citrus pest/2025_12_20_IMG (172).JPG,Citrus pest,Citrus pest,0.99893934
+dataset/train/Citrus pest/2025_12_20_IMG (176).JPG,Citrus pest,Citrus pest,0.96567243
+dataset/train/Citrus pest/2025_12_20_IMG (188).JPG,Citrus pest,Citrus pest,0.96028554
+dataset/train/Citrus pest/2025_12_20_IMG (19).JPG,Citrus pest,Citrus pest,0.9969041
+dataset/train/Citrus pest/2025_12_20_IMG (190).JPG,Citrus pest,Citrus canker,0.6674502
+dataset/train/Citrus pest/2025_12_20_IMG (194).JPG,Citrus pest,Citrus pest,0.99027514
+dataset/train/Citrus pest/2025_12_20_IMG (195).JPG,Citrus pest,Citrus pest,0.9883598
+dataset/train/Citrus pest/2025_12_20_IMG (219).JPG,Citrus pest,Citrus pest,0.9999205
+dataset/train/Citrus pest/2025_12_20_IMG (228).JPG,Citrus pest,Citrus pest,0.9908998
+dataset/train/Citrus pest/2025_12_20_IMG (238).JPG,Citrus pest,Citrus pest,0.9894056
+dataset/train/Citrus pest/2025_12_20_IMG (239).JPG,Citrus pest,Citrus pest,0.99853516
+dataset/train/Citrus pest/2025_12_20_IMG (254).JPG,Citrus pest,Citrus pest,0.9999881
+dataset/train/Citrus pest/2025_12_20_IMG (268).JPG,Citrus pest,Citrus pest,0.9999825
+dataset/train/Citrus pest/2025_12_20_IMG (269).JPG,Citrus pest,Citrus pest,0.99999285
+dataset/train/Citrus pest/2025_12_20_IMG (285).JPG,Citrus pest,Citrus pest,0.9999629
+dataset/train/Citrus pest/2025_12_20_IMG (287).JPG,Citrus pest,Citrus pest,0.9998548
+dataset/train/Citrus pest/2025_12_20_IMG (29).JPG,Citrus pest,Citrus pest,0.7550682
+dataset/train/Citrus pest/2025_12_20_IMG (297).JPG,Citrus pest,Citrus pest,0.9638985
+dataset/train/Citrus pest/2025_12_20_IMG (298).JPG,Citrus pest,Citrus pest,0.99446267
+dataset/train/Citrus pest/2025_12_20_IMG (31).JPG,Citrus pest,Citrus pest,0.9924574
+dataset/train/Citrus pest/2025_12_20_IMG (312).JPG,Citrus pest,Citrus pest,0.9959798
+dataset/train/Citrus pest/2025_12_20_IMG (325).JPG,Citrus pest,Citrus pest,0.99856323
+dataset/train/Citrus pest/2025_12_20_IMG (347).JPG,Citrus pest,Citrus pest,0.9993611
+dataset/train/Citrus pest/2025_12_20_IMG (374).JPG,Citrus pest,Citrus pest,0.96610737
+dataset/train/Citrus pest/2025_12_20_IMG (379).JPG,Citrus pest,Citrus pest,0.9953452
+dataset/train/Citrus pest/2025_12_20_IMG (38).JPG,Citrus pest,Citrus pest,0.5907734
+dataset/train/Citrus pest/2025_12_20_IMG (385).JPG,Citrus pest,Citrus pest,0.99999726
+dataset/train/Citrus pest/2025_12_20_IMG (52).JPG,Citrus pest,Citrus pest,0.99983454
+dataset/train/Citrus pest/2025_12_20_IMG (53).JPG,Citrus pest,Citrus pest,0.99995935
+dataset/train/Citrus pest/2025_12_20_IMG (54).JPG,Citrus pest,Citrus pest,0.9999914
+dataset/train/Citrus pest/2025_12_20_IMG (58).JPG,Citrus pest,Citrus pest,0.9999498
+dataset/train/Citrus pest/2025_12_20_IMG (91).JPG,Citrus pest,Citrus pest,0.9999919
+dataset/train/Greening/2025_12_21_IMG (103).JPG,Greening,Greening,0.68477064
+dataset/train/Greening/2025_12_21_IMG (105).JPG,Greening,Greening,0.9634964
+dataset/train/Greening/2025_12_21_IMG (13).JPG,Greening,Greening,0.9991271
+dataset/train/Greening/2025_12_21_IMG (136).JPG,Greening,Greening,0.8331849
+dataset/train/Greening/2025_12_21_IMG (140).JPG,Greening,Algal leaf spot,0.5909131
+dataset/train/Greening/2025_12_21_IMG (149).JPG,Greening,Greening,0.56606764
+dataset/train/Greening/2025_12_21_IMG (161).JPG,Greening,Greening,0.9855848
+dataset/train/Greening/2025_12_21_IMG (169).JPG,Greening,Greening,0.98982275
+dataset/train/Greening/2025_12_21_IMG (176).JPG,Greening,Greening,0.8481223
+dataset/train/Greening/2025_12_21_IMG (186).JPG,Greening,Greening,0.999767
+dataset/train/Greening/2025_12_21_IMG (194).JPG,Greening,Greening,0.86342025
+dataset/train/Greening/2025_12_21_IMG (205).JPG,Greening,Greening,0.97153485
+dataset/train/Greening/2025_12_21_IMG (215).JPG,Greening,Greening,0.78787476
+dataset/train/Greening/2025_12_21_IMG (230).JPG,Greening,Greening,0.9604765
+dataset/train/Greening/2025_12_21_IMG (24).JPG,Greening,Greening,0.96639967
+dataset/train/Greening/2025_12_21_IMG (246).JPG,Greening,Greening,0.9191488
+dataset/train/Greening/2025_12_21_IMG (259).JPG,Greening,Greening,0.9579701
+dataset/train/Greening/2025_12_21_IMG (260).JPG,Greening,Greening,0.92656726
+dataset/train/Greening/2025_12_21_IMG (268).JPG,Greening,Greening,0.8171221
+dataset/train/Greening/2025_12_21_IMG (286).JPG,Greening,Greening,0.99702966
+dataset/train/Greening/2025_12_21_IMG (290).JPG,Greening,Greening,0.78913546
+dataset/train/Greening/2025_12_21_IMG (299).JPG,Greening,Greening,0.82760066
+dataset/train/Greening/2025_12_21_IMG (301).JPG,Greening,Greening,0.97216326
+dataset/train/Greening/2025_12_21_IMG (312).JPG,Greening,Greening,0.867155
+dataset/train/Greening/2025_12_21_IMG (320).JPG,Greening,Greening,0.9977703
+dataset/train/Greening/2025_12_21_IMG (338).JPG,Greening,Citrus canker,0.8064483
+dataset/train/Greening/2025_12_21_IMG (35).JPG,Greening,Greening,0.9933611
+dataset/train/Greening/2025_12_21_IMG (36).JPG,Greening,Greening,0.94941056
+dataset/train/Greening/2025_12_21_IMG (48).JPG,Greening,Greening,0.95986843
+dataset/train/Greening/2025_12_21_IMG (58).JPG,Greening,Greening,0.69192845
+dataset/train/Greening/2025_12_21_IMG (6).JPG,Greening,Greening,0.90190506
+dataset/train/Greening/2025_12_21_IMG (67).JPG,Greening,Greening,0.99365413
+dataset/train/Greening/2025_12_21_IMG (81).JPG,Greening,Black spot,0.57066715
+dataset/train/Greening/2025_12_21_IMG (83).JPG,Greening,Greening,0.82066804
+dataset/train/Greening/2025_12_21_IMG (99).JPG,Greening,Greening,0.95528144
+dataset/train/Healthy leaf/2025_11_21_IMG (10).JPG,Healthy leaf,Healthy leaf,0.8220598
+dataset/train/Healthy leaf/2025_11_21_IMG (137).JPG,Healthy leaf,Healthy leaf,0.998133
+dataset/train/Healthy leaf/2025_11_21_IMG (144).JPG,Healthy leaf,Healthy leaf,0.99232423
+dataset/train/Healthy leaf/2025_11_21_IMG (145).JPG,Healthy leaf,Healthy leaf,0.9914726
+dataset/train/Healthy leaf/2025_11_21_IMG (149).JPG,Healthy leaf,Healthy leaf,0.9972875
+dataset/train/Healthy leaf/2025_11_21_IMG (169).JPG,Healthy leaf,Healthy leaf,0.9754474
+dataset/train/Healthy leaf/2025_11_21_IMG (17).JPG,Healthy leaf,Healthy leaf,0.9609458
+dataset/train/Healthy leaf/2025_11_21_IMG (175).JPG,Healthy leaf,Healthy leaf,0.90545344
+dataset/train/Healthy leaf/2025_11_21_IMG (189).JPG,Healthy leaf,Healthy leaf,0.99398685
+dataset/train/Healthy leaf/2025_11_21_IMG (195).JPG,Healthy leaf,Healthy leaf,0.9967874
+dataset/train/Healthy leaf/2025_11_21_IMG (202).JPG,Healthy leaf,Healthy leaf,0.830765
+dataset/train/Healthy leaf/2025_11_21_IMG (207).JPG,Healthy leaf,Healthy leaf,0.8543397
+dataset/train/Healthy leaf/2025_11_21_IMG (21).JPG,Healthy leaf,Healthy leaf,0.98882467
+dataset/train/Healthy leaf/2025_11_21_IMG (228).JPG,Healthy leaf,Healthy leaf,0.9313261
+dataset/train/Healthy leaf/2025_11_21_IMG (238).JPG,Healthy leaf,Healthy leaf,0.8595476
+dataset/train/Healthy leaf/2025_11_21_IMG (250).JPG,Healthy leaf,Healthy leaf,0.95932716
+dataset/train/Healthy leaf/2025_11_21_IMG (265).JPG,Healthy leaf,Healthy leaf,0.8223625
+dataset/train/Healthy leaf/2025_11_21_IMG (268).JPG,Healthy leaf,Healthy leaf,0.99815863
+dataset/train/Healthy leaf/2025_11_21_IMG (270).JPG,Healthy leaf,Healthy leaf,0.9989793
+dataset/train/Healthy leaf/2025_11_21_IMG (271).JPG,Healthy leaf,Healthy leaf,0.9922226
+dataset/train/Healthy leaf/2025_11_21_IMG (34).JPG,Healthy leaf,Healthy leaf,0.9983057
+dataset/train/Healthy leaf/2025_11_21_IMG (38).JPG,Healthy leaf,Healthy leaf,0.9886324
+dataset/train/Healthy leaf/2025_11_21_IMG (50).JPG,Healthy leaf,Healthy leaf,0.9703456
+dataset/train/Healthy leaf/2025_11_21_IMG (52).JPG,Healthy leaf,Healthy leaf,0.98496836
+dataset/train/Healthy leaf/2025_11_21_IMG (54).JPG,Healthy leaf,Healthy leaf,0.9803202
+dataset/train/Healthy leaf/2025_11_21_IMG (62).JPG,Healthy leaf,Healthy leaf,0.99367106
+dataset/train/Healthy leaf/2025_11_21_IMG (78).JPG,Healthy leaf,Healthy leaf,0.9998591
+dataset/train/Healthy leaf/2025_11_21_IMG (83).JPG,Healthy leaf,Healthy leaf,0.9993357
+dataset/val/Algal leaf spot/2025_12_21_IMG (111).JPG,Algal leaf spot,Algal leaf spot,0.9972365
+dataset/val/Algal leaf spot/2025_12_21_IMG (15).JPG,Algal leaf spot,Algal leaf spot,0.9999448
+dataset/val/Algal leaf spot/2025_12_21_IMG (161).JPG,Algal leaf spot,Algal leaf spot,0.999845
+dataset/val/Algal leaf spot/2025_12_21_IMG (245).JPG,Algal leaf spot,Algal leaf spot,0.99957937
+dataset/val/Algal leaf spot/2025_12_21_IMG (248).JPG,Algal leaf spot,Algal leaf spot,0.9991696
+dataset/val/Algal leaf spot/2025_12_21_IMG (276).JPG,Algal leaf spot,Algal leaf spot,0.9999951
+dataset/val/Algal leaf spot/2025_12_21_IMG (291).JPG,Algal leaf spot,Algal leaf spot,0.9999554
+dataset/val/Black spot/2025_12_20_IMG (257).JPG,Black spot,Black spot,0.95667535
+dataset/val/Black spot/2025_12_20_IMG (267).JPG,Black spot,Algal leaf spot,0.5180221
+dataset/val/Black spot/2025_12_20_IMG (278).JPG,Black spot,Black spot,0.9997141
+dataset/val/Black spot/2025_12_20_IMG (64).JPG,Black spot,Citrus canker,0.79153854
+dataset/val/Black spot/2025_12_20_IMG (7).JPG,Black spot,Black spot,0.9974969
+dataset/val/Citrus canker/2025_12_21_IMG (238).JPG,Citrus canker,Citrus canker,0.54848623
+dataset/val/Citrus canker/2025_12_21_IMG (339).JPG,Citrus canker,Citrus canker,0.97227234
+dataset/val/Citrus canker/2025_12_21_IMG (391).JPG,Citrus canker,Citrus canker,0.96676654
+dataset/val/Citrus canker/2025_12_21_IMG (407).JPG,Citrus canker,Citrus canker,0.9994791
+dataset/val/Citrus canker/2025_12_21_IMG (421).JPG,Citrus canker,Citrus canker,0.99768746
+dataset/val/Citrus canker/2025_12_21_IMG (436).JPG,Citrus canker,Citrus canker,0.9987577
+dataset/val/Citrus canker/2025_12_21_IMG (454).JPG,Citrus canker,Citrus canker,0.99998677
+dataset/val/Citrus canker/2025_12_21_IMG (526).JPG,Citrus canker,Citrus canker,0.921016
+dataset/val/Citrus canker/2025_12_21_IMG (565).JPG,Citrus canker,Citrus canker,0.977798
+dataset/val/Citrus pest/2025_12_20_IMG (275).JPG,Citrus pest,Citrus pest,0.9999995
+dataset/val/Citrus pest/2025_12_20_IMG (318).JPG,Citrus pest,Citrus pest,0.9652505
+dataset/val/Citrus pest/2025_12_20_IMG (32).JPG,Citrus pest,Citrus canker,0.6704067
+dataset/val/Citrus pest/2025_12_20_IMG (373).JPG,Citrus pest,Citrus pest,0.8463107
+dataset/val/Citrus pest/2025_12_20_IMG (377).JPG,Citrus pest,Citrus pest,0.9999976
+dataset/val/Citrus pest/2025_12_20_IMG (41).JPG,Citrus pest,Citrus pest,0.99999607
+dataset/val/Citrus pest/2025_12_20_IMG (51).JPG,Citrus pest,Citrus pest,0.99986005
+dataset/val/Greening/2025_12_21_IMG (12).JPG,Greening,Greening,0.99838006
+dataset/val/Greening/2025_12_21_IMG (145).JPG,Greening,Greening,0.9230382
+dataset/val/Greening/2025_12_21_IMG (16).JPG,Greening,Greening,0.987374
+dataset/val/Greening/2025_12_21_IMG (198).JPG,Greening,Greening,0.9163182
+dataset/val/Greening/2025_12_21_IMG (223).JPG,Greening,Greening,0.9968592
+dataset/val/Greening/2025_12_21_IMG (244).JPG,Greening,Greening,0.99976474
+dataset/val/Greening/2025_12_21_IMG (321).JPG,Greening,Greening,0.9922633
+dataset/val/Greening/2025_12_21_IMG (329).JPG,Greening,Greening,0.90933704
+dataset/val/Greening/2025_12_21_IMG (345).JPG,Greening,Greening,0.5384216
+dataset/val/Greening/2025_12_21_IMG (4).JPG,Greening,Greening,0.90904737
+dataset/val/Greening/2025_12_21_IMG (60).JPG,Greening,Greening,0.8734091
+dataset/val/Greening/2025_12_21_IMG (88).JPG,Greening,Black spot,0.67450297
+dataset/val/Healthy leaf/2025_11_21_IMG (109).JPG,Healthy leaf,Healthy leaf,0.98234814
+dataset/val/Healthy leaf/2025_11_21_IMG (121).JPG,Healthy leaf,Healthy leaf,0.9999186
+dataset/val/Healthy leaf/2025_11_21_IMG (136).JPG,Healthy leaf,Healthy leaf,0.9735868
+dataset/val/Healthy leaf/2025_11_21_IMG (166).JPG,Healthy leaf,Healthy leaf,0.9855053
+dataset/val/Healthy leaf/2025_11_21_IMG (183).JPG,Healthy leaf,Healthy leaf,0.99539137
+dataset/val/Healthy leaf/2025_11_21_IMG (277).JPG,Healthy leaf,Healthy leaf,0.98970383
+dataset/val/Healthy leaf/2025_11_21_IMG (299).JPG,Healthy leaf,Healthy leaf,0.9997038
+dataset/val/Healthy leaf/2025_11_21_IMG (42).JPG,Healthy leaf,Healthy leaf,0.99639136
+dataset/val/Healthy leaf/2025_11_21_IMG (66).JPG,Healthy leaf,Healthy leaf,0.9986117

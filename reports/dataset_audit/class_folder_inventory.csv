@@ -1,0 +1,22 @@
+split,class,exists,image_count,other_file_count,empty_class
+train,Algal leaf spot,True,217,0,False
+train,Black spot,True,230,0,False
+train,Citrus canker,True,259,0,False
+train,Citrus pest,True,273,0,False
+train,Greening,True,244,0,False
+train,Healthy leaf,True,210,0,False
+train,Not lemon leaf,True,0,1,True
+val,Algal leaf spot,True,46,0,False
+val,Black spot,True,49,0,False
+val,Citrus canker,True,55,0,False
+val,Citrus pest,True,58,0,False
+val,Greening,True,52,0,False
+val,Healthy leaf,True,45,0,False
+val,Not lemon leaf,True,0,1,True
+test,Algal leaf spot,True,47,0,False
+test,Black spot,True,51,0,False
+test,Citrus canker,True,56,0,False
+test,Citrus pest,True,59,0,False
+test,Greening,True,54,0,False
+test,Healthy leaf,True,45,0,False
+test,Not lemon leaf,True,0,1,True

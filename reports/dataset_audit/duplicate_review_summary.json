@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "total_images": 2050,
+  "exact_duplicate_groups": 3,
+  "cross_split_exact_duplicate_groups": 1,
+  "near_duplicate_candidates": 476,
+  "expanded_evaluated_pairs": 2229,
+  "dhash_zero_candidate_pairs": 37,
+  "dhash_zero_cross_split_pairs": 37,
+  "dhash_zero_secondary_category_counts": {
+    "B": 3,
+    "C": 21,
+    "D": 13
+  },
+  "high_confidence_visual_duplicate_groups": 11,
+  "strong_A_B_groups": 14,
+  "cross_split_strong_A_B_groups": 5,
+  "cross_class_strong_groups": 0,
+  "unique_images_in_cross_split_similarity": 1379,
+  "validation_images_potentially_affected": {
+    "images": 298,
+    "total": 305,
+    "percentage": 97.7049
+  },
+  "test_images_potentially_affected": {
+    "images": 308,
+    "total": 312,
+    "percentage": 98.7179
+  },
+  "exposure_by_scope_and_evidence": {
+    "original_audit_plus_exact": {
+      "all_candidates": {
+        "unique_images": 638,
+        "val": {
+          "images": 152,
+          "total": 305,
+          "percentage": 49.8361
+        },
+        "test": {
+          "images": 150,
+          "total": 312,
+          "percentage": 48.0769
+        }
+      },
+      "strong_A_B": {
+        "unique_images": 12,
+        "val": {
+          "images": 5,
+          "total": 305,
+          "percentage": 1.6393
+        },
+        "test": {
+          "images": 4,
+          "total": 312,
+          "percentage": 1.2821
+        }
+      }
+    },
+    "expanded_evaluated_pool": {
+      "all_candidates": {
+        "unique_images": 1379,
+        "val": {
+          "images": 298,
+          "total": 305,
+          "percentage": 97.7049
+        },
+        "test": {
+          "images": 308,
+          "total": 312,
+          "percentage": 98.7179
+        }
+      },
+      "strong_A_B": {
+        "unique_images": 12,
+        "val": {
+          "images": 5,
+          "total": 305,
+          "percentage": 1.6393
+        },
+        "test": {
+          "images": 4,
+          "total": 312,
+          "percentage": 1.2821
+        }
+      }
+    }
+  },
+  "original_near_category_counts": {
+    "B": 7,
+    "C": 263,
+    "D": 187,
+    "E": 19
+  },
+  "expanded_cross_split_category_counts": {
+    "A": 1,
+    "B": 7,
+    "C": 276,
+    "D": 243,
+    "E": 632
+  },
+  "expanded_cross_split_pairs_by_split": {
+    "train-test": 533,
+    "train-val": 510,
+    "val-test": 116
+  },
+  "largest_cluster_size": 4,
+  "candidate_capture_sequences": 321,
+  "capture_sequence_images": 775,
+  "visual_groups_including_singletons": 2034,
+  "contact_sheets": 12,
+  "seed": 42,
+  "thresholds": {
+    "B": {
+      "phash": 2,
+      "mae": 0.015,
+      "color": 0.98
+    },
+    "C": {
+      "phash": 6,
+      "mae": 0.04,
+      "color": 0.94
+    },
+    "D": {
+      "phash": 12,
+      "mae": 0.1,
+      "color": 0.9
+    }
+  },
+  "phash_bits": 63,
+  "sequence_max_gap": 1,
+  "input_report_sha256": {
+    "image_inventory.csv": "c50fac167b7a228ff25c7fa3891f282af958dd2438f8cd55add9b6b519b6df18",
+    "exact_duplicates.csv": "811c4fac24ac613d85c5986ba6ec216dea589961fab3fdb983c8c8a3924768bb",
+    "near_duplicate_candidates.csv": "0ce8562282dec782334cb5a5584c72a16ff6b6983b64e478a9414ab6decb0af1",
+    "filename_patterns.csv": "61d61efa19ea258c86fb252549a8d4747023f90399891a231185cff051627df8",
+    "capture_group_candidates.csv": "6f28b1fe191e5499eef8feb2869c7bff0e6ce69eb717d6b392ce22aba286f7f4"
+  },
+  "dataset_membership_content_and_mtime_unchanged": true,
+  "environment": {
+    "python": "3.13.2",
+    "numpy": "2.3.4",
+    "pandas": "2.3.3",
+    "Pillow": "11.3.0",
+    "matplotlib": "3.10.7",
+    "ipython": "9.6.0"
+  },
+  "interpretation": "A confirms bytes. B-D and capture sequences require human verification. Exposure is not measured accuracy inflation. No images or splits changed; no training.",
+  "scope_limitations": "Original dHash candidates plus exact matches and same-class/date filename neighbors. No exhaustive secondary search or specimen verification. A/B chains may connect endpoints without direct strong evidence."
+}

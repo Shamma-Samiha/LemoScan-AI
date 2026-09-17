@@ -1,0 +1,10 @@
+{
+  "seed": 42,
+  "fresh_reconstruction_matches_all_4100_rows": true,
+  "positive_final_split_preserved": true,
+  "positive_source_group_cross_split_violations": 0,
+  "negative_decoded_pixel_duplicate_count": 0,
+  "duplicate_filepaths": 0,
+  "physical_folder_split_names_ignored": true,
+  "synthetic_train_fraction": 0.012195121951219513
+}
