@@ -1,0 +1,70 @@
+{
+  "runtime_files": [
+    "streamlit_app.py",
+    "utils/leaf_validator.py",
+    "utils/model_loader.py",
+    "utils/prediction.py",
+    "utils/preprocessing.py",
+    "utils/xai.py"
+  ],
+  "external_imports": [
+    "PIL",
+    "numpy",
+    "streamlit",
+    "tensorflow"
+  ],
+  "hardcoded_local_path_hits": [],
+  "windows_only_imports": [],
+  "required_filename_case_matches": true,
+  "metadata_paths_repository_relative": true,
+  "models": [
+    {
+      "path": "model/inceptionv3_best_model.keras",
+      "bytes": 137022324,
+      "tracked": true,
+      "working_tree_actual_binary": true,
+      "HEAD_is_lfs_pointer": true,
+      "sha256": "c9e07156c3be748d93378e687ecbd847123c30ca7ed3664b8f2303e14499e817",
+      "git_attributes": "model/inceptionv3_best_model.keras: filter: lfs\nmodel/inceptionv3_best_model.keras: diff: lfs\nmodel/inceptionv3_best_model.keras: merge: lfs"
+    },
+    {
+      "path": "model/lemon_leaf_validator.keras",
+      "bytes": 4336307,
+      "tracked": true,
+      "working_tree_actual_binary": true,
+      "HEAD_is_lfs_pointer": true,
+      "sha256": "b4d21d79003758979cb82428a52930d3615bcf0af2656aeeeafa2211cb87a297",
+      "git_attributes": "model/lemon_leaf_validator.keras: filter: lfs\nmodel/lemon_leaf_validator.keras: diff: lfs\nmodel/lemon_leaf_validator.keras: merge: lfs"
+    }
+  ],
+  "git_lfs_fsck": "Git LFS fsck OK",
+  "requirements": [
+    "streamlit==1.49.0",
+    "tensorflow-cpu==2.21.0",
+    "keras==3.14.1",
+    "numpy==2.3.4",
+    "Pillow==11.3.0",
+    "protobuf==6.33.5",
+    "h5py==3.14.0"
+  ],
+  "runtime_txt_removed": true,
+  "python_target": "3.13 (local verified 3.13.2)",
+  "installed_versions": {
+    "tensorflow": "2.21.0",
+    "keras": "3.14.1",
+    "streamlit": "1.49.0",
+    "numpy": "2.3.4",
+    "Pillow": "11.3.0",
+    "protobuf": "6.33.5",
+    "h5py": "3.14.0"
+  },
+  "dependency_consistency": "pip check: No broken requirements found.",
+  "memory_review": {
+    "model_cache": "Process-wide module singletons guarded by locks; no eager loading on UI landing.",
+    "upload_cache": "One current result, RGB preview and overlay per session; invalidated on new upload/clear.",
+    "preview_and_overlay_max_side_pixels": 1200,
+    "temporary_upload_outputs": "TemporaryDirectory cleaned after each analysis.",
+    "unbounded_cross_upload_cache": false
+  },
+  "linux_review": "Static source and filename-case checks passed; execution performed on Windows, not a clean Linux host."
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "total_images": 2050,
+  "human_review_cases": 527,
+  "cross_split_C_pairs": 276,
+  "cross_split_D_pairs": 243,
+  "original_pool_C_pairs": 263,
+  "original_pool_D_pairs": 187,
+  "highest_priority_review_cases": 25,
+  "dhash_zero_cross_split_ambiguous_pairs": 34,
+  "prior_capture_sequences": 321,
+  "refined_capture_sequence_candidates": 140,
+  "unique_images_in_ambiguous_pairs": 729,
+  "unique_images_in_all_review_cases": 734,
+  "logical_review_contexts": 272,
+  "largest_context_size": 10,
+  "blank_human_decisions": 527,
+  "decision_counts": {
+    "NOT REVIEWED": 527
+  },
+  "generated_pair_sheets": 14,
+  "generated_context_sheets": 3,
+  "dataset_unchanged": true,
+  "existing_input_reports_unchanged": true,
+  "decision_file_unchanged_after_initialization": true,
+  "input_report_sha256": {
+    "similarity_review.csv": "402e60f9db08ab38bef20f84919b9545e5e824a96e17b7091e4d38764cb501a5",
+    "dhash_zero_review.csv": "d397defdb1a5052d11b100efaffd47ec9b60fd34b475219fdf3bb78bdb9db5be",
+    "duplicate_clusters.csv": "a1dfa0657939cb334833265012bf39abb49d09842b2b680073907de1ab917c0c",
+    "grouping_manifest.csv": "a1e65d8a15e631591e3ded0f1c91b09b9236c51fdb9d4f03dcd8c8f0774a3e37",
+    "capture_sequence_candidates.csv": "4e431e1767acdc78db9b5f172bb0e96afcac5df9c16d835a65b6d2ed9652973d",
+    "image_inventory.csv": "c50fac167b7a228ff25c7fa3891f282af958dd2438f8cd55add9b6b519b6df18"
+  },
+  "priority_formula": "split base 300/200/100 + category C20/D10 (A/B20 context) + 15*(1-dHash/64) + 15*(1-pHash/63) + 15*clip(1-MAE/0.10) + 10*color + 5*same_class + 5*same_date + 5*clip(1-number_gap/5) when class/date agree; continuous contributions clipped to [0,weight]",
+  "capture_refinement": "same prior sequence, class/date, number gap <=1, and A/B or C with pHash<=4, MAE<=0.03, color>=0.94; retain cross-split components only",
+  "interpretation": "Priorities and groups organize human review only. No decisions populated automatically, no biological identity inferred, no new split or training."
+}
