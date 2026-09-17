@@ -1,0 +1,138 @@
+{
+  "architecture": "MobileNetV3Small",
+  "model_path": "model/lemon_leaf_validator.keras",
+  "input_size": [
+    224,
+    224
+  ],
+  "preprocessing": "RGB float32 bilinear resize to 224x224; input range [0,255]; internal MobileNetV3 Rescaling to [-1,1]; no external preprocess_input",
+  "labels": {
+    "NOT_LEMON_LEAF": 0,
+    "LEMON_LEAF": 1
+  },
+  "chosen_acceptance_threshold": 0.397647500038147,
+  "acceptance_rule": "lemon_probability >= threshold",
+  "threshold_selection_method": "Predeclared: among validation thresholds retaining at least 95% lemon recall and rejecting all validation synthetic negatives, minimize false accepts; tie-break by highest lemon recall, then threshold closest to 0.5. If infeasible, stop before test; never tune on test or final robustness results.",
+  "validation_metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "false_accepts": 0,
+    "false_rejects": 0,
+    "true_accepts": 308,
+    "true_rejects": 308,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.0,
+    "images": 616,
+    "threshold": 0.397647500038147,
+    "confusion_matrix": [
+      [
+        308,
+        0
+      ],
+      [
+        0,
+        308
+      ]
+    ]
+  },
+  "final_test_metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "false_accepts": 0,
+    "false_rejects": 0,
+    "true_accepts": 307,
+    "true_rejects": 307,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.0,
+    "images": 614,
+    "threshold": 0.397647500038147,
+    "confusion_matrix": [
+      [
+        307,
+        0
+      ],
+      [
+        0,
+        307
+      ]
+    ]
+  },
+  "random_seed": 42,
+  "negative_dataset_sources": {
+    "seed": 42,
+    "source_urls": {
+      "beans_train": "https://huggingface.co/datasets/AI-Lab-Makerere/beans/resolve/main/data/train.zip",
+      "beans_validation": "https://huggingface.co/datasets/AI-Lab-Makerere/beans/resolve/main/data/validation.zip",
+      "beans_test": "https://huggingface.co/datasets/AI-Lab-Makerere/beans/resolve/main/data/test.zip",
+      "caltech101": "https://huggingface.co/datasets/HuggingFaceM4/Caltech-101/resolve/71d2394c09f83658fb6f6a1eb272a0d9dc71b331/caltech-101.zip"
+    },
+    "archive_sha256": {
+      "beans_train": "284fe8456ce20687f4367ae7ad94a64577e7f9fde2c2c6b1c74340ab5dc82715",
+      "beans_validation": "90b7aa1c26d91d9afff07a30bbc67a5ea34f1f1397f068d8675be09d7d0c602d",
+      "beans_test": "ca67b15d960d1e2fd9d23fd8498ce86818ead90755c630a43baf19ec4af09312",
+      "caltech101": "331234750fc7f77520e50d9565e8b6907b03565e30320da1401130db08c61f91"
+    },
+    "tfds_fallback": "TFDS 4.9.10 installed but download_and_prepare failed: missing importlib_resources. Original GCS/Caltech hosts returned HTTP 403; identical archives downloaded from AI-Lab-Makerere and HuggingFaceM4 mirrors with SHA256 checks; no packages installed.",
+    "caltech_categories": [
+      "airplanes",
+      "anchor",
+      "barrel",
+      "revolver",
+      "buddha",
+      "camera",
+      "car_side",
+      "ceiling_fan",
+      "cellphone",
+      "chair",
+      "chandelier",
+      "cup",
+      "dollar_bill",
+      "euphonium",
+      "ewer",
+      "ferry",
+      "soccer_ball",
+      "grand_piano",
+      "gramophone",
+      "headphone",
+      "helicopter",
+      "schooner",
+      "laptop",
+      "motorbikes",
+      "watch"
+    ],
+    "selection": "1000 Beans, 40 examples per each of 25 Caltech categories, 50 synthetic; exact decoded-RGB duplicates removed before sampling and splitting.",
+    "counts": {
+      "beans": {
+        "test": 150,
+        "train": 700,
+        "val": 150
+      },
+      "caltech101": {
+        "test": 150,
+        "train": 700,
+        "val": 150
+      },
+      "lemoscan": {
+        "test": 307,
+        "train": 1435,
+        "val": 308
+      },
+      "synthetic": {
+        "test": 7,
+        "train": 35,
+        "val": 8
+      }
+    },
+    "caltech_catalog": "https://www.tensorflow.org/datasets/catalog/caltech101",
+    "beans_catalog": "https://www.tensorflow.org/datasets/catalog/beans",
+    "limitation": "Class-level semantic filtering only; object backgrounds not exhaustively audited. Bean source/session independence is not proven. LemoScan retains the 410 unresolved C/D cross-split candidate limitation."
+  },
+  "model_sha256": "b4d21d79003758979cb82428a52930d3615bcf0af2656aeeeafa2211cb87a297",
+  "frozen_before_test": true,
+  "limitation": "This is a dataset-specific binary gate, not a universal lemon-species verifier. Bean/object source domains differ from LemoScan. Other citrus species and broader field conditions are not covered. 410 unresolved LemoScan C/D candidate pairs cross splits; complete biological-source independence is not proven.",
+  "test_evaluated_once": true
+}

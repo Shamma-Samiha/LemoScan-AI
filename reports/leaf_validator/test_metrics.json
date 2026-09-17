@@ -1,0 +1,24 @@
+{
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "false_accepts": 0,
+  "false_rejects": 0,
+  "true_accepts": 307,
+  "true_rejects": 307,
+  "false_positive_rate": 0.0,
+  "false_negative_rate": 0.0,
+  "images": 614,
+  "threshold": 0.397647500038147,
+  "confusion_matrix": [
+    [
+      307,
+      0
+    ],
+    [
+      0,
+      307
+    ]
+  ]
+}

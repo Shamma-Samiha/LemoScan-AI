@@ -1,0 +1,21 @@
+{
+  "training_seconds": 556.8218262999981,
+  "epochs": 12,
+  "best_epoch": 12,
+  "architecture": "MobileNetV3Small",
+  "backbone_frozen": true,
+  "fine_tuning": false,
+  "seed": 42,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "dropout": 0.25,
+  "model_sha256": "b4d21d79003758979cb82428a52930d3615bcf0af2656aeeeafa2211cb87a297",
+  "selection": "minimum validation loss",
+  "augmentation": {
+    "flip": "horizontal",
+    "rotation": 0.04,
+    "zoom": 0.06,
+    "translation": 0.04,
+    "contrast": 0.08
+  }
+}
